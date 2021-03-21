@@ -47,8 +47,9 @@ const Hero = () => {
             I'm Rabra Hierpa
           </div>
           <div className="font-bold text-2xl text-yellow-500">
-            FOSS Enthusiast,Full-stack Web Developer,GIS Expert & Graphics
-            Designer{" "}
+            FOSS Enthusiast,
+            <span className="text-red-600">Full-stack Web Developer</span>,GIS
+            Expert & Graphics Designer{" "}
           </div>
         </div>
       </div>
