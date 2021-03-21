@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("http://fonts.cdnfonts.com/css/sofia-pro");
+
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+body {
+  font-family: "Sofia Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
