@@ -1,0 +1,21 @@
+[
+  {
+    "title": "The National Intercity Public Route Network Map of Ethiopia",
+    "description": "This is was one of the projects that I was fully responsible to collect,process and produced the map for the Federal Transport Authority of Ethiopia under the supervision of the Ministry of Transport",
+    "url": ["http://fta-naitonal-map.netlify.app"],
+    "demo": "",
+    "tags": ["WRI", "MoT", "FTA", "QGIS", "Transportation", "StaticSite"]
+  },
+  {
+    "title": "The Digital Mapping of Addis Ababa's Public Transport Network",
+    "description": "Digitized the road network of Addis Ababa including the Blue taxis, Sheger and Anbessa Bus routes with QGIS and Python in collaboration with World Resources Institute, Addis Ababa Roads Transport Authority and Addis Ababa University. ",
+    "url": [
+      "https://qgiscloud.com/rabrah/Taxi_Bus_Route_Network_Map",
+      "https://qgiscloud.com/rabrah/Sheger_Bus_Route_Network_Map",
+      "https://qgiscloud.com/rabrah/Anbessa_Bus_Route_Network_Map",
+      "https://git.digitaltransport4africa.org/data/africa/addis-ababa"
+    ],
+    "demo": "",
+    "tags": ["WRI", "Transportation", "AATA", "QGIS"]
+  }
+]
