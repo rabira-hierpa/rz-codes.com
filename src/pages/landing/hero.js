@@ -3,8 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const Hero = () => {
   return (
-    <div className="gird grid-cols-1 md:grid-cols-2 min-h-full">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 min-h-full">
         <div className="rounded-full flex items-center justify-center ">
           <StaticImage
             className="rounded-full border border-gray-100 shadow-sm"
@@ -24,7 +23,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

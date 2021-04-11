@@ -12,3 +12,9 @@ body {
   font-family: "Sofia Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
 }
+.object-cover{
+  object-fit: cover;
+}
+.backdrop-filter {
+    filter: brightness(.4) blur(4px);
+}

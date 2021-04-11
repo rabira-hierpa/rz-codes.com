@@ -3,8 +3,9 @@
   "apps": [
     {
       "title": "Vere Italie",
+      "img":"veritalie-logo.jpg",
       "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
-      "url": [],
+      "url": ["https://vereitalie.it/"],
       "demo": "",
       "tags": ["MERN", "React", "Antd", "Loopback"]
     },
