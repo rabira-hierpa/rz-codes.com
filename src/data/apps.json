@@ -1,48 +1,50 @@
-{
-  "title": "Apps",
-  "apps": [
-    {
-      "title": "Vere Italie",
-      "img":"veritalie-logo.jpg",
-      "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
-      "url": ["https://vereitalie.it/"],
-      "demo": "",
-      "tags": ["MERN", "React", "Antd", "Loopback"]
-    },
-    {
-      "title": "Project watchdog",
-      "description": "A project management system for the Addis Ababa University community with features including project progress,milestone and task classification,file sharing,chat,project archive and many more.",
-      "url": ["https://github.com/rabira-hierpa/project-watchdog/"],
-      "demo": "https://youtu.be/kAUCX6LbpnY",
-      "tags": ["MERN", "MDBootstrap", "Express"]
-    },
-    {
-      "title": "Ethiopian E-Visa App",
-      "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
-      "url": ["https://www.evisa.gov.et"],
-      "demo": "https://youtu.be/ivLMRdg-EJc",
-      "tags": ["Xamarin", "MobileApp"]
-    },
-    {
-      "title": "CS Notify",
-      "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
-      "url": ["https://github.com/rabira-hierpa/aau_notify"],
-      "demo": "",
-      "tags": ["Android Native", "PHP", "Bootstrap"]
-    },
-    {
-      "title": "Mesobe Hasab",
-      "description": "A collection of Amharic Quotes from different sources.Made with flutter",
-      "url": ["https://github.com/rabira-hierpa/mesobe_hasab"],
-      "demo": "",
-      "tags": ["Flutter", "Firebase", "GoogleAuth"]
-    },
-    {
-      "title": "Design Rz",
-      "description": "A Flutter mobile app for the Graphics Design Course I took at Berehana Selam. It includes all the designs I made using the Adobe Suite(Photoshop, Illustrator and InDesign)",
-      "url": ["https://github.com/rabira-hierpa/design_rz"],
-      "demo": "",
-      "tags": ["Flutter", "ImageGallery"]
-    }
-  ]
-}
+[
+  {
+    "title": "Vere Italie",
+    "image": "../images/landing/veritalie-logo.jpg",
+    "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
+    "link": ["https://vereitalie.it/"],
+    "demo": "",
+    "tags": ["MERN", "React", "Antd", "Loopback"]
+  },
+  {
+    "title": "Project watchdog",
+    "image":"../images/landing/project-watchdog-thumbnail.jpg",
+    "description": "A project management system for the Addis Ababa University community with features including project progress,milestone and task classification,file sharing,chat,project archive and many more.",
+    "link": ["https://github.com/rabira-hierpa/project-watchdog/"],
+    "demo": "https://youtu.be/kAUCX6LbpnY",
+    "tags": ["MERN", "MDBootstrap", "Express"]
+  },
+  {
+    "title": "Ethiopian E-Visa App",
+    "image":"../images/landing/evisa-logo.png",
+    "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
+    "link": ["https://www.evisa.gov.et"],
+    "demo": "https://youtu.be/ivLMRdg-EJc",
+    "tags": ["Xamarin", "MobileApp"]
+  },
+  {
+    "title": "CS Notify",
+    "image":"../images/landing/cs-notify-logo.png",
+    "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
+    "link": ["https://github.com/rabira-hierpa/aau_notify"],
+    "demo": "",
+    "tags": ["Android Native", "PHP", "Bootstrap"]
+  },
+  {
+    "title": "Mesobe Hasab",
+    "image":"../images/landing/mesobe-hasab-logo.png",
+    "description": "A collection of Amharic Quotes from different sources.Made with flutter",
+    "link": ["https://github.com/rabira-hierpa/mesobe_hasab"],
+    "demo": "",
+    "tags": ["Flutter", "Firebase", "GoogleAuth"]
+  },
+  {
+    "title": "Design Rz",
+    "image":"../images/landing/design-rz.png",
+    "description": "A Flutter mobile app for the Graphics Design Course I took at Berehana Selam. It includes all the designs I made using the Adobe Suite(Photoshop, Illustrator and InDesign)",
+    "link": ["https://github.com/rabira-hierpa/design_rz"],
+    "demo": "",
+    "tags": ["Flutter", "ImageGallery"]
+  }
+]
