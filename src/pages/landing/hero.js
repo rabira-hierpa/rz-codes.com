@@ -3,12 +3,12 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const Hero = () => {
   return (
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-full">
+      <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 min-h-full">
         <div className="rounded-full flex items-center justify-center ">
           <StaticImage
             className="rounded-full border border-gray-100 shadow-sm"
             src="../../images/landing/rabira-hierpa-web.jpg"
-            alt="Mesobe hasab"
+            alt="rzcodes"
           />
         </div>
         <div className="p-10 pt-40">
