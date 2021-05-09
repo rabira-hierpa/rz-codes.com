@@ -60,7 +60,7 @@ const Header = ({ siteTitle }) => (
           <li>
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-              to="/desings"
+              to="/designs"
             >
               Designs
             </Link>
