@@ -2,6 +2,7 @@ import React from "react"
 import Hero from "./hero"
 import Apps from "../apps"
 import "../../styles/global.css";
+import LandingDesign from "./landing-designs";
 // import { StaticImage } from "gatsby-plugin-image";
 
 const landing = () => {
@@ -9,6 +10,7 @@ const landing = () => {
     <div>
       <Hero />
       <Apps />
+      <LandingDesign />
       <div className=" container md:flex md:items-center mx-auto shadow-2xl sm:shadow-none mb-5">
         {/* <StaticImage
           alt="poster"
