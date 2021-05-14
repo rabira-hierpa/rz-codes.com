@@ -30,8 +30,8 @@ const Apps = () => {
     <>
       <div className="text-4xl font-bold text-red-600 text-center ">Apps</div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-stretch pt-5 ">
-        {AppsData.allAppsJson.nodes.map(apps => {
-          return <AppCard apps={apps} />
+        {AppsData.allAppsJson.nodes.map((apps,idx) => {
+          return <AppCard key={idx} apps={apps} />
         })}
       </div>
     </>

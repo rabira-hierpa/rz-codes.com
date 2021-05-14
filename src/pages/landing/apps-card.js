@@ -2,8 +2,8 @@ import React from "react"
 import Truncate from "react-truncate"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const AppCards = props => {
-  const { apps } = props
+const AppCards = ({apps}) => {
+  // const { apps } = props
   return (
     <div
       key={apps.id}
