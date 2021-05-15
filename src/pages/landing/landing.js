@@ -3,6 +3,7 @@ import Hero from "./hero"
 import "../../styles/global.css"
 import LandingDesign from "./landing-designs"
 import LandingApps from "./landing-apps"
+import LandingProjects from "./landing-projects"
 // import { StaticImage } from "gatsby-plugin-image";
 
 const landing = () => {
@@ -11,6 +12,7 @@ const landing = () => {
       <Hero />
       <LandingApps />
       <LandingDesign />
+      <LandingProjects />
       <div className=" container md:flex md:items-center mx-auto shadow-2xl sm:shadow-none mb-5">
         {/* <StaticImage
           alt="poster"
