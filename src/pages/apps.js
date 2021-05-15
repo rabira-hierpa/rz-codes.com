@@ -1,41 +1,13 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import AppCard from "./landing/apps-card"
+import Layout from "../components/layout"
 
-const Apps = () => {
-  const AppsData = useStaticQuery(graphql`
-    query {
-      allAppsJson {
-        nodes {
-          id
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: BLURRED
-                transformOptions: { fit: COVER }
-                quality: 100
-              )
-            }
-          }
-          title
-          tags
-          description
-          demo
-          link
-        }
-      }
-    }
-  `)
+const Projects = () => {
   return (
-    <>
-      <div className="text-4xl font-bold text-red-600 text-center ">Apps</div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-stretch pt-5 ">
-        {AppsData.allAppsJson.nodes.map((apps,idx) => {
-          return <AppCard key={idx} apps={apps} />
-        })}
+    <Layout>
+      <div className="min-h-screen">
+        Here are my <span className="text-9xl text-red-600">Apps</span>
       </div>
-    </>
+    </Layout>
   )
 }
-
-export default Apps
+export default Projects
