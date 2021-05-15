@@ -3,6 +3,9 @@ import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import SEO from "../components/seo"
+
+
 const Designs = () => {
   const DesignData = useStaticQuery(graphql`
     query {
@@ -24,6 +27,7 @@ const Designs = () => {
   `)
   return (
     <Layout>
+      <SEO title="Designs"></SEO>
       <div className="min-h-screen">
         <span className="text-9xl text-red-600">Designs!</span>
         <div className="pt-5">
