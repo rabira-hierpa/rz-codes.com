@@ -1,13 +1,13 @@
-import React from 'react'
-import Layout from '../components/layout'
+import React from "react"
+import Layout from "../components/layout"
 
 const Projects = () => {
-    return (
-      <Layout>
-           <div className="min-h-screen">
+  return (
+    <Layout>
+      <div className="min-h-screen">
         Here are my <span className="text-9xl text-red-600">Projects</span>
-      </div> 
-      </Layout> 
-    )
+      </div>
+    </Layout>
+  )
 }
-export default Projects;
+export default Projects
