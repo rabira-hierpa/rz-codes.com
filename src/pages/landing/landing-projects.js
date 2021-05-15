@@ -46,8 +46,8 @@ const LandingProjects = () => {
                 <div className="text-xl text-red-600 text-left font-bold p-2">
                   {project.title}
                 </div>
-                <div className="py-5 ">{project.description}</div>
-                <div className="px-2 py-5 flex justify-between">
+                <div className="py-2">{project.description}</div>
+                <div className="p-2 flex justify-between">
                   <a href={project.url} className="text-yellow-500 hover:text-red-600">View Map</a>
                   <a href={project.data ?? project.url} className="text-yellow-500 hover:text-red-600">Get the data</a>
                   <a href={project.url} id={project.title} className="text-yellow-500 hover:text-red-600">Download Map</a>
