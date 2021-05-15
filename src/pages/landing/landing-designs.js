@@ -1,9 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../../styles/global.css"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-
 const LandingDesign = () => {
   const DesignData = useStaticQuery(graphql`
     query {
@@ -32,8 +31,11 @@ const LandingDesign = () => {
         <Masonry>
           {DesignData.allDesignsJson.nodes[0].graphics_designs.map(
             ({ childImageSharp }, idx) => {
-              return (
-                <div key={idx} className="flex p-2 bg-red-100 rounded-lg">
+              return idx < 8 ? (
+                <div
+                  key={idx}
+                  className="flex  space-x-2 space-y-2 p-1 border-4 border-gray-100 rounded-lg"
+                >
                   <GatsbyImage
                     key={idx}
                     className="px-8 py-6 rounded-lg hover:shadow-2xl duration-300 cursor-pointer"
@@ -41,12 +43,14 @@ const LandingDesign = () => {
                     alt="Rz-Design"
                   />
                 </div>
-              )
+              ) : null
             }
           )}
         </Masonry>
       </ResponsiveMasonry>
-      <div className=""></div>
+      <Link to="/designs">
+        <p className="py-2 text-center text-red-600">View More</p>
+      </Link>
     </div>
   )
 }
