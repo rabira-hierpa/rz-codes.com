@@ -1,15 +1,15 @@
 import React from "react"
 import Hero from "./hero"
-import Apps from "../apps"
-import "../../styles/global.css";
-import LandingDesign from "./landing-designs";
+import "../../styles/global.css"
+import LandingDesign from "./landing-designs"
+import LandingApps from "./landing-apps"
 // import { StaticImage } from "gatsby-plugin-image";
 
 const landing = () => {
   return (
     <div>
       <Hero />
-      <Apps />
+      <LandingApps />
       <LandingDesign />
       <div className=" container md:flex md:items-center mx-auto shadow-2xl sm:shadow-none mb-5">
         {/* <StaticImage
