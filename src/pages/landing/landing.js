@@ -4,8 +4,6 @@ import "../../styles/global.css"
 import LandingDesign from "./landing-designs"
 import LandingApps from "./landing-apps"
 import LandingProjects from "./landing-projects"
-// import { StaticImage } from "gatsby-plugin-image";
-
 const landing = () => {
   return (
     <div>
