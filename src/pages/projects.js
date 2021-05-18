@@ -6,7 +6,7 @@ const Projects = () => {
     <Layout>
       <SEO title="Projects"></SEO>
       <div className="min-h-screen">
-        Here are my <span className="text-9xl text-red-600">Projects</span>
+        <span className="text-9xl text-red-600">Projects</span>
       </div>
     </Layout>
   )
