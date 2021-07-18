@@ -48,9 +48,9 @@ const LandingProjects = () => {
                 </div>
                 <div className="py-2">{project.description}</div>
                 <div className="p-2 flex justify-between">
-                  <a href={project.url} className="text-yellow-500 hover:text-red-600">View Map</a>
-                  <a href={project.data ?? project.url} className="text-yellow-500 hover:text-red-600">Get the data</a>
-                  <a href={project.url} id={project.title} className="text-yellow-500 hover:text-red-600">Download Map</a>
+                  <a href={project.url} className="text-yellow-600 hover:text-red-600">View Map</a>
+                  <a href={project.data ?? project.url} className="text-yellow-600 hover:text-red-600">Get the data</a>
+                  <a href={project.url} id={project.title} className="text-yellow-600 hover:text-red-600">Download Map</a>
                 </div>
                 <div className="col-span-full row-span-1">
                   <ul className="flex flex-row pl-2 align-self-end text-gray-600 overflow-x-scroll hide-scroll-bar">
