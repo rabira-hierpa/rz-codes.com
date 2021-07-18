@@ -12,7 +12,7 @@ const AppCards = ({ apps,key }) => {
         <GatsbyImage
           style={{ maxHeight: "10rem" }}
           className="h-auto w-auto bg-cover mx-auto"
-          image={apps?.image?.childImageSharp?.gatsbyImageData}
+          image={apps?.image?.childImageSharp?.gatsbyImageData || apps?.image}
           alt={apps?.title}
         />
       </div>
@@ -25,7 +25,7 @@ const AppCards = ({ apps,key }) => {
             {apps?.description}
           </Truncate>
         </div>
-        <div className="my-2 text-white  rounded-full  bg-yellow-400 hover:bg-yellow-500 duration-300 text-xs font-bold mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1  opacity-90 hover:opacity-100 ">
+        <div className="my-2 text-white  rounded-full  bg-yellow-600 hover:bg-yellow-500 duration-300 text-xs font-bold mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1  opacity-90 hover:opacity-100 ">
           <a href={apps?.link[0]}>View details</a>
         </div>
       </div>
