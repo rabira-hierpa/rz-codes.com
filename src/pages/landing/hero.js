@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { StaticImage } from "gatsby-plugin-image"
 
 const Hero = () => {
@@ -32,7 +31,8 @@ const Hero = () => {
         <div className="flex justify-center space-x-5 pt-5">
           <a
             href="https://www.linkedin.com/in/rabira"
-            target="_blank" rel="noreferrer"
+            target="_blank"
+            rel="noreferrer"
             style={{ cursor: "pointer" }}
           >
             <span>
@@ -43,7 +43,11 @@ const Hero = () => {
               />
             </span>
           </a>
-          <a href="https://www.github.com/rabira-hierpa" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.github.com/rabira-hierpa"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>
               <img
                 className="h-12 w-12 text-red-600"
@@ -52,7 +56,11 @@ const Hero = () => {
               />
             </span>
           </a>
-          <a href="https://twitter.com/rabra_hierpa"   target="_blank" rel="noreferrer">
+          <a
+            href="https://twitter.com/rabra_hierpa"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>
               <img
                 className="h-12 w-12"
@@ -61,19 +69,43 @@ const Hero = () => {
               />
             </span>
           </a>
-          <a href="https://www.facebook.com/rabrahierpa"   target="_blank" rel="noreferrer">
+          <a
+            href="https://www.facebook.com/rabrahierpa"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>
-            <img className="h-12 w-12" src="https://img.icons8.com/ios-filled/100/fa314a/facebook--v1.png" alt="Facebook Icon"/>
+              <img
+                className="h-12 w-12"
+                src="https://img.icons8.com/ios-filled/100/fa314a/facebook--v1.png"
+                alt="Facebook Icon"
+              />
             </span>
           </a>
-          <a href="https://dev.to/rabra_hierpa"   target="_blank" rel="noreferrer">
+          <a
+            href="https://dev.to/rabra_hierpa"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>
-            <img className="h-12 w-12" src="https://img.icons8.com/windows/96/fa314a/dev.png" alt="DEV.to Icon"/>
+              <img
+                className="h-12 w-12"
+                src="https://img.icons8.com/windows/96/fa314a/dev.png"
+                alt="DEV.to Icon"
+              />
             </span>
           </a>
-          <a href="https://www.openstreetmap.org/user/Rabira%20Hierpa"   target="_blank" rel="noreferrer">
+          <a
+            href="https://www.openstreetmap.org/user/Rabira%20Hierpa"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>
-            <img className="h-12 w-12" src="https://img.icons8.com/ios-glyphs/90/fa314a/world-map.png" alt="OpenStreetMap Icon"/>
+              <img
+                className="h-12 w-12"
+                src="https://img.icons8.com/ios-glyphs/90/fa314a/world-map.png"
+                alt="OpenStreetMap Icon"
+              />
             </span>
           </a>
         </div>
