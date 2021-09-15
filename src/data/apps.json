@@ -1,5 +1,13 @@
 [
   {
+    "title": "Addis Tourist Guide",
+    "image": "../images/landing/addis-tourist-guid.png",
+    "description": "Tourist guid app for foreigners who want to explore the culture and heritage of the long lived capital city of Africa - Addis Ababa. Features include navigation,location bookmark, searching for hotels, current location guid and attraction site locator",
+    "link": ["https://github.com/rabira-hierpa/addis-tourist-map"],
+    "demo": [],
+    "tags": ["React", "Express", "MongoDB"]
+  },
+  {
     "title": "Tenant Management System",
     "image": "../images/landing/tenant-dashboard.png",
     "description": "All In One Tenant management solution with built in support with incident and invoice management.Features include role-based UI, Incident Reporting, and Invoice Management",
@@ -10,7 +18,7 @@
   {
     "title": "Bridger.Live",
     "image": "../images/landing/bridger-bg.png",
-    "description": "Bridger.live challenges brings together individuals and teams to compete while creating bridges between content on the web.",
+    "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
     "link": ["https://bridger.live", "https://www.bridgit.io/"],
     "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
     "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
