@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[77],{9381:function(e,t,a){"use strict";a.r(t);var s=a(7294),l=a(8227),n=a(3751);t.default=function(){return s.createElement(l.Z,null,s.createElement(n.Z,{title:"Apps"}),s.createElement("div",{className:"min-h-screen"},s.createElement("span",{className:"text-9xl text-red-600"},"Apps")))}}}]);
-//# sourceMappingURL=component---src-pages-apps-js-39e0272d8e5537fbfedb.js.map

@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[853],{7744:function(e,t,a){"use strict";a.r(t);var r=a(7294),s=a(8227),l=a(3751);t.default=function(){return r.createElement(s.Z,null,r.createElement(l.Z,{title:"Projects"}),r.createElement("div",{className:"min-h-screen"},r.createElement("span",{className:"text-9xl text-red-600"},"Projects")))}}}]);
-//# sourceMappingURL=component---src-pages-projects-js-67f976b721f56477fbfc.js.map
