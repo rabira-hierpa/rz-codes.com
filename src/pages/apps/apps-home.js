@@ -50,6 +50,7 @@ const AppsHome = () => {
                     <a
                       href={app.demo}
                       target="_blank"
+                      rel="noreferrer noopener"
                       className="text-yellow-500 hover:text-red-600"
                     >
                       View Demo
@@ -59,6 +60,7 @@ const AppsHome = () => {
                     href={app.link}
                     className="text-yellow-500 hover:text-red-600"
                     target="_blank"
+                    rel="noreferrer noopener"
                   >
                     GitHub Link
                   </a>
@@ -69,7 +71,7 @@ const AppsHome = () => {
                       return (
                         <li className="py-1">
                           <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-yellow-200 text-gray-500 hover:text-red-800">
-                            <a >{"#" + tag}</a>
+                            <span >{"#" + tag}</span>
                           </div>
                         </li>
                       )
