@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/rzcodesc/repositories/rz-portfolio
-    - /bin/cp -R rz-portfolio/* $DEPLOYPATH
