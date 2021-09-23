@@ -13,11 +13,13 @@ The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
 
 ## 🚀 Quick start
 
-1. **Clone the Gatsby site.**
+1. **Installation**
 
    ```shell
    # Clone the code
    git clone https://github.com/rabira-hierpa/rz-portfolio.git
+   cd rz-portfolio/
+   npm install
    ```
 
 2. **Start developing.**
@@ -25,7 +27,6 @@ The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
    Navigate into your new site’s directory and start it up.
 
    ```shell
-   cd rz-portfolio
    gatsby develop
    ```
 
@@ -41,7 +42,6 @@ The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-.
 ├── node_modules
 ├── src
 ├── .gitignore
