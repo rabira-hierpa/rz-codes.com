@@ -26,7 +26,7 @@ const AppCards = ({ apps, key }) => {
           </Truncate>
         </div>
         <div className="my-2 text-white  rounded-full  bg-yellow-600 hover:bg-yellow-500 duration-300 text-xs font-bold mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1  opacity-90 hover:opacity-100 ">
-          <a href={apps?.link[0]}>View details</a>
+          <a href={apps?.link[0]} rel="noreferrer noopener" target="_blank">View details</a>
         </div>
       </div>
     </div>

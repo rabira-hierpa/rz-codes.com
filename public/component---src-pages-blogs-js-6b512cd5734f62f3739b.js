@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[296],{6188:function(e,t,a){"use strict";a.r(t);var l=a(7294),s=a(8227),n=a(3751);t.default=function(){return l.createElement(s.Z,null,l.createElement(n.Z,{title:"Blog"}),l.createElement("div",{className:"min-h-screen"},l.createElement("span",{className:"text-9xl text-red-600"},"Blogs!")))}}}]);
-//# sourceMappingURL=component---src-pages-blogs-js-6b512cd5734f62f3739b.js.map

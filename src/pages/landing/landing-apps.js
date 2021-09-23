@@ -34,15 +34,17 @@ const LandingApps = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-stretch pt-5 ">
-        {AppsData.allAppsJson.nodes.map((apps, idx) => {
-          return (
-            <Link to={`/apps/${apps?.title}`}>
-              {" "}
-              <AppCard key={idx} apps={apps} />
-            </Link>
-          )
-        })}
+        {AppsData.allAppsJson.nodes
+          .filter((apps, idx) => {
+            return idx < 3
+          })
+          .map((apps, idx) => {
+            return <AppCard key={idx} apps={apps} />
+          })}
       </div>
+      <Link to="/apps">
+        <p className="py-3 text-center text-red-600">View More</p>
+      </Link>
     </>
   )
 }

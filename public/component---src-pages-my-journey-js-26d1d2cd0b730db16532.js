@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[133],{5739:function(e,t,a){"use strict";a.r(t);var n=a(7294),r=a(8227),l=a(3751);t.default=function(){return n.createElement(r.Z,null,n.createElement(l.Z,{title:"My Journey"}),n.createElement("div",{className:"min-h-screen"},n.createElement("span",{className:"text-9xl text-red-600"},"My Journey!")))}}}]);
-//# sourceMappingURL=component---src-pages-my-journey-js-26d1d2cd0b730db16532.js.map
