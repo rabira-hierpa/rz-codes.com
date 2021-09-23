@@ -8,7 +8,7 @@ const Projects = () => {
     <Layout>
       <SEO title="Apps"></SEO>
       <div className="min-h-screen">
-        <span className="text-7xl py-2 text-red-600">Apps</span>
+        <p className="text-7xl py-5 text-red-600">Apps</p>
         <AppsHome/>
       </div>
     </Layout>

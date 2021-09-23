@@ -32,7 +32,7 @@ const AppsHome = () => {
         {AppsData.allAppsJson.nodes.map((app, idx) => {
           return (
             <div className="grid grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
-              <div className="object-cover object-center rounded-lg h-auto max-w-md p-2">
+              <div className="object-cover object-center  grid place-items-center  rounded-lg h-auto max-w-md p-2">
                 <GatsbyImage
                   alt={app.title}
                   image={
@@ -71,7 +71,7 @@ const AppsHome = () => {
                       return (
                         <li className="py-1">
                           <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-yellow-200 text-gray-500 hover:text-red-800">
-                            <span >{"#" + tag}</span>
+                            <span>{"#" + tag}</span>
                           </div>
                         </li>
                       )
