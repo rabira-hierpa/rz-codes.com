@@ -44,16 +44,27 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 .
 ├── node_modules
+
 ├── src
+
 ├── .gitignore
+
 ├── .prettierrc
+
 ├── gatsby-browser.js
+
 ├── gatsby-config.js
+
 ├── gatsby-node.js
+
 ├── gatsby-ssr.js
+
 ├── LICENSE
+
 ├── package-lock.json
+
 ├── package.json
+
 └── README.md
 
 1. **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
