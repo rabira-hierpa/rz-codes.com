@@ -35,7 +35,7 @@ const LandingProjects = () => {
       <div className="grid grid-rows gap-y-10">
         {ProjectData.allProjectsJson.nodes.map((project, idx) => {
           return (
-            <div className="grid grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
               <div className="rounded-lg h-auto max-w-md p-2">
                 <GatsbyImage
                   alt={project.title}
@@ -46,7 +46,7 @@ const LandingProjects = () => {
                 <div className="text-xl text-red-600 text-left font-bold p-2">
                   {project.title}
                 </div>
-                <div className="py-2">{project.description}</div>
+                <div className="p-2">{project.description}</div>
                 <div className="p-2 flex justify-between">
                   <a
                     href={project.url}
