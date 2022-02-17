@@ -9,6 +9,8 @@
   Rz Codes
 </h1>
 
+[![Node.js CI](https://github.com/rabira-hierpa/rz-portfolio/actions/workflows/node.js.yml/badge.svg)](https://github.com/rabira-hierpa/rz-portfolio/actions/workflows/node.js.yml)
+
 The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
 
 ## 🚀 Quick start
