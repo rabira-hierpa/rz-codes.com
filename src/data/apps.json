@@ -1,13 +1,20 @@
 [
   {
+    "title": "RubberDuck",
+    "image": "../images/landing/presence-browser.png",
+    "description": "A decentralized browser overlay to experience the web like never beforeRubberduck is your partner when it comes to tires. We handle everything from wheel changes and new tires to tire storage. And for those of you who don’t want to bother with the hassle of tires, we offer tire rental. This means that you pay a fixed monthly amount, and in return you get rid of the hassle of your tires. We’ll take care of it.",
+    "link": ["https://presencebrowser.com"],
+    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  },
+  {
     "title": "Presence Browser",
     "image": "../images/landing/presence-browser.png",
     "description": "A decentralized browser overlay to experience the web like never before",
     "link": ["https://presencebrowser.com"],
     "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
     "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
-  }
-  ,
+  },
   {
     "title": "Bridger.Live",
     "image": "../images/landing/bridger-bg.png",
