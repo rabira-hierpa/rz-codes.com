@@ -9,7 +9,7 @@ const Hero = () => {
       }}
       className="grid grid-cols-1  align-items-center "
     >
-      <div className="p-10 ">
+      <div className="p-10">
         <div className="rounded-full flex items-center justify-center ">
           <StaticImage
             className="rounded-full border-2 border-grey-600 shadow-sm h-72 w-72"
@@ -18,7 +18,7 @@ const Hero = () => {
           />
         </div>
         <div className="text-center font-extrabold text-6xl pt-5 text-yellow-600">
-          Selam!
+          Hello !
         </div>
         <div className="text-center font-bold text-4xl py-5 text-red-600">
           I'm Rabra Hierpa ...
