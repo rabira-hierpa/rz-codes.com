@@ -1,5 +1,30 @@
 [
   {
+    "title": "Presence Browser",
+    "image": "../images/landing/presence-browser.png",
+    "description": "A decentralized browser overlay to experience the web like never before",
+    "link": ["https://presencebrowser.com"],
+    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  }
+  ,
+  {
+    "title": "Bridger.Live",
+    "image": "../images/landing/bridger-bg.png",
+    "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
+    "link": ["https://bridger.live"],
+    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  },
+  {
+    "title": "Vere Italie",
+    "image": "../images/landing/veritalie-logo.jpg",
+    "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
+    "link": ["https://vereitalie.it/"],
+    "demo": "",
+    "tags": ["MERN", "React", "Antd", "Loopback"]
+  },
+  {
     "title": "Addis Tourist Guide",
     "image": "../images/landing/addis-tourist-guid.png",
     "description": "Tourist guid app for foreigners who want to explore the culture and heritage of the long lived capital city of Africa - Addis Ababa. Features include navigation,location bookmark, searching for hotels, current location guid and attraction site locator",
@@ -14,22 +39,6 @@
     "link": ["https://github.com/YehualashetGit/tenant-management-system"],
     "demo": "https://www.youtube.com/watch?v=ZSMgqPOw5dw",
     "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
-  },
-  {
-    "title": "Bridger.Live",
-    "image": "../images/landing/bridger-bg.png",
-    "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
-    "link": ["https://bridger.live", "https://www.bridgit.io/"],
-    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
-  },
-  {
-    "title": "Vere Italie",
-    "image": "../images/landing/veritalie-logo.jpg",
-    "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
-    "link": ["https://vereitalie.it/"],
-    "demo": "",
-    "tags": ["MERN", "React", "Antd", "Loopback"]
   },
   {
     "title": "Project watchdog",

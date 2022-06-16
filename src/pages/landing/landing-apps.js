@@ -28,7 +28,7 @@ const LandingApps = () => {
     }
   `)
   return (
-    <>
+    <div className="py-10 md:py-0">
       <div className="text-4xl font-bold text-red-600 text-center ">
         Web/Mobile Apps
       </div>
@@ -45,7 +45,7 @@ const LandingApps = () => {
       <Link to="/apps">
         <p className="py-3 text-center text-red-600">View More</p>
       </Link>
-    </>
+    </div>
   )
 }
 
