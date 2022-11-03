@@ -9,7 +9,7 @@ const Hero = () => {
       }}
       className="grid grid-cols-1  align-items-center "
     >
-      <div className="p-10 ">
+      <div className="p-10">
         <div className="rounded-full flex items-center justify-center ">
           <StaticImage
             className="rounded-full border-2 border-grey-600 shadow-sm h-72 w-72"
@@ -17,16 +17,18 @@ const Hero = () => {
             alt="rzcodes"
           />
         </div>
-        <div className="text-center font-extrabold text-6xl pt-5 text-yellow-600">
-          Selam!
+        <div className="text-center">
+        <div className=" font-extrabold text-6xl pt-5 text-yellow-600">
+          Hello !
         </div>
-        <div className="text-center font-bold text-4xl py-5 text-red-600">
-          I'm Rabra Hierpa ...
-        </div>
-        <div className="font-bold text-2xl text-yellow-600">
-          FOSS Enthusiast,
-          <span className="text-red-600">Full-stack Web Developer</span>,GIS
-          Expert & <span className="text-black">Graphics Designer</span>
+          <div className="font-bold text-4xl py-5 text-red-600">
+            I'm Rabra Hierpa ...
+          </div>
+          <div className="font-bold text-2xl text-yellow-600">
+            FOSS Enthusiast,
+            <span className="text-yellow-600">Full-stack Web Developer</span> & GIS
+           Developer 
+          </div>
         </div>
         <div className="flex justify-center space-x-5 pt-5">
           <a
@@ -57,7 +59,7 @@ const Hero = () => {
             </span>
           </a>
           <a
-            href="https://twitter.com/rabra_hierpa"
+            href="https://twitter.com/rzcodes"
             target="_blank"
             rel="noreferrer"
           >
@@ -70,7 +72,7 @@ const Hero = () => {
             </span>
           </a>
           <a
-            href="https://www.facebook.com/rabrahierpa"
+            href="https://www.facebook.com/rzcodes"
             target="_blank"
             rel="noreferrer"
           >
