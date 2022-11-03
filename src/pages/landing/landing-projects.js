@@ -26,7 +26,6 @@ const LandingProjects = () => {
       }
     }
   `)
-  // console.log(ProjectData)
   return (
     <div className="">
       <div className="text-4xl font-bold text-red-600 text-center py-10 ">
