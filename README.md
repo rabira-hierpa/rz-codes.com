@@ -5,7 +5,7 @@
     <img alt="Rz Codes" src="https://rz-codes.com/static/logo-275e932fd817cc84d99d91f7519a9a22.svg" width="120" />
   </a>
 </p>
-<h1 align="center" style="color: red">
+<h1 align="center">
   Rz Codes
 </h1>
 
@@ -15,7 +15,7 @@
 
 [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
 
-The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
+The source code of my portfolio site [https://rz-codes.com](rz-codes.com)
 
 ## 🚀 Quick start
 
