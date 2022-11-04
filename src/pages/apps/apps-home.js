@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 
 const AppsHome = () => {
   const AppsData = useStaticQuery(graphql`
@@ -8,15 +7,7 @@ const AppsHome = () => {
       allAppsJson {
         nodes {
           id
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: BLURRED
-                transformOptions: { fit: COVER }
-                quality: 100
-              )
-            }
-          }
+          image
           title
           tags
           description
@@ -33,13 +24,7 @@ const AppsHome = () => {
           return (
             <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
               <div className="object-cover object-center  grid place-items-center  rounded-lg h-auto p-2">
-                <GatsbyImage
-                  alt={app.title}
-                  image={
-                    app?.image?.childImageSharp?.gatsbyImageData || app?.image
-                  }
-                  className=""
-                />
+                <img alt={app.title} src={app?.image} className="" />
               </div>
               <div className="pr-5">
                 <div className="text-xl text-red-600 text-center md:text-left font-bold p-2">
@@ -54,17 +39,19 @@ const AppsHome = () => {
                       rel="noreferrer noopener"
                       className="text-yellow-500 hover:text-red-600"
                     >
-                     View Demo
+                      View Demo
                     </a>
                   ) : null}
-                  {app?.link ? <a
-                    href={app.link}
-                    className="text-yellow-500 hover:text-red-600"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    GitHub Link
-                  </a> : null}
+                  {app?.link ? (
+                    <a
+                      href={app.link}
+                      className="text-yellow-500 hover:text-red-600"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      GitHub Link
+                    </a>
+                  ) : null}
                 </div>
                 <div className="col-span-full row-span-1">
                   <ul className="flex flex-row pl-2 align-self-end text-gray-600 overflow-x-scroll hide-scroll-bar">

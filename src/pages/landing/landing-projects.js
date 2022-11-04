@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import "../../styles/global.css"
 const LandingProjects = () => {
   const ProjectData = useStaticQuery(graphql`
@@ -13,15 +12,7 @@ const LandingProjects = () => {
           data
           tags
           url
-          thumbnail {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: DOMINANT_COLOR
-                quality: 100
-                transformOptions: { fit: COVER }
-              )
-            }
-          }
+          img
         }
       }
     }
@@ -36,10 +27,7 @@ const LandingProjects = () => {
           return (
             <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
               <div className="rounded-lg h-auto max-w-md p-2">
-                <GatsbyImage
-                  alt={project.title}
-                  image={project.thumbnail.childImageSharp.gatsbyImageData}
-                />
+                <img loading="lazy" alt={project.title} src={project.img} />
               </div>
               <div className="pr-5">
                 <div className="text-xl text-red-600 text-left font-bold p-2">
@@ -49,6 +37,8 @@ const LandingProjects = () => {
                 <div className="p-2 flex justify-between">
                   <a
                     href={project.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
                     className="text-yellow-600 hover:text-red-600"
                   >
                     View Map

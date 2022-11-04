@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import "../../styles/global.css"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 const LandingDesign = () => {
