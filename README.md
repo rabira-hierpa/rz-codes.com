@@ -23,8 +23,8 @@ The source code of my portfolio site [https://.rz-codes.com](rz-codes.com)
 
    ```shell
    # Clone the code
-   git clone https://github.com/rabira-hierpa/rz-portfolio.git
-   cd rz-portfolio/
+   git clone https://github.com/rabira-hierpa/rz-codes.com.git
+   cd rz-codes.com/
    npm install
    ```
 
