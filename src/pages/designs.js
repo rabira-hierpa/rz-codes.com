@@ -11,15 +11,7 @@ const Designs = () => {
       allDesignsJson {
         nodes {
           id
-          graphics_designs {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: BLURRED
-                transformOptions: { fit: COVER }
-                quality: 100
-              )
-            }
-          }
+          images
         }
       }
     }
@@ -43,14 +35,14 @@ const Designs = () => {
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
             <Masonry>
-              {DesignData.allDesignsJson.nodes[0].graphics_designs.map(
-                ({ childImageSharp }, idx) => {
+              {DesignData.allDesignsJson.nodes[0].images.map(
+                (imageUrl, idx) => {
                   return (
-                    <div key={idx} className="flex p-2  rounded-lg">
-                      <GatsbyImage
-                        key={idx}
-                        className="px-8 py-6 rounded-lg hover:shadow-2xl duration-300 cursor-pointer"
-                        image={childImageSharp.gatsbyImageData}
+                    <div key={"design_" + idx} className="flex p-2  rounded-lg">
+                      <img
+                        key={"design_img_" + idx}
+                        className=" rounded-lg hover:shadow-2xl duration-300 cursor-pointer"
+                        src={imageUrl}
                         alt="Rz-Design"
                       />
                     </div>
