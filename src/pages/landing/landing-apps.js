@@ -9,15 +9,7 @@ const LandingApps = () => {
       allAppsJson {
         nodes {
           id
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: BLURRED
-                transformOptions: { fit: COVER }
-                quality: 100
-              )
-            }
-          }
+          image
           title
           tags
           description
