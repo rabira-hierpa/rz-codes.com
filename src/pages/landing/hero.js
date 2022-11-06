@@ -27,13 +27,13 @@ const Hero = () => {
           <TypeAnimation sequence={
             [
               "I'm Rabra Hierpa ...",
-              1000,
+             2000,
               "A Software Engineer...",
               2000,
               "GIS Developer... ",
-              1000,
+              2000,
               "and FOSS enthusiast!",
-              1000
+              2000
             ]
           } 
           wrapper="div"
