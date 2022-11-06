@@ -5,6 +5,7 @@ on:
 name: 🚀 Build Prod
 jobs:
   web-deploy:
+    environment: prod
     name: 🎉 Deploy to prod
     runs-on: ubuntu-latest
     steps:
@@ -24,9 +25,9 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
-          server: ${{ secrets.ftp_server }}
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
+          server: ${{ secrets.server }}
+          username: ${{ secrets.user }}
+          password: ${{ secrets.pass }}
+          server-dir: ${{ secrets.dir }}
           local-dir: ./public/
-          server-dir: public_html/
           dangerous-clean-slate: true
