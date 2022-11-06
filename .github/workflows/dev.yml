@@ -8,6 +8,9 @@ jobs:
       environment: DEV
       name: 🎉 Deploy to dev
       runs-on: ubuntu-latest
+      env: 
+        CI: true
+        WPGRAPHQL_URL: ${{secrets.WPGRAPHQL_URL}}
       steps:
         - name: 🚚 Get latest code
           uses: actions/checkout@v2
