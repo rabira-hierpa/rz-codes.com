@@ -8,7 +8,8 @@
   "dependencies": {
     "dayjs": "^1.11.6",
     "dotenv": "^16.0.3",
-    "gatsby": "^4.0.0",
+    "gatsby": "^5.1.0",
+    "gatsby-plugin-gatsby-cloud": "^4.24.1",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-manifest": "^4.0.0",
     "gatsby-plugin-offline": "^5.0.0",
@@ -16,16 +17,15 @@
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-source-wordpress": "^6.0.0",
-    "gatsby-transformer-sharp": "^4.0.0",
-    "gatsby-plugin-gatsby-cloud": "^4.24.1",
     "gatsby-transformer-json": "^4.24.0",
+    "gatsby-transformer-sharp": "^4.0.0",
     "html-react-parser": "^1.1.1",
     "lodash": "^4.17.20",
+    "path": "^0.12.7",
     "postcss": "^8.2.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^5.2.1",
-    "path": "^0.12.7",
     "react-responsive-masonry": "^2.1.6",
     "react-router-dom": "^5.3.4",
     "react-truncate": "^2.4.0",
@@ -56,6 +56,6 @@
     "url": "https://github.com/rabira-hierpa/rz-codes.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/rabira-hierpa/rz-codes.com/issues"
   }
 }
