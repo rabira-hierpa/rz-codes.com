@@ -1,8 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-import { StaticImage } from "gatsby-plugin-image"
 import "../../styles/global.css"
+
 const LandingDesign = () => {
   const DesignData = useStaticQuery(graphql`
     query {

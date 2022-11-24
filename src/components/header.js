@@ -1,5 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import RzCodesLogo from "../images/logo.svg"
 
@@ -86,13 +85,5 @@ const Header = ({ siteTitle }) => (
     </div>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
