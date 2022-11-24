@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Designs = () => {
   const DesignData = useStaticQuery(graphql`
@@ -17,7 +17,7 @@ const Designs = () => {
   `)
   return (
     <Layout>
-      <SEO title="Designs"></SEO>
+      <Seo title="Designs"></Seo>
       <div className="min-h-screen">
         <div className="text-9xl text-red-600 mt-5">Designs!</div>
         <p className="pt-5">
