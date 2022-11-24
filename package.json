@@ -8,7 +8,7 @@
   "dependencies": {
     "dayjs": "^1.11.6",
     "dotenv": "^16.0.3",
-    "gatsby": "^5.1.0",
+    "gatsby": "^4.0.0",
     "gatsby-plugin-gatsby-cloud": "^4.24.1",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-manifest": "^4.0.0",
@@ -23,11 +23,11 @@
     "lodash": "^4.17.20",
     "path": "^0.12.7",
     "postcss": "^8.2.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^5.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-responsive-masonry": "^2.1.6",
-    "react-router-dom": "^5.3.4",
+    "react-router-dom": "^6.4.3",
     "react-truncate": "^2.4.0",
     "react-type-animation": "^2.1.2"
   },
@@ -36,7 +36,7 @@
     "gatsby-plugin-postcss": "^5.24.0",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.2.4"
   },
   "keywords": [
     "gatsby"
