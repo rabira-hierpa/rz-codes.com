@@ -1,6 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import "../../styles/global.css"
+
 const LandingProjects = () => {
   const ProjectData = useStaticQuery(graphql`
     query {
@@ -24,8 +25,12 @@ const LandingProjects = () => {
       </div>
       <div className="grid grid-rows gap-y-10">
         {ProjectData.allProjectsJson.nodes.map((project, idx) => {
+          if (idx > 1) return
           return (
-            <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5">
+            <div
+              key={`projects_${idx}`}
+              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5"
+            >
               <div className="rounded-lg h-auto max-w-md p-2">
                 <img loading="lazy" alt={project.title} src={project.img} />
               </div>
@@ -74,6 +79,9 @@ const LandingProjects = () => {
             </div>
           )
         })}
+        <Link to="/projects">
+          <p className="py-3 text-center text-red-600">View More</p>
+        </Link>
       </div>
     </div>
   )
