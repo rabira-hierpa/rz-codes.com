@@ -44,7 +44,9 @@
   "license": "BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "dev-local": "gatsby develop -H 192.168.193.163",
+    "debug": "DEBUG=gatsby:query-watcher npm run dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

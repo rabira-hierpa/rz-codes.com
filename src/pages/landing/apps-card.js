@@ -1,16 +1,15 @@
 import React from "react"
 import Truncate from "react-truncate"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
-const AppCards = ({ apps, key }) => {
+const AppCards = ({ apps }) => {
   return (
-    <div
-      key={key}
-      className="overflow-hidden shadow-md rounded-md hover:shadow-2xl duration-300 justify-self-stretch flex flex-col"
-    >
+    <div className="overflow-hidden shadow-md rounded-md hover:shadow-2xl duration-300 justify-self-stretch flex flex-col">
       <div className="h-36 w-full flex flex-col items-center justify-center overflow-hidden">
         <img
           loading="lazy"
+          placeholder="blurred"
           style={{ maxHeight: "10rem" }}
           className="h-auto w-auto bg-cover mx-auto"
           src={apps?.image}

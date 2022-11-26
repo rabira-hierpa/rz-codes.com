@@ -1,4 +1,4 @@
-const dotenv = require('dotenv')
+const dotenv = require("dotenv")
 dotenv.config()
 module.exports = {
   siteMetadata: {
@@ -32,8 +32,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#DA5049`,
         display: `minimal-ui`,
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
@@ -43,18 +43,13 @@ module.exports = {
       options: {
         url: process.env.WPGRAPHQL_URL,
         verbose: true,
+        schema: {
+          //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
+          typePrefix: `Wp`,
+        },
         develop: {
           hardCacheMediaFiles: true,
-        },
-        debug: {
-          graphql: {
-            writeQueriesToDisk: true,
-          },
-        },
-        html: {
-          fallbackImageMaxWidth: 800,
-        },
-        // fields can be excluded globally.
+        }, // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
         // since we can get block data on the `block` field
         // we don't need these fields
@@ -63,16 +58,22 @@ module.exports = {
           Post: {
             limit:
               process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves.
-                  35
-                : // And then we can pull all posts in production
-                  null,
+                ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
+                  50
+                : // and we don't actually need more than 5000 in production for this particular site
+                  5000,
           },
-          // this shows how to exclude entire types from the schema
-          // this example is for wp-graphql-gutenberg
           CoreParagraphBlockAttributesV2: {
             exclude: true,
           },
+        },
+        debug: {
+          graphql: {
+            writeQueriesToDisk: true,
+          },
+        },
+        html: {
+          fallbackImageMaxWidth: 800,
         },
       },
     },
