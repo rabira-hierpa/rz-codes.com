@@ -1,7 +1,6 @@
 import React from "react"
 import Truncate from "react-truncate"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 const AppCards = ({ apps }) => {
   return (

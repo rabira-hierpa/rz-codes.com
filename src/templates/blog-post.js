@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
@@ -13,7 +13,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
   return (
     <Layout>
-      <SEO title={post.title} description={post.excerpt} />
+      <Seo title={post.title} description={post.excerpt} />
       <div className="min-h-screen">
         <article
           className="blog-post"
