@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import { TypeAnimation } from "react-type-animation"
 
 const Hero = () => {
@@ -7,10 +7,11 @@ const Hero = () => {
     <div className="flex flex-col">
       <div className="p-10 flex-grow">
         <div className="rounded-full flex items-center justify-center ">
-          <GatsbyImage
+          <StaticImage
             loading="lazy"
+            placeholder="blurred"
             className="rounded-full border-2 border-grey-600 shadow-sm h-72 w-72"
-            image="https://blog.rz-codes.com/wp-content/uploads/2022/11/rabira-hierpa-web.jpg"
+            src="https://blog.rz-codes.com/wp-content/uploads/2022/11/rabira-hierpa-web.jpg"
             alt="rzcodes"
           />
         </div>
