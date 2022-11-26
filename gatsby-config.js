@@ -49,7 +49,8 @@ module.exports = {
         },
         develop: {
           hardCacheMediaFiles: true,
-        }, // fields can be excluded globally.
+        },
+        // fields can be excluded globally.
         // this example is for wp-graphql-gutenberg.
         // since we can get block data on the `block` field
         // we don't need these fields
@@ -65,11 +66,6 @@ module.exports = {
           },
           CoreParagraphBlockAttributesV2: {
             exclude: true,
-          },
-        },
-        debug: {
-          graphql: {
-            writeQueriesToDisk: true,
           },
         },
         html: {
