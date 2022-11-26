@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import parse from "html-react-parser"
 
 const PageTemplate = ({
@@ -13,7 +13,7 @@ const PageTemplate = ({
   if (!posts.length) {
     return (
       <Layout>
-        <SEO title="All posts" />
+        <Seo title="All posts" />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
           appear here!
@@ -24,7 +24,7 @@ const PageTemplate = ({
 
   return (
     <Layout>
-      <SEO title="Blogs related to web dev,linux and QGIS" />
+      <Seo title="Blogs related to web dev,linux and QGIS" />
       <div className="min-h-screen">
         <div className="grid grid-cols-1 align-items-center">
           <p className="text-4xl pt-10 text-red-600">Recent Articles</p>

@@ -25,7 +25,7 @@ const LandingProjects = () => {
       </div>
       <div className="grid grid-rows gap-y-10">
         {ProjectData.allProjectsJson.nodes.map((project, idx) => {
-          if (idx > 1) return
+          if (idx > 1) return null
           return (
             <div
               key={`projects_${idx}`}
