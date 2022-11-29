@@ -5,10 +5,10 @@ on:
 name: 🚀 Build Prod
 jobs:
   web-deploy:
-    environment: prod
+    environment: PROD
     name: 🎉 Deploy to prod
     runs-on: ubuntu-latest
-    env: 
+    env:
       CI: true
       WPGRAPHQL_URL: ${{secrets.WPGRAPHQL_URL}}
     steps:
