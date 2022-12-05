@@ -1,5 +1,14 @@
 [
   {
+    "title": "Mini Grid Planing for a rural village",
+    "description": "Power gird planing made for  a ruler city located in Afghanistan to extend the national grid system to give access to electricity",
+    "url": "https://blog.rz-codes.com/wp-content/uploads/2022/11/photo_2022-09-08-21.59.33.jpeg",
+    "data": "https://blog.rz-codes.com/wp-content/uploads/2022/11/photo_2022-09-08-21.59.33.jpeg",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/photo_2022-09-08-21.59.33.jpeg",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/photo_2022-09-08-21.59.33.jpeg",
+    "tags": ["Integration", "QGIS", "Energy", "GridPlaning"]
+  },
+  {
     "title": "The National Intercity Public Route Network Map of Ethiopia",
     "description": "This is was one of the projects that I was fully responsible to collect,process and produced the map for the Federal Transport Authority of Ethiopia under the supervision of the Ministry of Transport",
     "url": "http://fta-national-map.netlify.app",

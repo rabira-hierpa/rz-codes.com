@@ -4,13 +4,14 @@ import "../../styles/global.css"
 import LandingDesign from "./landing-designs"
 import LandingApps from "./landing-apps"
 import LandingProjects from "./landing-projects"
+
 const landing = () => {
   return (
     <div>
       <Hero />
       <LandingApps />
-      <LandingDesign />
       <LandingProjects />
+      <LandingDesign />
       <div className=" container md:flex md:items-center mx-auto shadow-2xl sm:shadow-none mb-5">
         {/* <StaticImage
           alt="poster"

@@ -1,7 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import "../../styles/global.css"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import "../../styles/global.css"
+
 const LandingDesign = () => {
   const DesignData = useStaticQuery(graphql`
     query {
@@ -28,7 +29,7 @@ const LandingDesign = () => {
               >
                 <img
                   key={"graphics_img" + idx}
-                  className=" rounded-lg hover:shadow-2xl duration-300 cursor-pointer"
+                  className="rounded-lg hover:shadow-2xl duration-300 cursor-pointer"
                   src={imageUrl}
                   loading="lazy"
                   alt="Rz-Design"

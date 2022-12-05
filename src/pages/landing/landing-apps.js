@@ -31,7 +31,7 @@ const LandingApps = () => {
             return idx < 3
           })
           .map((apps, idx) => {
-            return <AppCard key={idx} apps={apps} />
+            return <AppCard key={`app_${idx}`} id={idx} apps={apps} />
           })}
       </div>
       <Link to="/apps">

@@ -1,5 +1,4 @@
-import * as React from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import { Link } from "gatsby"
 import RzCodesLogo from "../images/logo.svg"
 
@@ -32,11 +31,11 @@ const Header = ({ siteTitle }) => (
     <input className="hidden" type="checkbox" id="menu-toggle" />
     <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
       <nav className="flex items-center ">
-        <ul className="lg:flex items-center text-red-600 space-x-4 text-gray-700 pt-4 lg:pt-0">
+        <ul className="lg:flex items-center space-x-4 pt-4 lg:pt-0">
           <li>
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-              to="/blogs"
+              to="/blog"
             >
               Blog
             </Link>
@@ -86,13 +85,5 @@ const Header = ({ siteTitle }) => (
     </div>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
