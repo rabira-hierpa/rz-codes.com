@@ -45,7 +45,6 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "dev-local": "gatsby develop -H 192.168.110.163",
     "debug": "DEBUG=gatsby:query-watcher npm run dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
