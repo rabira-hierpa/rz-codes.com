@@ -1,5 +1,6 @@
 const dotenv = require("dotenv")
 dotenv.config()
+
 module.exports = {
   siteMetadata: {
     title: `Rz Codes`,
@@ -76,7 +77,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        trackingId: process.env.GA_TRACKING_ID,
       },
     }`gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
