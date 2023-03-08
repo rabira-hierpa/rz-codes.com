@@ -22,7 +22,7 @@ const AppsHome = () => {
       <div className="grid grid-rows gap-y-10">
         {AppsData.allAppsJson.nodes.map((app, idx) => {
           return (
-            <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5  bg-white p-2 rounded-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5  bg-white p-1 rounded-lg">
               <div className="object-cover object-center  grid place-items-center  rounded-lg h-auto p-2">
                 <img alt={app.title} src={app?.image} className="" />
               </div>
