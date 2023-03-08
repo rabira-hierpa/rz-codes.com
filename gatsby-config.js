@@ -1,5 +1,6 @@
 const dotenv = require("dotenv")
 dotenv.config()
+
 module.exports = {
   siteMetadata: {
     title: `Rz Codes`,
@@ -71,6 +72,12 @@ module.exports = {
         html: {
           fallbackImageMaxWidth: 800,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TRACKING_ID,
       },
     },
     `gatsby-plugin-gatsby-cloud`,
