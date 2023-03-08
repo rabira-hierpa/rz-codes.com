@@ -30,7 +30,7 @@ const Projects = () => {
           {ProjectData.allProjectsJson.nodes.map((project, idx) => (
             <div
               key={`projects_${idx}`}
-              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5"
+              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5 bg-white p-2 rounded-lg"
             >
               <div className="rounded-lg h-auto max-w-md p-2">
                 <img
