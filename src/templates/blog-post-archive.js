@@ -32,14 +32,17 @@ const PageTemplate = ({
             {posts.map(post => {
               const title = post.title
               return (
-                <li className="py-2" key={post.uri}>
+                <li
+                  className="my-5 p-5 bg-white border-2 shadow-md hover:shadow-xl "
+                  key={post.uri}
+                >
                   <article
                     itemScope
                     className=""
                     itemType="http://schema.org/Article"
                   >
                     <header>
-                      <h2 className="text-red-600 text-lg">
+                      <h2 className="text-red-600 text-2xl">
                         <Link to={post.uri} itemProp="url">
                           <span itemProp="headline">{parse(title)}</span>
                         </Link>
@@ -77,11 +80,48 @@ export const pageQuery = graphql`
       skip: $offset
     ) {
       nodes {
+        id
+        title
         excerpt
         uri
         date(formatString: "MMMM DD, YYYY")
-        title
-        excerpt
+      }
+      nodes {
+        id
+        author {
+          node {
+            avatar {
+              url
+            }
+            name
+            roles {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+        content
+        contentType {
+          node {
+            labels {
+              featuredImage
+            }
+            name
+          }
+        }
+        tags {
+          nodes {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            link
+            sourceUrl
+          }
+        }
       }
     }
   }

@@ -7,44 +7,46 @@ import parse from "html-react-parser"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
+    data: post.featuredImage?.node?.sourceUrl,
+    alt: post.featuredImage?.node?.altText || ``,
   }
+
+  console.log(post)
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-      <div className="min-h-screen">
+      <div className="min-h-screen pt-10">
         <article
-          className="blog-post"
+          className="blog-post bg-white px-20 py-10"
           itemScope
           itemType="http://schema.org/Article"
         >
           <header>
-            <h1 className="text-6xl text-red-600 py-5" itemProp="headline">
+            <h1
+              className="text-2xl md:text-5xl font-semibold text-red-600 py-5 text-center "
+              itemProp="headline"
+            >
               {parse(post.title)}
             </h1>
 
             <p className="py-2 ">Last updated - {post.date}</p>
 
-            {/* if we have a featured image for this post let's display it */}
             {featuredImage?.data && (
               <GatsbyImage
-                image={featuredImage.data}
+                image={featuredImage.data.sourceUrl}
                 alt={featuredImage.alt}
                 style={{ marginBottom: 50 }}
+                className="rounded-lg"
               />
             )}
           </header>
-
-          {!!post.content && (
-            <section itemProp="articleBody">{parse(post.content)}</section>
-          )}
+          {!!post.content && <p className="py-10">{parse(post.content)}</p>}
 
           <hr />
         </article>
 
-        <nav className="pt-10">
+        <nav className="pt-10 hover:text-red-600 cursor-pointer">
           <ul className="flex flex-wrap justify-between list-none p-0">
             <li>
               {previous && (
@@ -82,18 +84,29 @@ export const pageQuery = graphql`
       content
       title
       date(formatString: "MMMM DD, YYYY")
+      author {
+        node {
+          avatar {
+            url
+          }
+          name
+          roles {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+      tags {
+        nodes {
+          name
+        }
+      }
       featuredImage {
         node {
           altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData(
-                quality: 100
-                placeholder: TRACED_SVG
-                layout: FULL_WIDTH
-              )
-            }
-          }
+          link
+          sourceUrl
         }
       }
     }
