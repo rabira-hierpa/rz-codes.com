@@ -2,53 +2,54 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
-    data: post.featuredImage?.node?.sourceUrl,
+    data: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
+    url: post.featuredImage?.node?.sourceUrl,
     alt: post.featuredImage?.node?.altText || ``,
   }
 
-  console.log(post)
+  console.log(featuredImage)
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
       <div className="min-h-screen pt-10">
         <article
-          className="blog-post bg-white px-20 py-10"
           itemScope
+          className="blog-post bg-white px-20 py-10"
           itemType="http://schema.org/Article"
         >
           <header>
             <h1
-              className="text-2xl md:text-5xl font-semibold text-red-600 py-5 text-center "
               itemProp="headline"
+              className="text-2xl md:text-5xl font-semibold text-red-600 py-5 text-center "
             >
               {parse(post.title)}
             </h1>
 
             <p className="py-2 ">Last updated - {post.date}</p>
 
-            {featuredImage?.data && (
-              <GatsbyImage
-                image={featuredImage.data.sourceUrl}
-                alt={featuredImage.alt}
-                style={{ marginBottom: 50 }}
-                className="rounded-lg"
-              />
+            {!!featuredImage?.data && (
+              <div className="py-10">
+                <img
+                  loading="lazy"
+                  src={featuredImage.url}
+                  alt={featuredImage.alt}
+                />
+              </div>
             )}
           </header>
-          {!!post.content && <p className="py-10">{parse(post.content)}</p>}
+          {!!post.content && parse(post.content)}
 
           <hr />
         </article>
 
-        <nav className="pt-10 hover:text-red-600 cursor-pointer">
+        <nav className="pt-10  cursor-pointer">
           <ul className="flex flex-wrap justify-between list-none p-0">
-            <li>
+            <li className="hover:text-red-600">
               {previous && (
                 <Link to={previous.uri} rel="prev">
                   ← {parse(previous.title)}
@@ -56,7 +57,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               )}
             </li>
 
-            <li>
+            <li className="hover:text-red-600">
               {next && (
                 <Link to={next.uri} rel="next">
                   {parse(next.title)} →
@@ -105,8 +106,14 @@ export const pageQuery = graphql`
       featuredImage {
         node {
           altText
-          link
           sourceUrl
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

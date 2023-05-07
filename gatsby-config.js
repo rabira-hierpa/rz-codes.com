@@ -48,29 +48,45 @@ module.exports = {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
         },
+        debug: {
+          preview: true,
+          graphql: {
+            showQueryVarsOnError: true,
+          },
+        },
+        production: {
+          hardCacheMediaFiles: true,
+          allow404Images: true,
+        },
         develop: {
           hardCacheMediaFiles: true,
+          hardCacheData: false,
+          nodeUpdateInterval: 300,
         },
-        // fields can be excluded globally.
-        // this example is for wp-graphql-gutenberg.
-        // since we can get block data on the `block` field
-        // we don't need these fields
         excludeFieldNames: [`blocksJSON`, `saveContent`],
-        type: {
-          Post: {
-            limit:
-              process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-                  50
-                : // and we don't actually need more than 5000 in production for this particular site
-                  5000,
-          },
-          CoreParagraphBlockAttributesV2: {
-            exclude: true,
-          },
+        Post: {
+          limit:
+            process.env.NODE_ENV === `development`
+              ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
+                50
+              : // and we don't actually need more than 5000 in production for this particular site
+                5000,
         },
+        CoreParagraphBlockAttributesV2: {
+          exclude: true,
+        },
+
         html: {
           fallbackImageMaxWidth: 800,
+        },
+      },
+      type: {
+        MediaItem: {
+          localFile: {
+            childImageSharp: {
+              fluid: true,
+            },
+          },
         },
       },
     },
@@ -78,14 +94,14 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [process.env.GA_TRACKING_ID],
-        gtagConfig:{
+        gtagConfig: {
           anonymize_ip: true,
           cookie_expires: 0,
         },
-        pluginConfig:{
+        pluginConfig: {
           head: false,
-          delayOnRouteUpdate: 0
-        }
+          delayOnRouteUpdate: 0,
+        },
       },
     },
     `gatsby-plugin-gatsby-cloud`,
