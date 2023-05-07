@@ -118,7 +118,6 @@ export const pageQuery = graphql`
         featuredImage {
           node {
             altText
-            link
             sourceUrl
           }
         }
