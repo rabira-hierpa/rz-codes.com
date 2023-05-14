@@ -2,51 +2,63 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
+    data: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
+    url: post.featuredImage?.node?.sourceUrl,
+    alt: post.featuredImage?.node?.altText || ``,
   }
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-      <div className="min-h-screen">
+      <div className="min-h-screen pt-10">
         <article
-          className="blog-post"
           itemScope
+          className="blog-post bg-white px-20 py-10"
           itemType="http://schema.org/Article"
         >
           <header>
-            <h1 className="text-6xl text-red-600 py-5" itemProp="headline">
+            <h1
+              itemProp="headline"
+              className="text-2xl md:text-5xl font-semibold text-red-600 py-5 text-center "
+            >
               {parse(post.title)}
             </h1>
 
-            <p className="py-2 ">Last updated - {post.date}</p>
+            <div className="flex flex-wrap space-x-10 py-2">
+              <span>Last updated - {post.date}</span>
+              <span>Author {`${post.author.node.name}`}</span>
+            </div>
 
-            {/* if we have a featured image for this post let's display it */}
-            {featuredImage?.data && (
-              <GatsbyImage
-                image={featuredImage.data}
-                alt={featuredImage.alt}
-                style={{ marginBottom: 50 }}
-              />
+            <div className="border border-1 border-b-neutral-400 mb-5"></div>
+            {!!featuredImage?.data && (
+              <div className="py-10">
+                <img
+                  loading="lazy"
+                  src={featuredImage.url}
+                  alt={featuredImage.alt}
+                />
+              </div>
             )}
           </header>
-
           {!!post.content && (
-            <section itemProp="articleBody">{parse(post.content)}</section>
+            <section
+              itemProp="articleBody"
+              className="flex flex-wrap space-y-10 text-justify"
+            >
+              {parse(post.content)}
+            </section>
           )}
 
-          <hr />
+          <hr className="py-5 mt-5" />
         </article>
 
-        <nav className="pt-10">
+        <nav className="pt-10  cursor-pointer">
           <ul className="flex flex-wrap justify-between list-none p-0">
-            <li>
+            <li className="hover:text-red-600">
               {previous && (
                 <Link to={previous.uri} rel="prev">
                   ← {parse(previous.title)}
@@ -54,7 +66,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               )}
             </li>
 
-            <li>
+            <li className="hover:text-red-600">
               {next && (
                 <Link to={next.uri} rel="next">
                   {parse(next.title)} →
@@ -82,16 +94,33 @@ export const pageQuery = graphql`
       content
       title
       date(formatString: "MMMM DD, YYYY")
+      author {
+        node {
+          avatar {
+            url
+          }
+          name
+          roles {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+      tags {
+        nodes {
+          name
+        }
+      }
       featuredImage {
         node {
           altText
+          sourceUrl
           localFile {
             childImageSharp {
-              gatsbyImageData(
-                quality: 100
-                placeholder: TRACED_SVG
-                layout: FULL_WIDTH
-              )
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
