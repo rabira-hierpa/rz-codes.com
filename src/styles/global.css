@@ -11,13 +11,13 @@
 body {
   font-family: "Sofia Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
-    background-color: rgb(243, 243, 243);
+  background-color: rgb(243, 243, 243);
 }
-.object-cover{
+.object-cover {
   object-fit: cover;
 }
 .backdrop-filter {
-    filter: brightness(.4) blur(4px);
+  filter: brightness(0.4) blur(4px);
 }
 .hide-scroll-bar {
   -ms-overflow-style: none;
