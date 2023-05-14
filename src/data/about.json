@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Addis Ababa University",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/aau.png",
+    "url": "https://www.aau.edu.et"
+  },
+
+  {
+    "name": "World Resources Institute",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/wri-logo.png",
+    "url": "https://www.wri.org"
+  },
+  {
+    "name": "Excellerent Solutions",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/excellerent-log.png",
+    "url": "https://www.excellerentsolutions.com"
+  },
+  {
+    "name": "Integeration Consultant",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/integeration-gmbh.png",
+    "url": "https://integration.org"
+  },
+  {
+    "name": "HiLCoE School of Computer Science and Technology",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/hilcoe.jpg",
+    "url": "https://hilcoe.net"
+  },
+  {
+    "name": "Med Innovations",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/med-innovations.jpeg",
+    "ulr": null
+  },
+  {
+    "name": "DevCrew",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/devcrew-logo.png",
+    "url": "https://devcrew.io"
+  },
+  {
+    "name": "Code Blue Computer Services",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/code-blue-computer-services.png",
+    "url": null
+  },
+  {
+    "name": "Ethiopian Airlines",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/ethiopian-logo.png",
+    "url": "https://www.ethiopianairlines.com"
+  },
+  {
+    "name": "Teknika Corp",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/tk-logo.png",
+    "url": "https://www.teknikacorp.com"
+  },
+  {
+    "name": "Softpositive",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/sp-logo.png",
+    "url": "https://www.softpositive.com"
+  },
+  {
+    "name": "Upwork",
+    "logo": "https://blog.rz-codes.com/wp-content/uploads/2023/05/upwork-logo.png",
+    "url": "https://www.upwork.com"
+  }
+]
