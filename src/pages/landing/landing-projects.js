@@ -64,9 +64,9 @@ const LandingProjects = () => {
                 </div>
                 <div className="col-span-full row-span-1">
                   <ul className="flex flex-row pl-2 align-self-end text-gray-600 overflow-x-scroll hide-scroll-bar">
-                    {project.tags.map(tag => {
+                    {project.tags.map((tag, idx) => {
                       return (
-                        <li className="py-1">
+                        <li key={idx + "__" + tag} className="py-1">
                           <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-yellow-200 text-gray-500 hover:text-red-800">
                             <a href="#!">{"#" + tag}</a>
                           </div>

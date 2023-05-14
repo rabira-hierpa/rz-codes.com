@@ -4,7 +4,7 @@ import AppCard from "./apps-card"
 import { Link } from "gatsby"
 
 const LandingApps = () => {
-  const AppsData = useStaticQuery(graphql`
+  const appsData = useStaticQuery(graphql`
     query {
       allAppsJson {
         nodes {
@@ -26,7 +26,7 @@ const LandingApps = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-stretch pt-5 ">
-        {AppsData.allAppsJson.nodes
+        {appsData.allAppsJson.nodes
           .filter((apps, idx) => {
             return idx < 3
           })
