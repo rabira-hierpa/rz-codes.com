@@ -11,8 +11,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     alt: post.featuredImage?.node?.altText || ``,
   }
 
-  console.log(featuredImage)
-
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
@@ -30,8 +28,12 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               {parse(post.title)}
             </h1>
 
-            <p className="py-2 ">Last updated - {post.date}</p>
+            <div className="flex flex-wrap space-x-10 py-2">
+              <span>Last updated - {post.date}</span>
+              <span>Author {`${post.author.node.name}`}</span>
+            </div>
 
+            <div className="border border-1 border-b-neutral-400 mb-5"></div>
             {!!featuredImage?.data && (
               <div className="py-10">
                 <img
@@ -42,9 +44,16 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               </div>
             )}
           </header>
-          {!!post.content && parse(post.content)}
+          {!!post.content && (
+            <section
+              itemProp="articleBody"
+              className="flex flex-wrap space-y-10 text-justify"
+            >
+              {parse(post.content)}
+            </section>
+          )}
 
-          <hr />
+          <hr className="py-5 mt-5" />
         </article>
 
         <nav className="pt-10  cursor-pointer">
