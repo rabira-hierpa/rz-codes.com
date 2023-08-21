@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 const AppCards = ({ apps }) => {
   return (
-    <div className="overflow-hidden shadow-md rounded-md hover:shadow-2xl duration-300 justify-self-stretch flex flex-col">
+    <div className="overflow-hidden shadow-md rounded-md hover:shadow-2xl duration-300 justify-self-stretch flex flex-col bg-white">
       <div className="h-36 w-full flex flex-col items-center justify-center overflow-hidden">
         <img
           loading="lazy"
