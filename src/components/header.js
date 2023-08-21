@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
         <div className="mt-3 text-red-600">Rz Codes</div>
       </Link>
     </div>
-    <label htmlFor="menu-toggle" className="pointer-cursor lg:hidden block">
+    <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">
       <svg
         className="fill-current text-gray-900"
         xmlns="http://www.w3.org/2000/svg"
@@ -30,9 +30,9 @@ const Header = ({ siteTitle }) => (
     </label>
     <input className="hidden" type="checkbox" id="menu-toggle" />
     <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-      <nav className="flex items-center ">
-        <ul className="lg:flex items-center space-x-4 pt-4 lg:pt-0">
-          <li>
+      <nav>
+        <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/blog"
@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => (
               Blog
             </Link>
           </li>
-          <li>
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/projects"
@@ -48,7 +48,7 @@ const Header = ({ siteTitle }) => (
               Projects
             </Link>
           </li>
-          <li>
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/apps"
@@ -56,7 +56,7 @@ const Header = ({ siteTitle }) => (
               Apps
             </Link>
           </li>
-          <li>
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/designs"
@@ -64,7 +64,7 @@ const Header = ({ siteTitle }) => (
               Designs
             </Link>
           </li>
-          <li>
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/my-journey"
@@ -72,7 +72,7 @@ const Header = ({ siteTitle }) => (
               My Journey
             </Link>
           </li>
-          <li>
+          <li className="py-2 lg:py-0 ">
             <Link
               className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
               to="/about"
