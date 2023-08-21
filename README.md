@@ -33,6 +33,9 @@ The source code of my portfolio site <a href="https://rz-codes.com" target="_bla
    Navigate into your new site’s directory and start it up.
 
    ```shell
+   # Copy the env file and fill in the env values
+   cp env.example .env
+   # Start the development server
    gatsby develop
    ```
 
