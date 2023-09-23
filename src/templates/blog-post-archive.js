@@ -38,20 +38,24 @@ const PageTemplate = ({
                 >
                   <article
                     itemScope
-                    className=""
+                    className="flex space-x-5"
                     itemType="http://schema.org/Article"
                   >
-                    <header>
-                      <h2 className="text-red-600 text-2xl">
-                        <Link to={post.uri} itemProp="url">
-                          <span itemProp="headline">{parse(title)}</span>
-                        </Link>
-                      </h2>
-                      <small className="flex justify-right">{post.date}</small>
-                    </header>
-                    <section itemProp="description">
-                      {parse(post.excerpt)}
-                    </section>
+                    <div className="flex flex-col">
+                      <header>
+                        <h2 className="text-red-600 text-4xl">
+                          <Link to={post.uri} itemProp="url">
+                            <span itemProp="headline">{parse(title)}</span>
+                          </Link>
+                        </h2>
+                        <small className="flex justify-right">
+                          {post.date}
+                        </small>
+                      </header>
+                      <section itemProp="description" className="text-lg">
+                        {parse(post.excerpt)}
+                      </section>
+                    </div>
                   </article>
                 </li>
               )
