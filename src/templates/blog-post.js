@@ -47,7 +47,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           {!!post.content && (
             <section
               itemProp="articleBody"
-              className="flex flex-wrap space-y-10 text-justify"
+              className="flex flex-wrap space-y-10 text-justify text-md md:text-lg"
             >
               {parse(post.content)}
             </section>
