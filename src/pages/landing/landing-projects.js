@@ -29,9 +29,9 @@ const LandingProjects = () => {
           return (
             <div
               key={`projects_${idx}`}
-              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5"
+              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5 bg-white"
             >
-              <div className="rounded-lg h-auto max-w-md p-2">
+              <div className="rounded-lg h-auto max-w-md p-2 ">
                 <img loading="lazy" alt={project.title} src={project.img} />
               </div>
               <div className="pr-5">
