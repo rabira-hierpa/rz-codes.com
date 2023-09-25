@@ -17,7 +17,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
       <div className="min-h-screen pt-10">
         <article
           itemScope
-          className="blog-post bg-white px-20 py-10"
+          className="blog-post bg-white px-5 py-0 md:px-20 md:py-10"
           itemType="http://schema.org/Article"
         >
           <header>
