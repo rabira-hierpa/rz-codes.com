@@ -1,49 +1,105 @@
 [
   {
+    "title": "SoundSite",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/soundsite.png",
+    "description": "SoundSite is a web app that gives contractors the power to quickly and easily predict, assess and manage noise and vibration impacts from construction work. It bridges the gap between acoustic modelling and actual works on site, saving valuable time.SoundSite streamlines approvals by avoiding the need to go back to the acoustic consultant every time changes are made to proposed works.",
+    "link": "",
+    "demo": "https://www.soundsite.io/",
+    "tags": ["React", "Material UI", "Firebase", "Mapbox"]
+  },
+  {
+    "title": "MarketPros",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/marketpros.png",
+    "description": "Each Marketpros Agent has been thoroughly screened via local references from recently closed deals and a secure background check. Marketpros Agents don't pay for your business, they've earned it!",
+    "link": "",
+    "demo": "https://www.marketpros.com/",
+    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"]
+  },
+  {
+    "title": "RubberDuck",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/rubberduck.png",
+    "description": "Rubberduck is your partner when it comes to tires. It handle everything from wheel changes and new tires to tire storage. And for those of you who don't want to bother with the hassle of tires, we offer tire rental. This means that you pay a fixed monthly amount, and in return you get rid of the hassle of your tires.We will take care of it.",
+    "demo": "https://www.rubberduck.dk/",
+    "link": "",
+    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"]
+  },
+  {
+    "title": "Presence Browser",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/presence-browser.png",
+    "description": "A decentralized browser overlay to experience the web like never before",
+    "link": "https://presencebrowser.com",
+    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  },
+  {
+    "title": "Bridger.Live",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2023/02/bridger-live.png",
+    "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
+    "link": "https://bridger.live",
+    "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  },
+  {
     "title": "Vere Italie",
-    "image": "../images/landing/veritalie-logo.jpg",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/veritalie-logo.jpg",
     "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
-    "link": ["https://vereitalie.it/"],
-    "demo": "",
+    "link": "",
+    "demo": "https://vereitalie.it/",
     "tags": ["MERN", "React", "Antd", "Loopback"]
   },
   {
+    "title": "Addis Tourist Guide",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/addis-tourist-guid.png",
+    "description": "Tourist guid app for foreigners who want to explore the culture and heritage of the long lived capital city of Africa - Addis Ababa. Features include navigation,location bookmark, searching for hotels, current location guid and attraction site locator",
+    "link": "https://github.com/rabira-hierpa/addis-tourist-map",
+    "demo": "",
+    "tags": ["React", "Express", "MongoDB"]
+  },
+  {
+    "title": "Tenant Management System",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/tenant-dashboard.png",
+    "description": "All In One Tenant management solution with built in support with incident and invoice management.Features include role-based UI, Incident Reporting, and Invoice Management",
+    "link": "https://github.com/YehualashetGit/tenant-management-system",
+    "demo": "https://www.youtube.com/watch?v=ZSMgqPOw5dw",
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+  },
+  {
     "title": "Project watchdog",
-    "image":"../images/landing/project-watchdog-thumbnail.jpg",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/project-watchdog-thumbnail.jpg",
     "description": "A project management system for the Addis Ababa University community with features including project progress,milestone and task classification,file sharing,chat,project archive and many more.",
-    "link": ["https://github.com/rabira-hierpa/project-watchdog/"],
+    "link": "https://github.com/rabira-hierpa/project-watchdog/",
     "demo": "https://youtu.be/kAUCX6LbpnY",
     "tags": ["MERN", "MDBootstrap", "Express"]
   },
   {
     "title": "Ethiopian E-Visa App",
-    "image":"../images/landing/evisa-logo.png",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/evisa-logo.png",
     "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
-    "link": ["https://www.evisa.gov.et"],
+    "link": "https://www.evisa.gov.et",
     "demo": "https://youtu.be/ivLMRdg-EJc",
     "tags": ["Xamarin", "MobileApp"]
   },
   {
     "title": "CS Notify",
-    "image":"../images/landing/cs-notify-logo.png",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/cs-notify-logo.png",
     "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
-    "link": ["https://github.com/rabira-hierpa/aau_notify"],
+    "link": "https://github.com/rabira-hierpa/aau_notify",
     "demo": "",
     "tags": ["Android Native", "PHP", "Bootstrap"]
   },
   {
     "title": "Mesobe Hasab",
-    "image":"../images/landing/mesobe-hasab-logo.png",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/mesobe-hasab-logo.png",
     "description": "A collection of Amharic Quotes from different sources.Made with flutter",
-    "link": ["https://github.com/rabira-hierpa/mesobe_hasab"],
+    "link": "https://github.com/rabira-hierpa/mesobe_hasab",
     "demo": "",
     "tags": ["Flutter", "Firebase", "GoogleAuth"]
   },
   {
     "title": "Design Rz",
-    "image":"../images/landing/design-rz.png",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/design-rz.png",
     "description": "A Flutter mobile app for the Graphics Design Course I took at Berehana Selam. It includes all the designs I made using the Adobe Suite(Photoshop, Illustrator and InDesign)",
-    "link": ["https://github.com/rabira-hierpa/design_rz"],
+    "link": "https://github.com/rabira-hierpa/design_rz",
     "demo": "",
     "tags": ["Flutter", "ImageGallery"]
   }

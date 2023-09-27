@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("http://fonts.cdnfonts.com/css/sofia-pro");
+@import url("https://fonts.cdnfonts.com/css/sofia-pro");
 
 #menu-toggle:checked + #menu {
   display: block;
@@ -11,10 +11,26 @@
 body {
   font-family: "Sofia Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
+  background-color: rgb(243, 243, 243);
 }
-.object-cover{
+.object-cover {
   object-fit: cover;
 }
 .backdrop-filter {
-    filter: brightness(.4) blur(4px);
+  filter: brightness(0.4) blur(4px);
+}
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+h2.wp-block-heading{
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+p{
+  font-size: 1 rem !important;
 }
