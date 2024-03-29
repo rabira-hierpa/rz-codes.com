@@ -2,10 +2,42 @@
   {
     "title": "SoundSite",
     "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/soundsite.png",
-    "description": "SoundSite is a web app that gives contractors the power to quickly and easily predict, assess and manage noise and vibration impacts from construction work. It bridges the gap between acoustic modelling and actual works on site, saving valuable time.SoundSite streamlines approvals by avoiding the need to go back to the acoustic consultant every time changes are made to proposed works.",
+    "description": "SoundSite leverages 3D acoustic modeling to predict noise levels from your project and assess the impact on nearby communities.  Make changes to your plans and see the impact on noise levels in real time, eliminating the need for time-consuming re-modeling by acoustic consultants.  SoundSite saves you time and money, while ensuring your project stays on schedule and within budget.",
     "link": "",
     "demo": "https://www.soundsite.io/",
     "tags": ["React", "Material UI", "Firebase", "Mapbox"]
+  },
+  {
+    "title": "SoundSurfer",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot-2024-03-28-at-4.50.55-in-the-afternoon.png",
+    "description": "SoundSurfer is an easy-to-use sound calculation tool that empowers consultants to create complex models without the need for spreadsheets. With SoundSurfer, you can drag and drop elements, connect them, and add notes and images to build a clear and comprehensive model.  SoundSurfer is built by consultants for consultants, so you can be sure it has the features you need to get the job done.",
+    "link": "",
+    "demo": "https://www.soundsurfer.io/",
+    "tags": ["React", "Material UI", "Firebase", "Mapbox"]
+  },
+  {
+    "title": "Cleos",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot_2024-03-28_at_4.52.30_in_the_afternoon-transformed.png",
+    "description": "Cleos Welt offers digital pet insurance plans that provide coverage for preventative care, accidents, and surgeries, giving pet owners peace of mind.  Their plans are designed for both dogs and cats, and Cleos Welt partners with other animal-related businesses to provide a well-rounded pet care experience.",
+    "link": "",
+    "demo": "https://www.cleoswelt.de/",
+    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"]
+  },
+  {
+    "title": "Fatch",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot-2024-03-28-at-4.52.14-in-the-afternoon.png",
+    "description": "Fatch allows you to connect with experts you need for your business, from marketing to design to development.Fatch use AI and knows what you need before you lack it. Fatch's platform makes it easy to find the right expert for your project, and their secure payment system ensures that you only pay for work that meets your standards.  Fatch is the perfect solution for businesses looking to grow and succeed.",
+    "link": "",
+    "demo": "https://staging.fatch.eu/",
+    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"]
+  },
+  {
+    "title": "KS/Aux",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot-2024-03-28-at-3.24.58-in-the-afternoon.png",
+    "description": " KS/AUXILIA offers a variety of legal insurance plans to give you the peace of mind you deserve. Whether you need help with a traffic accident, a contract dispute, or any other legal matter, KS/AUXILIA will be there to protect your rights. With our comprehensive coverage and experienced team of lawyers, you can rest assured that you're in good hands.",
+    "link": "",
+    "demo": "https://services.ks-axulia.de",
+    "tags": ["Ruby on Rails 7", "Tailwindcss", "GTag"]
   },
   {
     "title": "MarketPros",
@@ -41,7 +73,7 @@
   },
   {
     "title": "Vere Italie",
-    "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/veritalie-logo.jpg",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot_2024-03-29_at_10.56.14_in_the_morning-transformed.png",
     "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
     "link": "",
     "demo": "https://vereitalie.it/",
@@ -69,7 +101,7 @@
     "description": "A project management system for the Addis Ababa University community with features including project progress,milestone and task classification,file sharing,chat,project archive and many more.",
     "link": "https://github.com/rabira-hierpa/project-watchdog/",
     "demo": "https://youtu.be/kAUCX6LbpnY",
-    "tags": ["MERN", "MDBootstrap", "Express"]
+    "tags": ["React", "MDBootstrap", "Express", "MongoDB"]
   },
   {
     "title": "Ethiopian E-Visa App",
@@ -77,7 +109,7 @@
     "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
     "link": "https://www.evisa.gov.et",
     "demo": "https://youtu.be/ivLMRdg-EJc",
-    "tags": ["Xamarin", "MobileApp"]
+    "tags": ["Xamarin", "C#", ".NET", "MobileApp"]
   },
   {
     "title": "CS Notify",
@@ -85,7 +117,7 @@
     "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
     "link": "https://github.com/rabira-hierpa/aau_notify",
     "demo": "",
-    "tags": ["Android Native", "PHP", "Bootstrap"]
+    "tags": ["Android Native", "Java", "PHP", "Bootstrap"]
   },
   {
     "title": "Mesobe Hasab",

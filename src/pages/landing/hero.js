@@ -11,7 +11,7 @@ const Hero = () => {
             loading="lazy"
             placeholder="blurred"
             className="rounded-full border-2 border-grey-600 shadow-sm h-72 w-72"
-            src="https://blog.rz-codes.com/wp-content/uploads/2022/11/rabira-hierpa-web.jpg"
+            src="https://blog.rz-codes.com/wp-content/uploads/2024/03/profile-pic-2024.jpeg"
             alt="rzcodes"
           />
         </div>
