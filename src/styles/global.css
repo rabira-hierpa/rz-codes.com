@@ -9,8 +9,7 @@
 }
 
 body {
-  font-family: "Sofia Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
-    sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: rgb(243, 243, 243);
 }
 .object-cover {
@@ -27,10 +26,10 @@ body {
   display: none;
 }
 
-h2.wp-block-heading{
+h2.wp-block-heading {
   font-size: 2.5rem;
   line-height: 1.1;
 }
-p{
+p {
   font-size: 1 rem !important;
 }
