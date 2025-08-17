@@ -59,7 +59,12 @@ module.exports = {
           hardCacheMediaFiles: true,
           allow404Images: true,
         },
-        // Completely remove develop config to use defaults without background updating
+        // Completely remove develop config to prevent background refetcher
+        // develop: {
+        //   hardCacheMediaFiles: true,
+        //   hardCacheData: false,
+        //   nodeUpdateInterval: 0,
+        // },
         excludeFieldNames: [`blocksJSON`, `saveContent`],
         html: {
           fallbackImageMaxWidth: 800,
