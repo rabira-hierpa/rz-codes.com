@@ -21,8 +21,8 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
           previousPostId: previous ? previous.id : null,
           nextPostId: next ? next.id : null,
         },
-      })
-    )
+      }),
+    ),
   )
 
 async function createBlogPostArchive({ posts, gatsbyUtilities }) {
@@ -59,14 +59,14 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           previousPagePath: getPagePath(pageNumber - 1),
         },
       })
-    })
+    }),
   )
 }
 
 async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
-      allWpPost(sort: { fields: [date], order: DESC }) {
+      allWpPost(sort: { date: DESC }) {
         edges {
           previous {
             id
@@ -86,7 +86,7 @@ async function getPosts({ graphql, reporter }) {
   if (graphqlResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      graphqlResult.errors
+      graphqlResult.errors,
     )
     return
   }
