@@ -1,5 +1,5 @@
 import React from "react"
-import Truncate from "react-truncate"
+import { Truncate } from "@re-dev/react-truncate"
 import { Link } from "gatsby"
 
 const AppCards = ({ apps }) => {
