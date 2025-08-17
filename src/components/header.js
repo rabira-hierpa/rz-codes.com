@@ -23,7 +23,11 @@ const Header = ({ siteTitle }) => {
           <div className="mt-3 text-red-600">Rz Codes</div>
         </Link>
       </div>
-      <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">
+      <label
+        htmlFor="menu-toggle"
+        className="cursor-pointer lg:hidden block"
+        aria-label="Menu"
+      >
         <svg
           className="fill-current text-gray-900"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +40,10 @@ const Header = ({ siteTitle }) => {
         </svg>
       </label>
       <input className="hidden" type="checkbox" id="menu-toggle" />
-      <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+      <div
+        className="hidden lg:flex lg:items-center lg:w-auto w-full"
+        id="menu"
+      >
         <nav>
           <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
             <li className="py-2 lg:py-0 ">
@@ -91,7 +98,7 @@ const Header = ({ siteTitle }) => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
