@@ -9,7 +9,7 @@ const Projects = () => {
       <SEO title="Apps"></SEO>
       <div className="min-h-screen">
         <p className="text-7xl py-5 text-red-600">Apps</p>
-        <AppsHome/>
+        <AppsHome />
       </div>
     </Layout>
   )

@@ -46,7 +46,7 @@ const Designs = () => {
                       />
                     </div>
                   )
-                }
+                },
               )}
             </Masonry>
           </ResponsiveMasonry>

@@ -5,6 +5,7 @@ This directory contains all reusable UI components organized by category.
 ## Structure
 
 ### `/layout`
+
 Layout-related components that structure the page.
 
 - **Header/** - Site navigation header with menu
@@ -13,6 +14,7 @@ Layout-related components that structure the page.
 - **SEO/** - SEO meta tags component
 
 ### `/sections`
+
 Large page sections used across different pages.
 
 - **Hero/** - Landing page hero section
@@ -21,12 +23,14 @@ Large page sections used across different pages.
 - **DesignsSection/** - Design portfolio section
 
 ### `/ui`
+
 UI-specific components and widgets.
 
 - **ThemeToggle/** - Floating theme switcher button
 - **ComingSoon/** - Coming soon placeholder component
 
 ### `/common`
+
 Common reusable components (to be added as needed).
 
 Examples: Button, Card, Link, Input, etc.
@@ -44,6 +48,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle"
 ## Component Structure
 
 Each component folder contains:
+
 - `ComponentName.js` - The component file
 - `ComponentName.test.js` - Tests (if applicable)
 - `index.js` - Export file for clean imports
@@ -64,4 +69,3 @@ Each component folder contains:
 - Add PropTypes for type checking
 - Document complex props and usage
 - Write tests for critical functionality
-
