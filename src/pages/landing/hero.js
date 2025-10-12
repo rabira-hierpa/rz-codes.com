@@ -2,24 +2,64 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { TypeAnimation } from "react-type-animation"
 
+// Social media links array
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/rabira",
+    icon: "https://img.icons8.com/material-outlined/96/fa314a/linkedin--v1.png",
+    label: "LinkedIn Profile",
+  },
+  {
+    name: "GitHub",
+    url: "https://www.github.com/rabira-hierpa",
+    icon: "https://img.icons8.com/material-outlined/96/fa314a/github.png",
+    label: "GitHub Profile",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/rzcodes",
+    icon: "https://img.icons8.com/material-outlined/96/fa314a/twitter.png",
+    label: "Twitter Profile",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/rzcodes",
+    icon: "https://img.icons8.com/ios-filled/100/fa314a/facebook--v1.png",
+    label: "Facebook Page",
+  },
+  {
+    name: "DEV.to",
+    url: "https://dev.to/rabra_hierpa",
+    icon: "https://img.icons8.com/windows/96/fa314a/dev.png",
+    label: "DEV.to Profile",
+  },
+  {
+    name: "OpenStreetMap",
+    url: "https://www.openstreetmap.org/user/Rabira%20Hierpa",
+    icon: "https://img.icons8.com/ios-glyphs/90/fa314a/world-map.png",
+    label: "OpenStreetMap Profile",
+  },
+]
+
 const Hero = () => {
   return (
     <div className="flex flex-col">
       <div className="p-10 flex-grow">
-        <div className="rounded-full flex items-center justify-center ">
+        <div className="rounded-full flex items-center justify-center">
           <StaticImage
             loading="lazy"
             placeholder="blurred"
-            className="rounded-full border-2 border-grey-600 shadow-sm h-72 w-72"
+            className="rounded-full border-2 border-gray-600 dark:border-gray-400 shadow-sm h-72 w-72"
             src="https://blog.rz-codes.com/wp-content/uploads/2024/03/profile-pic-2024.jpeg"
             alt="rzcodes"
           />
         </div>
         <div className="text-center">
-          <div className=" font-extrabold text-6xl pt-5 text-yellow-600">
-            Hello !
+          <div className="font-extrabold text-6xl pt-5 text-secondary-600 dark:text-secondary-400">
+            Hey there!
           </div>
-          <div className="font-bold text-4xl py-5 text-red-600">
+          <div className="font-bold text-4xl py-5 text-primary-600 dark:text-primary-400">
             <TypeAnimation
               sequence={[
                 "I'm Rabra Hierpa ...",
@@ -38,87 +78,24 @@ const Hero = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col">
           <div className="flex justify-center space-x-3 md:space-x-5 pt-5">
-            <a
-              href="https://www.linkedin.com/in/rabira"
-              target="_blank"
-              rel="noreferrer"
-              style={{ cursor: "pointer" }}
-            >
-              <span>
+            {socialLinks.map(link => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={link.label}
+                className="transition-transform hover:scale-110 duration-200"
+              >
                 <img
                   className="h-8 w-8 md:h-10 md:w-10"
-                  src="https://img.icons8.com/material-outlined/96/fa314a/linkedin--v1.png"
-                  alt="Linkedin Icon"
+                  src={link.icon}
+                  alt={`${link.name} Icon`}
                 />
-              </span>
-            </a>
-            <a
-              href="https://www.github.com/rabira-hierpa"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                <img
-                  className="h-8 w-8 md:h-10 md:w-10 text-red-600"
-                  src="https://img.icons8.com/material-outlined/96/fa314a/github.png"
-                  alt="GitHub Icon"
-                />
-              </span>
-            </a>
-            <a
-              href="https://twitter.com/rzcodes"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                <img
-                  className="h-8 w-8 md:h-10 md:w-10"
-                  src="https://img.icons8.com/material-outlined/96/fa314a/twitter.png"
-                  alt="Twitter Icon"
-                />
-              </span>
-            </a>
-            <a
-              href="https://www.facebook.com/rzcodes"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                <img
-                  className="h-8 w-8 md:h-10 md:w-10"
-                  src="https://img.icons8.com/ios-filled/100/fa314a/facebook--v1.png"
-                  alt="Facebook Icon"
-                />
-              </span>
-            </a>
-            <a
-              href="https://dev.to/rabra_hierpa"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                <img
-                  className="h-8 w-8 md:h-10 md:w-10"
-                  src="https://img.icons8.com/windows/96/fa314a/dev.png"
-                  alt="DEV.to Icon"
-                />
-              </span>
-            </a>
-            <a
-              href="https://www.openstreetmap.org/user/Rabira%20Hierpa"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                <img
-                  className="h-8 w-8 md:h-10 md:w-10"
-                  src="https://img.icons8.com/ios-glyphs/90/fa314a/world-map.png"
-                  alt="OpenStreetMap Icon"
-                />
-              </span>
-            </a>
+              </a>
+            ))}
           </div>
         </div>
       </div>
