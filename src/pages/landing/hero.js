@@ -39,7 +39,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex flex-col ">
-          <div className="flex justify-center space-x-5 pt-5">
+          <div className="flex justify-center space-x-3 md:space-x-5 pt-5">
             <a
               href="https://www.linkedin.com/in/rabira"
               target="_blank"
@@ -48,7 +48,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12"
+                  className="h-8 w-8 md:h-10 md:w-10"
                   src="https://img.icons8.com/material-outlined/96/fa314a/linkedin--v1.png"
                   alt="Linkedin Icon"
                 />
@@ -61,7 +61,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12 text-red-600"
+                  className="h-8 w-8 md:h-10 md:w-10 text-red-600"
                   src="https://img.icons8.com/material-outlined/96/fa314a/github.png"
                   alt="GitHub Icon"
                 />
@@ -74,7 +74,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12"
+                  className="h-8 w-8 md:h-10 md:w-10"
                   src="https://img.icons8.com/material-outlined/96/fa314a/twitter.png"
                   alt="Twitter Icon"
                 />
@@ -87,7 +87,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12"
+                  className="h-8 w-8 md:h-10 md:w-10"
                   src="https://img.icons8.com/ios-filled/100/fa314a/facebook--v1.png"
                   alt="Facebook Icon"
                 />
@@ -100,7 +100,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12"
+                  className="h-8 w-8 md:h-10 md:w-10"
                   src="https://img.icons8.com/windows/96/fa314a/dev.png"
                   alt="DEV.to Icon"
                 />
@@ -113,7 +113,7 @@ const Hero = () => {
             >
               <span>
                 <img
-                  className="h-12 w-12"
+                  className="h-8 w-8 md:h-10 md:w-10"
                   src="https://img.icons8.com/ios-glyphs/90/fa314a/world-map.png"
                   alt="OpenStreetMap Icon"
                 />
