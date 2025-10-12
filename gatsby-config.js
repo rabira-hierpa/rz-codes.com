@@ -43,13 +43,21 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL,
-        verbose: true,
+        verbose: false,
         schema: {
-          //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
+          requestConcurrency: 2, // Further reduced to 2
+          previewRequestConcurrency: 1,
+          perPage: 3, // Further reduced to 3 items per page
+          timeout: 90000, // Increased timeout
+        },
+        develop: {
+          hardCacheMediaFiles: false,
+          hardCacheData: false,
+          nodeUpdateInterval: 300000, // Check for updates every 5 minutes instead of frequently
         },
         debug: {
-          preview: true,
+          preview: false,
           graphql: {
             showQueryVarsOnError: true,
           },
@@ -58,34 +66,29 @@ module.exports = {
           hardCacheMediaFiles: true,
           allow404Images: true,
         },
-        develop: {
-          hardCacheMediaFiles: true,
-          hardCacheData: false,
-          nodeUpdateInterval: 300,
-        },
-        excludeFieldNames: [`blocksJSON`, `saveContent`],
-        Post: {
-          limit:
-            process.env.NODE_ENV === `development`
-              ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-                50
-              : // and we don't actually need more than 5000 in production for this particular site
-                5000,
-        },
-        CoreParagraphBlockAttributesV2: {
-          exclude: true,
-        },
-
+        excludeFieldNames: [
+          `blocksJSON`,
+          `saveContent`,
+          `blocks`,
+          `contentParts`,
+        ],
         html: {
           fallbackImageMaxWidth: 800,
+          createStaticFiles: true,
+          useGatsbyImage: false,
         },
-      },
-      type: {
-        MediaItem: {
-          localFile: {
-            childImageSharp: {
-              fluid: true,
-            },
+        type: {
+          Post: {
+            limit: process.env.NODE_ENV === `development` ? 5 : 5000,
+          },
+          CoreParagraphBlockAttributesV2: {
+            exclude: true,
+          },
+          Comment: {
+            limit: 0,
+          },
+          UserRole: {
+            limit: 0,
           },
         },
       },

@@ -1,6 +1,23 @@
 const path = require(`path`)
 const chunk = require(`lodash/chunk`)
 
+// Hook to handle large content before LMDB storage
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  // Handle WordPress post content that might be too large
+  if (node.internal.type === "WpPost" && node.content) {
+    // Check if content is extremely large (> 500KB)
+    const contentSize = Buffer.byteLength(node.content, "utf8")
+    if (contentSize > 500000) {
+      console.warn(
+        `Large content detected for post: ${node.title} (${Math.round(contentSize / 1024)}KB)`,
+      )
+      // We'll still let it through but log it
+    }
+  }
+}
+
 exports.createPages = async gatsbyUtilities => {
   const posts = await getPosts(gatsbyUtilities)
   if (!posts.length) {
@@ -21,8 +38,8 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
           previousPostId: previous ? previous.id : null,
           nextPostId: next ? next.id : null,
         },
-      })
-    )
+      }),
+    ),
   )
 
 async function createBlogPostArchive({ posts, gatsbyUtilities }) {
@@ -59,14 +76,14 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           previousPagePath: getPagePath(pageNumber - 1),
         },
       })
-    })
+    }),
   )
 }
 
 async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
-      allWpPost(sort: { fields: [date], order: DESC }) {
+      allWpPost(sort: { date: DESC }) {
         edges {
           previous {
             id
@@ -86,7 +103,7 @@ async function getPosts({ graphql, reporter }) {
   if (graphqlResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      graphqlResult.errors
+      graphqlResult.errors,
     )
     return
   }
