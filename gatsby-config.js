@@ -46,8 +46,15 @@ module.exports = {
         verbose: false,
         schema: {
           typePrefix: `Wp`,
-          requestConcurrency: 5,
-          previewRequestConcurrency: 2,
+          requestConcurrency: 2, // Further reduced to 2
+          previewRequestConcurrency: 1,
+          perPage: 3, // Further reduced to 3 items per page
+          timeout: 90000, // Increased timeout
+        },
+        develop: {
+          hardCacheMediaFiles: false,
+          hardCacheData: false,
+          nodeUpdateInterval: 300000, // Check for updates every 5 minutes instead of frequently
         },
         debug: {
           preview: false,
@@ -59,23 +66,29 @@ module.exports = {
           hardCacheMediaFiles: true,
           allow404Images: true,
         },
-        // Completely remove develop config to prevent background refetcher
-        // develop: {
-        //   hardCacheMediaFiles: true,
-        //   hardCacheData: false,
-        //   nodeUpdateInterval: 0,
-        // },
-        excludeFieldNames: [`blocksJSON`, `saveContent`],
+        excludeFieldNames: [
+          `blocksJSON`,
+          `saveContent`,
+          `blocks`,
+          `contentParts`,
+        ],
         html: {
           fallbackImageMaxWidth: 800,
-          createStaticFiles: false,
+          createStaticFiles: true,
+          useGatsbyImage: false,
         },
         type: {
           Post: {
-            limit: process.env.NODE_ENV === `development` ? 20 : 5000,
+            limit: process.env.NODE_ENV === `development` ? 5 : 5000,
           },
           CoreParagraphBlockAttributesV2: {
             exclude: true,
+          },
+          Comment: {
+            limit: 0,
+          },
+          UserRole: {
+            limit: 0,
           },
         },
       },

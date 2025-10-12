@@ -4,10 +4,61 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import parse from "html-react-parser"
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+const BlogPostTemplate = ({
+  data: { previous, next, post, allWpMediaItem },
+}) => {
+  // Create a mapping of WordPress URLs to local file URLs
+  const imageMapping = {}
+  allWpMediaItem.nodes.forEach(media => {
+    if (media.sourceUrl && media.localFile?.publicURL) {
+      imageMapping[media.sourceUrl] = media.localFile.publicURL
+      // Also map the base URL without size suffix (e.g., -1024x578)
+      const baseUrl = media.sourceUrl.replace(
+        /-\d+x\d+(\.(png|jpg|jpeg|webp))$/i,
+        "$1",
+      )
+      imageMapping[baseUrl] = media.localFile.publicURL
+    }
+  })
+
+  // Custom parser to fix WordPress image URLs
+  const parseOptions = {
+    replace: domNode => {
+      if (domNode.name === "img" && domNode.attribs?.src) {
+        let src = domNode.attribs.src
+
+        // Check if this is a WordPress image
+        if (src.includes("blog.rz-codes.com/wp-content/uploads/")) {
+          // Try direct mapping first
+          if (imageMapping[src]) {
+            return (
+              <img
+                {...domNode.attribs}
+                src={imageMapping[src]}
+                alt={domNode.attribs.alt}
+              />
+            )
+          }
+
+          // Try without size suffix
+          const baseUrl = src.replace(/-\d+x\d+(\.(png|jpg|jpeg|webp))$/i, "$1")
+          if (imageMapping[baseUrl]) {
+            return (
+              <img
+                {...domNode.attribs}
+                src={imageMapping[baseUrl]}
+                alt={domNode.attribs.alt}
+              />
+            )
+          }
+        }
+      }
+    },
+  }
+
   const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
-    url: post.featuredImage?.node?.sourceUrl,
+    localUrl: post.featuredImage?.node?.localFile?.publicURL,
+    sourceUrl: post.featuredImage?.node?.sourceUrl,
     alt: post.featuredImage?.node?.altText || ``,
   }
 
@@ -34,11 +85,11 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
             </div>
 
             <div className="border border-1 border-b-neutral-400 mb-5"></div>
-            {!!featuredImage?.data && (
+            {(featuredImage?.localUrl || featuredImage?.sourceUrl) && (
               <div className="py-10">
                 <img
                   loading="lazy"
-                  src={featuredImage.url}
+                  src={featuredImage.localUrl || featuredImage.sourceUrl}
                   alt={featuredImage.alt}
                 />
               </div>
@@ -49,7 +100,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               itemProp="articleBody"
               className="flex flex-wrap space-y-10 text-justify text-md md:text-lg"
             >
-              {parse(post.content)}
+              {parse(post.content, parseOptions)}
             </section>
           )}
 
@@ -88,6 +139,14 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
+    allWpMediaItem {
+      nodes {
+        sourceUrl
+        localFile {
+          publicURL
+        }
+      }
+    }
     post: wpPost(id: { eq: $id }) {
       id
       excerpt
@@ -117,6 +176,7 @@ export const pageQuery = graphql`
           altText
           sourceUrl
           localFile {
+            publicURL
             childImageSharp {
               fluid(maxWidth: 600) {
                 ...GatsbyImageSharpFluid
