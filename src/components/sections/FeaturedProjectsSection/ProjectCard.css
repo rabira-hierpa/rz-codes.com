@@ -1,0 +1,63 @@
+/* Project Card Hover Animations */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated line that draws from left to right on hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #facc15, #dc2626);
+  transition: width 0.6s ease-out;
+  z-index: 10;
+}
+
+.project-card:hover::before {
+  width: 100%;
+}
+
+/* Glowing border animation - Yellow glow (first card) */
+.project-card-glow-0:hover {
+  border-color: #facc15;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.5), 0 0 40px rgba(250, 204, 21, 0.3);
+}
+
+/* Glowing border animation - Orange-Yellow glow (second card) */
+.project-card-glow-1:hover {
+  border-color: #fb923c;
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3);
+}
+
+/* Glowing border animation - Red glow (third card) */
+.project-card-glow-2:hover {
+  border-color: #dc2626;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.5), 0 0 40px rgba(220, 38, 38, 0.3);
+}
+
+/* Dark mode adjustments */
+.dark .project-card-glow-0:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.6), 0 0 50px rgba(251, 191, 36, 0.4);
+}
+
+.dark .project-card-glow-1:hover {
+  border-color: #f97316;
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.6), 0 0 50px rgba(249, 115, 22, 0.4);
+}
+
+.dark .project-card-glow-2:hover {
+  border-color: #ef4444;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.6), 0 0 50px rgba(239, 68, 68, 0.4);
+}
+
+/* Smooth transition for all border and shadow changes */
+.project-card {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+

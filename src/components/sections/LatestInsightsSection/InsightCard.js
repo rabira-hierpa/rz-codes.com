@@ -64,7 +64,7 @@ export const InsightCard = ({
             loading="lazy"
           />
           {/* Category Badge */}
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 right-4">
             <span
               className={`px-3 py-1 text-xs font-bold text-white rounded-full shadow-md ${getBadgeColor(categoryTag)}`}
             >
