@@ -1,0 +1,98 @@
+/* Design Card Animations */
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.design-card {
+  animation: slideInScale 0.6s ease-out forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect overlay */
+.design-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.design-card:hover::after {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+/* Pulse animation for view icon */
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.design-card:hover .bg-white\/90 {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Staggered fade-in for grid */
+.design-card:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.design-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.design-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.design-card:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.design-card:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+.design-card:nth-child(6) {
+  animation-delay: 500ms;
+}
+
+/* Smooth border radius transition */
+.design-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D lift effect on hover */
+.design-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode adjustments */
+.dark .design-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
