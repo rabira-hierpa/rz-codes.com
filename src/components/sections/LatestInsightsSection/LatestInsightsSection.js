@@ -36,10 +36,10 @@ export const LatestInsightsSection = () => {
   const posts = data.allWpPost.nodes
 
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-20 bg-background-light dark:bg-background-dark transition-colors">
+    <section className="py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-text-light dark:text-text-dark">
           Latest Insights
         </h2>
 
@@ -54,7 +54,7 @@ export const LatestInsightsSection = () => {
         <div className="flex justify-center">
           <Link
             to="/blog"
-            className="px-8 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="px-8 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             View All Posts
           </Link>
@@ -63,4 +63,3 @@ export const LatestInsightsSection = () => {
     </section>
   )
 }
-

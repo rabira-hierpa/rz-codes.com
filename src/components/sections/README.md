@@ -18,9 +18,11 @@ sections/
 ## 🎨 New Sections
 
 ### ExpertiseSection
+
 **Purpose**: Displays professional expertise areas with icons and descriptions.
 
 **Features**:
+
 - ✅ Two expertise cards (GIS Development & Web Development)
 - ✅ SVG icons (Heroicons-inspired)
 - ✅ Responsive grid layout
@@ -28,11 +30,13 @@ sections/
 - ✅ Hover animations
 
 **Components**:
+
 - `ExpertiseSection.js` - Main container
 - `ExpertiseCard.js` - Individual expertise card
 - `index.js` - Barrel export
 
 **Props** (`ExpertiseCard`):
+
 - `icon` (ReactNode) - SVG icon component
 - `title` (string) - Expertise title
 - `description` (string) - Detailed description
@@ -41,9 +45,11 @@ sections/
 ---
 
 ### FeaturedProjectsSection
+
 **Purpose**: Showcases a curated selection of featured projects from apps and GIS projects.
 
 **Features**:
+
 - ✅ GraphQL data fetching from `apps.json` and `projects.json`
 - ✅ 3-column responsive grid
 - ✅ Project type badges (GIS/Web)
@@ -52,11 +58,13 @@ sections/
 - ✅ Truncated descriptions (150 chars)
 
 **Components**:
+
 - `FeaturedProjectsSection.js` - Main container with GraphQL query
 - `ProjectCard.js` - Individual project card
 - `index.js` - Barrel export
 
 **GraphQL Query**:
+
 ```graphql
 query FeaturedProjectsQuery {
   appsData: allAppsJson(limit: 2) {
@@ -82,6 +90,7 @@ query FeaturedProjectsQuery {
 ```
 
 **Props** (`ProjectCard`):
+
 - `title` (string) - Project title
 - `description` (string) - Project description
 - `image` (string) - Thumbnail image URL
@@ -92,9 +101,11 @@ query FeaturedProjectsQuery {
 ---
 
 ### LatestInsightsSection
+
 **Purpose**: Displays the latest blog posts from WordPress.
 
 **Features**:
+
 - ✅ GraphQL data fetching from WordPress
 - ✅ 3 most recent posts
 - ✅ Featured images with placeholder fallback
@@ -104,11 +115,13 @@ query FeaturedProjectsQuery {
 - ✅ Date formatting
 
 **Components**:
+
 - `LatestInsightsSection.js` - Main container with GraphQL query
 - `InsightCard.js` - Individual blog post card
 - `index.js` - Barrel export
 
 **GraphQL Query**:
+
 ```graphql
 query LatestInsightsQuery {
   allWpPost(sort: { date: DESC }, limit: 3) {
@@ -135,6 +148,7 @@ query LatestInsightsQuery {
 ```
 
 **Props** (`InsightCard`):
+
 - `title` (string) - Post title
 - `excerpt` (string) - Post excerpt (HTML)
 - `uri` (string) - Post URI/slug
@@ -143,6 +157,7 @@ query LatestInsightsQuery {
 - `featuredImage` (object) - Featured image object
 
 **Category Colors**:
+
 - GIS: Yellow
 - Web Dev: Red (Primary)
 - Database: Red
@@ -153,25 +168,30 @@ query LatestInsightsQuery {
 ## 🎯 SOLID Principles Applied
 
 ### Single Responsibility Principle (SRP)
+
 - Each component has one clear purpose
 - Separate files for main containers and individual cards
 - GraphQL queries are colocated with their components
 
 ### Open/Closed Principle (OCP)
+
 - Components are extensible through props
 - New sections can be added without modifying existing code
 - Data structure changes don't affect component logic
 
 ### Liskov Substitution Principle (LSP)
+
 - All card components follow similar interfaces
 - Components can be composed and replaced easily
 
 ### Interface Segregation Principle (ISP)
+
 - Clean, minimal prop interfaces
 - No forced dependencies on unused props
 - PropTypes validation for type safety
 
 ### Dependency Inversion Principle (DIP)
+
 - Components depend on abstractions (props)
 - No direct dependencies on data sources
 - GraphQL queries abstracted behind hooks
@@ -181,6 +201,7 @@ query LatestInsightsQuery {
 ## 🎨 Design Patterns
 
 ### Component Composition
+
 ```javascript
 <ExpertiseSection>
   <ExpertiseCard />
@@ -189,12 +210,14 @@ query LatestInsightsQuery {
 ```
 
 ### Data Fetching Pattern
+
 ```javascript
 const data = useStaticQuery(graphql`...`)
 // Transform and render
 ```
 
 ### Barrel Exports
+
 ```javascript
 export { SectionContainer } from "./SectionContainer"
 export { CardComponent } from "./CardComponent"
@@ -229,12 +252,14 @@ const Landing = () => {
 ## 🎨 Styling
 
 All sections use:
+
 - **Tailwind CSS** for utility-first styling
 - **Theme-aware colors** via custom color palette
 - **Responsive design** (mobile-first approach)
 - **Smooth transitions** and hover effects
 
 ### Theme Colors
+
 - `primary-*` - Red shades (600 for light, 400 for dark)
 - `secondary-*` - Yellow shades (400 for light, 300 for dark)
 - `background-light/dark` - Page backgrounds
@@ -256,6 +281,7 @@ All sections use:
 ## 🔧 Configuration
 
 Ensure `gatsby-config.js` includes:
+
 ```javascript
 {
   resolve: `gatsby-source-filesystem`,
@@ -288,4 +314,3 @@ Ensure `gatsby-config.js` includes:
 - Text truncation ensures consistent card heights
 - Placeholder images for missing featured images
 - All sections follow the established color theme
-
