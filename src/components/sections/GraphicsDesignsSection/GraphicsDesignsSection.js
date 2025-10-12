@@ -46,7 +46,7 @@ export const GraphicsDesignsSection = () => {
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-600 dark:to-primary-400"></div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-light dark:text-text-dark group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
-              Graphics Design Portfolio
+              Graphics Design
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Visual storytelling through creative design - where imagination
