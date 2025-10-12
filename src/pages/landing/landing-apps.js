@@ -21,7 +21,7 @@ const LandingApps = () => {
   `)
   return (
     <div className="py-10 md:py-0">
-      <div className="text-4xl font-bold text-red-600 text-center ">
+      <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 text-center ">
         Web/Mobile Apps
       </div>
 
