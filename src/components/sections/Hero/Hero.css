@@ -1,0 +1,257 @@
+/* Hero Container */
+.hero-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Dark mode adjustments */
+:global(.dark) .hero-container {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+/* Rotating Earth Container */
+.rotating-earth-container {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.earth-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Main Earth Sphere */
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.earth-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    #1e3a5f 0%, 
+    #2c5f8d 25%, 
+    #1e7a9e 50%, 
+    #2c5f8d 75%, 
+    #1e3a5f 100%
+  );
+  box-shadow: 
+    inset -40px -40px 80px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 60px rgba(100, 180, 255, 0.3),
+    0 0 80px rgba(30, 122, 158, 0.4),
+    0 0 120px rgba(30, 122, 158, 0.2);
+  animation: rotate 20s linear infinite;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Continents Overlay */
+.continents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: 
+    radial-gradient(ellipse 80px 100px at 30% 40%, #2d5a2d 40%, transparent 50%),
+    radial-gradient(ellipse 60px 80px at 70% 30%, #2d5a2d 40%, transparent 50%),
+    radial-gradient(ellipse 100px 120px at 20% 70%, #2d5a2d 40%, transparent 50%),
+    radial-gradient(ellipse 90px 110px at 65% 65%, #2d5a2d 40%, transparent 50%),
+    radial-gradient(ellipse 70px 90px at 85% 50%, #2d5a2d 40%, transparent 50%);
+  opacity: 0.8;
+  animation: continentsRotate 20s linear infinite;
+}
+
+/* Atmosphere Glow */
+.atmosphere {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    transparent 60%, 
+    rgba(100, 180, 255, 0.2) 70%,
+    rgba(100, 180, 255, 0.4) 80%,
+    transparent 90%
+  );
+  animation: atmospherePulse 4s ease-in-out infinite;
+}
+
+/* Orbit Rings */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid rgba(218, 80, 73, 0.3);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.orbit-1 {
+  width: 110%;
+  height: 110%;
+  transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg);
+  animation: orbitRotate1 8s linear infinite;
+}
+
+.orbit-2 {
+  width: 125%;
+  height: 125%;
+  transform: translate(-50%, -50%) rotateX(75deg) rotateZ(60deg);
+  animation: orbitRotate2 12s linear infinite;
+}
+
+/* Satellites */
+.satellite {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #DA5049, #f39c12);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(218, 80, 73, 0.8),
+    0 0 40px rgba(218, 80, 73, 0.4);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: satellitePulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes continentsRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+@keyframes atmospherePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes orbitRotate1 {
+  from {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitRotate2 {
+  from {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(60deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(420deg);
+  }
+}
+
+@keyframes satellitePulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .rotating-earth-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rotating-earth-container {
+    max-width: 300px;
+  }
+  
+  .satellite {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Add subtle particles effect */
+.earth-wrapper::before,
+.earth-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: particle 8s ease-in-out infinite;
+}
+
+.earth-wrapper::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.earth-wrapper::after {
+  top: 70%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+@keyframes particle {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-30px) scale(1.5);
+  }
+}
+
