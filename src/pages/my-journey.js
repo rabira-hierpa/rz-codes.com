@@ -8,7 +8,7 @@ const MyJourney = () => {
       <SEO title="My Journey"></SEO>
       <div className="min-h-screen">
         <p className="text-9xl text-red-600 pt-5">My Journey!</p>
-        <ComingSoon/>
+        <ComingSoon />
       </div>
     </Layout>
   )
