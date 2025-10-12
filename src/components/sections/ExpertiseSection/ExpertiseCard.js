@@ -14,16 +14,19 @@ import PropTypes from "prop-types"
 export const ExpertiseCard = ({ icon, title, description, color }) => {
   return (
     <div className="flex flex-col items-center text-center p-8 bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
-      {/* Icon */}
-      <div className={`mb-6 ${color}`}>{icon}</div>
+      <div className="flex gap-4">
+        {/* Icon */}
+        <div className={`mb-6 ${color}`}>{icon}</div>
 
-      {/* Title */}
-      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-text-light dark:text-text-dark">
-        {title}
-      </h3>
+        {/* Title */}
+        {/* follow the icon color for the title also */}
+        <h3 className={`text-lg md:text-xl font-bold mt-2  ${color}`}>
+          {title}
+        </h3>
+      </div>
 
       {/* Description */}
-      <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+      <p className="text-base text-text-light dark:text-text-dark leading-relaxed">
         {description}
       </p>
     </div>

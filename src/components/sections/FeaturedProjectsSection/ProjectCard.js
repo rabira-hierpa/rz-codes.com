@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import "./ProjectCard.css"
 
 /**
  * ProjectCard Component
@@ -12,6 +13,7 @@ import PropTypes from "prop-types"
  * @param {Array<string>} props.tags - Project technology tags
  * @param {string} props.type - Project type (gis or web)
  * @param {React.ReactNode} props.icon - Icon component
+ * @param {number} props.index - Card index for glow color variation
  */
 export const ProjectCard = ({
   title,
@@ -20,6 +22,7 @@ export const ProjectCard = ({
   tags,
   type,
   icon,
+  index = 0,
 }) => {
   const truncatedDescription =
     description.length > 150
@@ -27,7 +30,7 @@ export const ProjectCard = ({
       : description
 
   return (
-    <div className="bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700">
+    <div className={`project-card project-card-glow-${index} bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-2 flex flex-col border border-gray-100 dark:border-gray-700`}>
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
         <img
@@ -85,4 +88,5 @@ ProjectCard.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   type: PropTypes.oneOf(["gis", "web"]).isRequired,
   icon: PropTypes.node.isRequired,
+  index: PropTypes.number,
 }
