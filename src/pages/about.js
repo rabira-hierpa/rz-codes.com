@@ -1,6 +1,6 @@
 import React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Layout } from "../components/layout/Layout"
+import { SEO } from "../components/layout/SEO"
 import { graphql, useStaticQuery } from "gatsby"
 
 const About = () => {
@@ -18,7 +18,7 @@ const About = () => {
   `)
   return (
     <Layout>
-      <Seo title="About"></Seo>
+      <SEO title="About"></SEO>
       <div className="min-h-screen">
         <p className="text-9xl text-primary-600 dark:text-primary-400 mt-5">
           About Me!

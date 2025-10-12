@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Seo from "../components/seo"
-import Layout from "../components/layout"
+import { SEO } from "../../components/layout/SEO"
+import { Layout } from "../../components/layout/Layout"
 import parse from "html-react-parser"
 
 const BlogPostTemplate = ({
@@ -64,7 +64,7 @@ const BlogPostTemplate = ({
 
   return (
     <Layout>
-      <Seo title={post.title} description={post.excerpt} />
+      <SEO title={post.title} description={post.excerpt} />
       <div className="min-h-screen pt-10">
         <article
           itemScope

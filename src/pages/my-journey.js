@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import ComingSoon from "../utils/coming-soon"
+import { Layout } from "../components/layout/Layout"
+import { SEO } from "../components/layout/SEO"
+import { ComingSoon } from "../components/ui/ComingSoon"
 const MyJourney = () => {
   return (
     <Layout>
-      <Seo title="My Journey"></Seo>
+      <SEO title="My Journey"></SEO>
       <div className="min-h-screen">
         <p className="text-9xl text-red-600 pt-5">My Journey!</p>
         <ComingSoon/>

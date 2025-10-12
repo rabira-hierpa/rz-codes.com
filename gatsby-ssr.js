@@ -5,7 +5,7 @@
  */
 
 import React from "react"
-import { ThemeProvider } from "./src/context/theme-context"
+import { ThemeProvider } from "./src/context/ThemeContext"
 
 // Wrap the entire app with ThemeProvider for SSR
 export const wrapRootElement = ({ element }) => {
