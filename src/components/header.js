@@ -1,6 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 import RzCodesLogo from "../images/logo.svg"
+
+// Menu items array
+const menuItems = [
+  { path: "/blog", label: "Blog" },
+  { path: "/projects", label: "Projects" },
+  { path: "/apps", label: "Apps" },
+  { path: "/designs", label: "Designs" },
+  { path: "/my-journey", label: "My Journey" },
+  { path: "/about", label: "About" },
+]
 
 /**
  * Represents the header section of a website.
@@ -8,7 +19,14 @@ import RzCodesLogo from "../images/logo.svg"
  * @param {string} props.siteTitle - The title of the website.
  * @returns {JSX.Element} The rendered header section of the website.
  */
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle: _siteTitle }) => {
+  const location = useLocation()
+  
+  // Helper function to check if a path is active
+  const isActive = (path) => {
+    return location.pathname.startsWith(path)
+  }
+
   return (
     <header className="lg:px-16 px-6 bg-white shadow-md flex flex-wrap items-center lg:py-0 py-2">
       <div className="flex-1 flex justify-between items-center">
@@ -45,55 +63,19 @@ const Header = ({ siteTitle }) => {
         id="menu"
       >
         <nav>
-          <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/blog"
-              >
-                Blog
-              </Link>
-            </li>
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/projects"
-              >
-                Projects
-              </Link>
-            </li>
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/apps"
-              >
-                Apps
-              </Link>
-            </li>
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/designs"
-              >
-                Designs
-              </Link>
-            </li>
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/my-journey"
-              >
-                My Journey
-              </Link>
-            </li>
-            <li className="py-2 lg:py-0 ">
-              <Link
-                className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                to="/about"
-              >
-                About
-              </Link>
-            </li>
+          <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex lg:pt-0">
+            {menuItems.map((item) => (
+              <li key={item.path} className="py-2 lg:py-0">
+                <Link
+                  className={`text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400 ${
+                    isActive(item.path) ? "pb-4 border-b-4 border-yellow-400" : ""
+                  }`}
+                  to={item.path}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
