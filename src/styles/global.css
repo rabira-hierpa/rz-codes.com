@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.cdnfonts.com/css/sofia-pro");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 #menu-toggle:checked + #menu {
   display: block;
 }
 
 body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family:
+    "Poppins", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: rgb(243, 243, 243);
 }
 .object-cover {

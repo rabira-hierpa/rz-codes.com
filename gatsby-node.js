@@ -1,6 +1,23 @@
 const path = require(`path`)
 const chunk = require(`lodash/chunk`)
 
+// Hook to handle large content before LMDB storage
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  // Handle WordPress post content that might be too large
+  if (node.internal.type === "WpPost" && node.content) {
+    // Check if content is extremely large (> 500KB)
+    const contentSize = Buffer.byteLength(node.content, "utf8")
+    if (contentSize > 500000) {
+      console.warn(
+        `Large content detected for post: ${node.title} (${Math.round(contentSize / 1024)}KB)`,
+      )
+      // We'll still let it through but log it
+    }
+  }
+}
+
 exports.createPages = async gatsbyUtilities => {
   const posts = await getPosts(gatsbyUtilities)
   if (!posts.length) {
