@@ -3,6 +3,28 @@ import { ExpertiseCard } from "./ExpertiseCard"
 
 const expertiseData = [
   {
+    id: "web-development",
+    title: "Web Development",
+    icon: (
+      <svg
+        className="w-12 h-12"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+        />
+      </svg>
+    ),
+    description:
+      "Building modern, responsive web applications with cutting-edge technologies to deliver seamless user experiences and powerful functionality.",
+    color: "text-primary-600 dark:text-primary-400",
+  },
+  {
     id: "gis-development",
     title: "GIS Development",
     icon: (
@@ -29,28 +51,6 @@ const expertiseData = [
     description:
       "Specialized in creating interactive mapping solutions, spatial analysis tools, and location-based services that transform complex geographical data into actionable insights.",
     color: "text-yellow-600 dark:text-yellow-400",
-  },
-  {
-    id: "web-development",
-    title: "Web Development",
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-    ),
-    description:
-      "Building modern, responsive web applications with cutting-edge technologies to deliver seamless user experiences and powerful functionality.",
-    color: "text-primary-600 dark:text-primary-400",
   },
 ]
 
