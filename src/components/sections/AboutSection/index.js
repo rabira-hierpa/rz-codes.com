@@ -1,0 +1,5 @@
+export { AboutHero } from "./AboutHero"
+export { AboutStory } from "./AboutStory"
+export { WorkExperience } from "./WorkExperience"
+export { CompanyShowcase } from "./CompanyShowcase"
+export { ContactForm } from "./ContactForm"
