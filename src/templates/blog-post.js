@@ -68,23 +68,23 @@ const BlogPostTemplate = ({
       <div className="min-h-screen pt-10">
         <article
           itemScope
-          className="blog-post bg-white px-5 py-0 md:px-20 md:py-10"
+          className="blog-post bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark transition-colors px-5 py-0 md:px-20 md:py-10 rounded-lg"
           itemType="http://schema.org/Article"
         >
           <header>
             <h1
               itemProp="headline"
-              className="text-2xl md:text-5xl font-semibold text-red-600 py-5 text-center "
+              className="text-2xl md:text-5xl font-semibold text-primary-600 dark:text-primary-400 py-5 text-center"
             >
               {parse(post.title)}
             </h1>
 
-            <div className="flex flex-wrap space-x-10 py-2">
+            <div className="flex flex-wrap space-x-10 py-2 text-gray-600 dark:text-gray-400">
               <span>Last updated - {post.date}</span>
               <span>Author {`${post.author.node.name}`}</span>
             </div>
 
-            <div className="border border-1 border-b-neutral-400 mb-5"></div>
+            <div className="border border-1 border-b-neutral-400 dark:border-b-neutral-600 mb-5"></div>
             {(featuredImage?.localUrl || featuredImage?.sourceUrl) && (
               <div className="py-10">
                 <img
@@ -104,12 +104,12 @@ const BlogPostTemplate = ({
             </section>
           )}
 
-          <hr className="py-5 mt-5" />
+          <hr className="py-5 mt-5 border-neutral-400 dark:border-neutral-600" />
         </article>
 
-        <nav className="pt-10  cursor-pointer">
+        <nav className="pt-10 cursor-pointer">
           <ul className="flex flex-wrap justify-between list-none p-0">
-            <li className="hover:text-red-600">
+            <li className="hover:text-primary-600 dark:hover:text-primary-400 text-secondary-600 dark:text-secondary-400 transition-colors">
               {previous && (
                 <Link to={previous.uri} rel="prev">
                   ← {parse(previous.title)}
@@ -117,7 +117,7 @@ const BlogPostTemplate = ({
               )}
             </li>
 
-            <li className="hover:text-red-600">
+            <li className="hover:text-primary-600 dark:hover:text-primary-400 text-secondary-600 dark:text-secondary-400 transition-colors">
               {next && (
                 <Link to={next.uri} rel="next">
                   {parse(next.title)} →
