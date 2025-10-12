@@ -71,7 +71,7 @@
   position: relative;
 }
 
-/* Continents Overlay - More realistic landmasses */
+/* Continents Overlay - Realistic continent shapes */
 .continents {
   position: absolute;
   top: 0;
@@ -80,54 +80,70 @@
   height: 100%;
   border-radius: 50%;
   background-image:
-    /* Africa */
-    radial-gradient(
-      ellipse 100px 140px at 42% 50%,
-      #2d5a2d 30%,
-      #3d6a3d 40%,
-      transparent 55%
-    ),
-    /* Americas */
-      radial-gradient(
-        ellipse 70px 160px at 15% 40%,
-        #2d5a2d 30%,
-        #3d6a3d 40%,
-        transparent 55%
-      ),
-    /* Europe */
-      radial-gradient(
-        ellipse 60px 50px at 45% 30%,
-        #2d5a2d 35%,
-        #3d6a3d 45%,
-        transparent 60%
-      ),
-    /* Asia */
-      radial-gradient(
-        ellipse 110px 100px at 65% 35%,
-        #2d5a2d 30%,
-        #3d6a3d 40%,
-        transparent 55%
-      ),
-    /* Australia */
-      radial-gradient(
-        ellipse 50px 40px at 75% 65%,
-        #2d5a2d 35%,
-        #3d6a3d 45%,
-        transparent 60%
-      ),
-    /* Additional landmasses */
-      radial-gradient(
-        ellipse 40px 30px at 20% 25%,
-        #2d5a2d 40%,
-        transparent 60%
-      ),
-    radial-gradient(ellipse 35px 25px at 85% 50%, #2d5a2d 40%, transparent 60%);
-  opacity: 0.9;
+    /* AFRICA - narrow top, wide middle, tapering bottom */
+    radial-gradient(ellipse 45px 35px at 48% 38%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 55px 50px at 47% 46%, #347a34 40%, transparent 50%),
+    radial-gradient(ellipse 60px 55px at 46% 52%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 50px 45px at 48% 58%, #347a34 40%, transparent 50%),
+    radial-gradient(ellipse 35px 30px at 50% 64%, #2d5a2d 45%, transparent 55%),
+    /* Madagascar */
+    radial-gradient(ellipse 10px 20px at 52% 60%, #2d5a2d 50%, transparent 60%),
+    
+    /* NORTH AMERICA - irregular shape */
+    radial-gradient(ellipse 40px 35px at 18% 32%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 50px 45px at 16% 38%, #347a34 40%, transparent 50%),
+    radial-gradient(ellipse 45px 50px at 14% 45%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 35px 40px at 12% 52%, #347a34 40%, transparent 50%),
+    /* Central America */
+    radial-gradient(ellipse 20px 25px at 10% 58%, #2d5a2d 50%, transparent 60%),
+    
+    /* SOUTH AMERICA - triangular shape */
+    radial-gradient(ellipse 35px 40px at 20% 60%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 40px 45px at 19% 66%, #347a34 40%, transparent 50%),
+    radial-gradient(ellipse 35px 40px at 18% 72%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 25px 30px at 20% 78%, #347a34 45%, transparent 55%),
+    
+    /* EUROPE - smaller, irregular */
+    radial-gradient(ellipse 40px 30px at 48% 28%, #2d5a2d 50%, transparent 60%),
+    radial-gradient(ellipse 35px 25px at 50% 32%, #347a34 45%, transparent 55%),
+    /* Scandinavia */
+    radial-gradient(ellipse 20px 30px at 52% 24%, #2d5a2d 50%, transparent 60%),
+    /* Iberian Peninsula */
+    radial-gradient(ellipse 20px 15px at 44% 34%, #347a34 50%, transparent 60%),
+    
+    /* ASIA - large complex landmass */
+    radial-gradient(ellipse 60px 45px at 62% 28%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 70px 50px at 66% 34%, #347a34 40%, transparent 50%),
+    radial-gradient(ellipse 65px 55px at 68% 40%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 55px 50px at 70% 46%, #347a34 40%, transparent 50%),
+    /* India */
+    radial-gradient(ellipse 30px 35px at 64% 52%, #2d5a2d 50%, transparent 60%),
+    /* Southeast Asia */
+    radial-gradient(ellipse 35px 30px at 70% 54%, #347a34 45%, transparent 55%),
+    /* Japan */
+    radial-gradient(ellipse 15px 25px at 76% 38%, #2d5a2d 50%, transparent 60%),
+    
+    /* AUSTRALIA */
+    radial-gradient(ellipse 45px 35px at 78% 68%, #2d5a2d 45%, transparent 55%),
+    radial-gradient(ellipse 40px 30px at 80% 70%, #347a34 45%, transparent 55%),
+    
+    /* GREENLAND */
+    radial-gradient(ellipse 30px 35px at 24% 18%, #2d5a2d 50%, transparent 60%),
+    
+    /* NEW ZEALAND */
+    radial-gradient(ellipse 12px 20px at 86% 76%, #2d5a2d 50%, transparent 60%),
+    
+    /* Additional islands and details */
+    radial-gradient(ellipse 15px 12px at 34% 60%, #347a34 50%, transparent 60%),
+    radial-gradient(ellipse 12px 15px at 88% 50%, #2d5a2d 50%, transparent 60%);
+    
+  opacity: 0.85;
   animation: continentsMove 30s linear infinite;
   mix-blend-mode: overlay;
   transform-origin: center center;
   background-size: 200% 100%;
   background-repeat: repeat-x;
+  filter: blur(0.5px);
 }
 
 /* Atmosphere Glow */
@@ -267,59 +283,10 @@
 /* Horizontal scrolling movement for continents to simulate sphere rotation */
 @keyframes continentsMove {
   0% {
-    background-position:
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%;
-    opacity: 0.9;
-  }
-  25% {
-    background-position:
-      25% 0%,
-      25% 0%,
-      25% 0%,
-      25% 0%,
-      25% 0%,
-      25% 0%,
-      25% 0%;
-    opacity: 0.9;
-  }
-  50% {
-    background-position:
-      50% 0%,
-      50% 0%,
-      50% 0%,
-      50% 0%,
-      50% 0%,
-      50% 0%,
-      50% 0%;
-    opacity: 0.9;
-  }
-  75% {
-    background-position:
-      75% 0%,
-      75% 0%,
-      75% 0%,
-      75% 0%,
-      75% 0%,
-      75% 0%,
-      75% 0%;
-    opacity: 0.9;
+    background-position: 0% center;
   }
   100% {
-    background-position:
-      100% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%,
-      100% 0%;
-    opacity: 0.9;
+    background-position: 200% center;
   }
 }
 
@@ -387,26 +354,26 @@
   .hero-animation {
     display: none;
   }
-  
+
   /* Center text content on mobile */
   .hero-content {
     text-align: center;
     max-width: 100%;
   }
-  
+
   .hero-content h1 {
     font-size: 2.5rem !important;
   }
-  
+
   .hero-content p {
     font-size: 1rem !important;
   }
-  
+
   /* Center buttons on mobile */
   .hero-content > div:last-child {
     justify-content: center;
   }
-  
+
   .rotating-earth-container {
     max-width: 300px;
   }
