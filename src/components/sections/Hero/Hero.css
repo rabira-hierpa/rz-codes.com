@@ -1,6 +1,7 @@
-/* Hero Container */
+/* Hero Container - Light theme */
 .hero-container {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  transition: background 0.3s ease;
 }
 
 /* Dark mode adjustments */
@@ -42,14 +43,15 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, 
-    #1e3a5f 0%, 
-    #2c5f8d 25%, 
-    #1e7a9e 50%, 
-    #2c5f8d 75%, 
+  background: linear-gradient(
+    135deg,
+    #1e3a5f 0%,
+    #2c5f8d 25%,
+    #1e7a9e 50%,
+    #2c5f8d 75%,
     #1e3a5f 100%
   );
-  box-shadow: 
+  box-shadow:
     inset -40px -40px 80px rgba(0, 0, 0, 0.5),
     inset 20px 20px 60px rgba(100, 180, 255, 0.3),
     0 0 80px rgba(30, 122, 158, 0.4),
@@ -67,11 +69,23 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-image: 
-    radial-gradient(ellipse 80px 100px at 30% 40%, #2d5a2d 40%, transparent 50%),
+  background-image:
+    radial-gradient(
+      ellipse 80px 100px at 30% 40%,
+      #2d5a2d 40%,
+      transparent 50%
+    ),
     radial-gradient(ellipse 60px 80px at 70% 30%, #2d5a2d 40%, transparent 50%),
-    radial-gradient(ellipse 100px 120px at 20% 70%, #2d5a2d 40%, transparent 50%),
-    radial-gradient(ellipse 90px 110px at 65% 65%, #2d5a2d 40%, transparent 50%),
+    radial-gradient(
+      ellipse 100px 120px at 20% 70%,
+      #2d5a2d 40%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 90px 110px at 65% 65%,
+      #2d5a2d 40%,
+      transparent 50%
+    ),
     radial-gradient(ellipse 70px 90px at 85% 50%, #2d5a2d 40%, transparent 50%);
   opacity: 0.8;
   animation: continentsRotate 20s linear infinite;
@@ -85,8 +99,9 @@
   width: 120%;
   height: 120%;
   border-radius: 50%;
-  background: radial-gradient(circle, 
-    transparent 60%, 
+  background: radial-gradient(
+    circle,
+    transparent 60%,
     rgba(100, 180, 255, 0.2) 70%,
     rgba(100, 180, 255, 0.4) 80%,
     transparent 90%
@@ -123,9 +138,9 @@
   position: absolute;
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #DA5049, #f39c12);
+  background: linear-gradient(135deg, #da5049, #f39c12);
   border-radius: 50%;
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(218, 80, 73, 0.8),
     0 0 40px rgba(218, 80, 73, 0.4);
   top: 0;
@@ -154,7 +169,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateY(0px);
   }
   50% {
@@ -163,7 +179,8 @@
 }
 
 @keyframes atmospherePulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(1);
   }
@@ -192,7 +209,8 @@
 }
 
 @keyframes satellitePulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) scale(1);
     opacity: 1;
   }
@@ -213,7 +231,7 @@
   .rotating-earth-container {
     max-width: 300px;
   }
-  
+
   .satellite {
     width: 8px;
     height: 8px;
@@ -223,7 +241,7 @@
 /* Add subtle particles effect */
 .earth-wrapper::before,
 .earth-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 4px;
   height: 4px;
@@ -245,7 +263,8 @@
 }
 
 @keyframes particle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
     transform: translateY(0) scale(1);
   }
@@ -254,4 +273,3 @@
     transform: translateY(-30px) scale(1.5);
   }
 }
-

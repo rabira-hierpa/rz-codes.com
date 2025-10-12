@@ -4,12 +4,12 @@ import "./Hero.css"
 
 const Hero = () => {
   return (
-    <div className="hero-container min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 py-20">
+    <div className="hero-container h-screen flex items-center justify-center px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Text Content */}
         <div className="hero-content space-y-8">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-text-light dark:text-text-dark">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
               Mapping the{" "}
               <span className="text-primary-600 dark:text-primary-400 block">
                 Digital World
@@ -18,9 +18,9 @@ const Hero = () => {
             </h1>
           </div>
           
-          <p className="text-lg md:text-xl text-gray-300 dark:text-gray-400 max-w-2xl leading-relaxed">
-            GIS Developer & Full Stack Engineer specializing in interactive mapping solutions and
-            location-based applications
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed">
+            GIS Developer & Full Stack Engineer specializing in interactive
+            mapping solutions and location-based applications
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
