@@ -11,7 +11,7 @@ import "./ProjectCard.css"
  * @param {string} props.description - Project description
  * @param {string} props.image - Project thumbnail image URL
  * @param {Array<string>} props.tags - Project technology tags
- * @param {string} props.type - Project type (gis or web)
+ * @param {string} props.type - Project type (location or web)
  * @param {React.ReactNode} props.icon - Icon component
  * @param {number} props.index - Card index for glow color variation
  */
@@ -30,7 +30,9 @@ export const ProjectCard = ({
       : description
 
   return (
-    <div className={`project-card project-card-glow-${index} bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-2 flex flex-col border border-gray-100 dark:border-gray-700`}>
+    <div
+      className={`project-card project-card-glow-${index} bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-2 flex flex-col border border-gray-100 dark:border-gray-700`}
+    >
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
         <img
@@ -43,7 +45,7 @@ export const ProjectCard = ({
         <div className="absolute top-4 right-4 bg-white dark:bg-gray-900 rounded-full p-2 shadow-md">
           <div
             className={
-              type === "gis"
+              type === "location"
                 ? "text-yellow-600 dark:text-yellow-400"
                 : "text-primary-600 dark:text-primary-400"
             }
@@ -86,7 +88,7 @@ ProjectCard.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  type: PropTypes.oneOf(["gis", "web"]).isRequired,
+  type: PropTypes.oneOf(["location", "web"]).isRequired,
   icon: PropTypes.node.isRequired,
   index: PropTypes.number,
 }
