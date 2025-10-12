@@ -54,9 +54,9 @@ export const InsightCard = ({
 
   return (
     <Link to={uri} className="block group">
-      <article className="bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+      <article className="bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-gray-700">
         {/* Featured Image */}
-        <div className="relative h-56 overflow-hidden bg-gray-200 dark:bg-gray-700">
+        <div className="relative h-56 overflow-hidden bg-gray-100 dark:bg-gray-800">
           <img
             src={featuredImage?.node?.sourceUrl || placeholderImage}
             alt={featuredImage?.node?.altText || title}
@@ -66,7 +66,7 @@ export const InsightCard = ({
           {/* Category Badge */}
           <div className="absolute top-4 left-4">
             <span
-              className={`px-3 py-1 text-xs font-bold text-white rounded-full shadow-lg ${getBadgeColor(categoryTag)}`}
+              className={`px-3 py-1 text-xs font-bold text-white rounded-full shadow-md ${getBadgeColor(categoryTag)}`}
             >
               {categoryTag}
             </span>
@@ -76,17 +76,17 @@ export const InsightCard = ({
         {/* Post Details */}
         <div className="p-6 flex-grow flex flex-col">
           {/* Title */}
-          <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+          <h3 className="text-xl font-bold mb-3 text-text-light dark:text-text-dark group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
             {title}
           </h3>
 
           {/* Excerpt */}
-          <p className="text-gray-700 dark:text-gray-300 mb-4 flex-grow text-sm leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow text-sm leading-relaxed">
             {plainExcerpt}...
           </p>
 
           {/* Date */}
-          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mt-auto">
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-500 mt-auto">
             <svg
               className="w-4 h-4 mr-2"
               fill="none"
@@ -127,4 +127,3 @@ InsightCard.propTypes = {
     }),
   }),
 }
-

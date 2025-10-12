@@ -406,36 +406,36 @@
   .hero-animation {
     display: none;
   }
-  
+
   /* Center text content on mobile */
   .hero-content {
     text-align: center;
     max-width: 100%;
   }
-  
+
   .hero-content h1 {
     font-size: 2.5rem !important;
   }
-  
+
   .hero-content p {
     font-size: 1rem !important;
   }
-  
+
   /* Center buttons on mobile */
   .hero-content > div:last-child {
     justify-content: center;
   }
-  
+
   /* Social links on mobile */
   .hero-social-links {
     gap: 1.5rem;
   }
-  
+
   .hero-social-links img {
     height: 2rem;
     width: 2rem;
   }
-  
+
   .rotating-earth-container {
     max-width: 300px;
   }

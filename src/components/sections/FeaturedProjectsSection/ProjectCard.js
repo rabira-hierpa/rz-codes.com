@@ -27,9 +27,9 @@ export const ProjectCard = ({
       : description
 
   return (
-    <div className="bg-background-light dark:bg-background-dark rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700">
       {/* Project Image */}
-      <div className="relative h-48 overflow-hidden bg-gray-200 dark:bg-gray-700">
+      <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
         <img
           src={image}
           alt={title}
@@ -37,7 +37,7 @@ export const ProjectCard = ({
           loading="lazy"
         />
         {/* Type Badge */}
-        <div className="absolute top-4 right-4 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg">
+        <div className="absolute top-4 right-4 bg-white dark:bg-gray-900 rounded-full p-2 shadow-md">
           <div
             className={
               type === "gis"
@@ -53,21 +53,21 @@ export const ProjectCard = ({
       {/* Project Details */}
       <div className="p-6 flex-grow flex flex-col">
         {/* Title */}
-        <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+        <h3 className="text-xl font-bold mb-3 text-text-light dark:text-text-dark">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-700 dark:text-gray-300 mb-4 flex-grow text-sm leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow text-sm leading-relaxed">
           {truncatedDescription}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2">
           {tags.slice(0, 3).map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-xs font-medium bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-300 rounded-full"
+              className="px-3 py-1 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 rounded-full"
             >
               {tag}
             </span>
@@ -86,4 +86,3 @@ ProjectCard.propTypes = {
   type: PropTypes.oneOf(["gis", "web"]).isRequired,
   icon: PropTypes.node.isRequired,
 }
-

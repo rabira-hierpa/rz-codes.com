@@ -56,10 +56,10 @@ const expertiseData = [
 
 export const ExpertiseSection = () => {
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-20 bg-background-light dark:bg-background-dark transition-colors">
+    <section className="py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-text-light dark:text-text-dark">
           My Expertise
         </h2>
 
@@ -73,4 +73,3 @@ export const ExpertiseSection = () => {
     </section>
   )
 }
-
