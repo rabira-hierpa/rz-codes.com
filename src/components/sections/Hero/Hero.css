@@ -43,25 +43,37 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    #1e3a5f 0%,
-    #2c5f8d 25%,
-    #1e7a9e 50%,
-    #2c5f8d 75%,
-    #1e3a5f 100%
-  );
+  background: 
+    radial-gradient(circle at 30% 30%, 
+      rgba(100, 180, 255, 0.4) 0%, 
+      transparent 50%
+    ),
+    radial-gradient(circle at 70% 70%,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, 
+      #1a4d6d 0%,
+      #2c5f8d 20%,
+      #1e7a9e 40%,
+      #2c5f8d 60%,
+      #1a4d6d 80%,
+      #0d2233 100%
+    );
   box-shadow:
-    inset -40px -40px 80px rgba(0, 0, 0, 0.5),
-    inset 20px 20px 60px rgba(100, 180, 255, 0.3),
-    0 0 80px rgba(30, 122, 158, 0.4),
-    0 0 120px rgba(30, 122, 158, 0.2);
-  animation: rotate 20s linear infinite;
+    inset -50px -50px 100px rgba(0, 0, 0, 0.8),
+    inset 30px 30px 80px rgba(100, 180, 255, 0.3),
+    inset -10px -10px 40px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(30, 122, 158, 0.5),
+    0 0 120px rgba(30, 122, 158, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: rotate 30s linear infinite;
   transform-style: preserve-3d;
   overflow: hidden;
+  position: relative;
 }
 
-/* Continents Overlay */
+/* Continents Overlay - More realistic landmasses */
 .continents {
   position: absolute;
   top: 0;
@@ -70,25 +82,55 @@
   height: 100%;
   border-radius: 50%;
   background-image:
+    /* Africa */
     radial-gradient(
-      ellipse 80px 100px at 30% 40%,
-      #2d5a2d 40%,
-      transparent 50%
+      ellipse 100px 140px at 42% 50%,
+      #2d5a2d 30%,
+      #3d6a3d 40%,
+      transparent 55%
     ),
-    radial-gradient(ellipse 60px 80px at 70% 30%, #2d5a2d 40%, transparent 50%),
+    /* Americas */
     radial-gradient(
-      ellipse 100px 120px at 20% 70%,
+      ellipse 70px 160px at 15% 40%,
+      #2d5a2d 30%,
+      #3d6a3d 40%,
+      transparent 55%
+    ),
+    /* Europe */
+    radial-gradient(
+      ellipse 60px 50px at 45% 30%,
+      #2d5a2d 35%,
+      #3d6a3d 45%,
+      transparent 60%
+    ),
+    /* Asia */
+    radial-gradient(
+      ellipse 110px 100px at 65% 35%,
+      #2d5a2d 30%,
+      #3d6a3d 40%,
+      transparent 55%
+    ),
+    /* Australia */
+    radial-gradient(
+      ellipse 50px 40px at 75% 65%,
+      #2d5a2d 35%,
+      #3d6a3d 45%,
+      transparent 60%
+    ),
+    /* Additional landmasses */
+    radial-gradient(
+      ellipse 40px 30px at 20% 25%,
       #2d5a2d 40%,
-      transparent 50%
+      transparent 60%
     ),
     radial-gradient(
-      ellipse 90px 110px at 65% 65%,
+      ellipse 35px 25px at 85% 50%,
       #2d5a2d 40%,
-      transparent 50%
-    ),
-    radial-gradient(ellipse 70px 90px at 85% 50%, #2d5a2d 40%, transparent 50%);
-  opacity: 0.8;
-  animation: continentsRotate 20s linear infinite;
+      transparent 60%
+    );
+  opacity: 0.9;
+  animation: continentsRotate 30s linear infinite;
+  mix-blend-mode: overlay;
 }
 
 /* Atmosphere Glow */
@@ -101,12 +143,61 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    transparent 60%,
-    rgba(100, 180, 255, 0.2) 70%,
-    rgba(100, 180, 255, 0.4) 80%,
-    transparent 90%
+    transparent 50%,
+    rgba(100, 180, 255, 0.15) 65%,
+    rgba(100, 180, 255, 0.3) 75%,
+    rgba(100, 180, 255, 0.2) 85%,
+    transparent 95%
   );
   animation: atmospherePulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Add clouds layer for more realism */
+.earth-sphere::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image:
+    radial-gradient(ellipse 60px 40px at 25% 35%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 50px 30px at 60% 45%, rgba(255, 255, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse 40px 25px at 80% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 55px 35px at 15% 70%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+  opacity: 0.6;
+  animation: cloudsRotate 35s linear infinite;
+  z-index: 2;
+}
+
+/* Add specular highlight for 3D effect */
+.earth-sphere::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 35% 25%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.1) 35%,
+    transparent 50%
+  );
+  z-index: 3;
+}
+
+@keyframes cloudsRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Orbit Rings */
@@ -161,10 +252,10 @@
 
 @keyframes continentsRotate {
   from {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) rotateX(5deg);
   }
   to {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) rotateX(5deg);
   }
 }
 
