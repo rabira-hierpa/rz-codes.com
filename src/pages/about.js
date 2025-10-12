@@ -16,7 +16,6 @@ const About = () => {
       }
     }
   `)
-  console.log(aboutMeData)
   return (
     <Layout>
       <Seo title="About"></Seo>

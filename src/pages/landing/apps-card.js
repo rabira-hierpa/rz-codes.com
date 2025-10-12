@@ -1,5 +1,4 @@
 import React from "react"
-import Truncate from "react-truncate"
 import { Link } from "gatsby"
 
 const AppCards = ({ apps }) => {
@@ -19,11 +18,7 @@ const AppCards = ({ apps }) => {
         <div className="text-lg font-semibold text-red-600 pb-2">
           {apps?.title}
         </div>
-        <div className="text-align-left">
-          <Truncate lines={3} ellipsis="...">
-            {apps?.description}
-          </Truncate>
-        </div>
+        <div className="text-justify line-clamp-3">{apps?.description}</div>
         <div className="my-2 cursor-pointer text-white  rounded-full  bg-yellow-600 hover:bg-yellow-500 duration-300 text-xs font-bold mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1  opacity-90 hover:opacity-100 ">
           <Link to="/apps">
             <span>View details</span>
