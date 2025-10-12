@@ -17,6 +17,14 @@
   --color-text-secondary: #6b7280;
   --color-border: #e5e7eb;
   --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Glow effect colors for hover animations */
+  --color-glow-yellow: #facc15;
+  --color-glow-yellow-rgb: 250, 204, 21;
+  --color-glow-orange: #fb923c;
+  --color-glow-orange-rgb: 251, 146, 60;
+  --color-glow-red: #dc2626;
+  --color-glow-red-rgb: 220, 38, 38;
 }
 
 /* Dark theme colors */
@@ -31,6 +39,14 @@
   --color-text-secondary: #d1d5db;
   --color-border: #374151;
   --color-shadow: rgba(255, 255, 255, 0.1);
+
+  /* Glow effect colors for hover animations (brighter in dark mode) */
+  --color-glow-yellow: #fbbf24;
+  --color-glow-yellow-rgb: 251, 191, 36;
+  --color-glow-orange: #f97316;
+  --color-glow-orange-rgb: 249, 115, 22;
+  --color-glow-red: #ef4444;
+  --color-glow-red-rgb: 239, 68, 68;
 }
 
 #menu-toggle:checked + #menu {
