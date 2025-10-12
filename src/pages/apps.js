@@ -1,15 +1,15 @@
 import React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import AppsHome from "./apps/apps-home"
+import { Layout } from "../components/layout/Layout"
+import { SEO } from "../components/layout/SEO"
+import { AppsHome } from "../components/sections/AppsSection"
 
 const Projects = () => {
   return (
     <Layout>
-      <Seo title="Apps"></Seo>
+      <SEO title="Apps"></SEO>
       <div className="min-h-screen">
         <p className="text-7xl py-5 text-red-600">Apps</p>
-        <AppsHome/>
+        <AppsHome />
       </div>
     </Layout>
   )

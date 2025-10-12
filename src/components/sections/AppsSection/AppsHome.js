@@ -22,22 +22,27 @@ const AppsHome = () => {
       <div className="grid grid-rows gap-y-10">
         {AppsData.allAppsJson.nodes.map((app, idx) => {
           return (
-            <div className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5  bg-white p-1 rounded-lg">
-              <div className="object-cover object-center  grid place-items-center  rounded-lg h-auto p-2">
+            <div
+              key={`app_${idx}`}
+              className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5 bg-surface-light dark:bg-surface-dark transition-colors p-1 rounded-lg"
+            >
+              <div className="object-cover object-center grid place-items-center rounded-lg h-auto p-2">
                 <img alt={app.title} src={app?.image} className="" />
               </div>
               <div className="pr-5">
-                <div className="text-xl text-red-600 text-center md:text-left font-bold p-2">
+                <div className="text-xl text-primary-600 dark:text-primary-400 text-center md:text-left font-bold p-2">
                   {app.title}
                 </div>
-                <div className="py-2">{app.description}</div>
+                <div className="py-2 text-text-light dark:text-text-dark">
+                  {app.description}
+                </div>
                 <div className="p-2 flex justify-start space-x-5">
                   {app?.demo ? (
                     <a
                       href={app.demo}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="text-yellow-500 hover:text-red-600"
+                      className="text-secondary-500 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400"
                     >
                       View Demo
                     </a>
@@ -45,7 +50,7 @@ const AppsHome = () => {
                   {app?.link ? (
                     <a
                       href={app.link}
-                      className="text-yellow-500 hover:text-red-600"
+                      className="text-secondary-500 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
@@ -54,11 +59,11 @@ const AppsHome = () => {
                   ) : null}
                 </div>
                 <div className="col-span-full row-span-1">
-                  <ul className="flex flex-row pl-2 align-self-end text-gray-600 overflow-x-scroll hide-scroll-bar">
+                  <ul className="flex flex-row pl-2 align-self-end text-gray-600 dark:text-gray-400 overflow-x-scroll hide-scroll-bar">
                     {app.tags.map(tag => {
                       return (
-                        <li className="py-1">
-                          <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-yellow-200 text-gray-500 hover:text-red-800">
+                        <li key={tag} className="py-1">
+                          <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-secondary-200 dark:hover:bg-secondary-900 text-gray-500 dark:text-gray-400 hover:text-primary-800 dark:hover:text-primary-300">
                             <span>{"#" + tag}</span>
                           </div>
                         </li>

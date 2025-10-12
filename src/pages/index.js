@@ -1,11 +1,11 @@
 import * as React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Layout } from "../components/layout/Layout"
+import { SEO } from "../components/layout/SEO"
 import Landing from "./landing/landing"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
+    <SEO title="Home" />
     <Landing />
   </Layout>
 )

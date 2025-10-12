@@ -1,17 +1,17 @@
 import React from "react"
-import Hero from "./hero"
+import { Hero } from "../../components/sections/Hero"
 import "../../styles/global.css"
-import LandingDesign from "./landing-designs"
-import LandingApps from "./landing-apps"
-import LandingProjects from "./landing-projects"
+import { DesignsSection } from "../../components/sections/DesignsSection"
+import { AppsSection } from "../../components/sections/AppsSection"
+import { ProjectsSection } from "../../components/sections/ProjectsSection"
 
 const landing = () => {
   return (
     <div>
       <Hero />
-      <LandingApps />
-      <LandingProjects />
-      <LandingDesign />
+      <AppsSection />
+      <ProjectsSection />
+      <DesignsSection />
       {/* <div className=" container md:flex md:items-center mx-auto shadow-2xl sm:shadow-none mb-5"> */}
       {/* <StaticImage
           alt="poster"
