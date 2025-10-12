@@ -21,14 +21,14 @@ const menuItems = [
  */
 const Header = ({ siteTitle: _siteTitle }) => {
   const location = useLocation()
-  
+
   // Helper function to check if a path is active
-  const isActive = (path) => {
+  const isActive = path => {
     return location.pathname.startsWith(path)
   }
 
   return (
-    <header className="lg:px-16 px-6 bg-white shadow-md flex flex-wrap items-center lg:py-0 py-2">
+    <header className="lg:px-16 px-6 bg-surface-light dark:bg-surface-dark shadow-md flex flex-wrap items-center lg:py-0 py-2 transition-colors duration-300">
       <div className="flex-1 flex justify-between items-center">
         <Link to="/" className="flex text-lg font-semibold">
           <img
@@ -38,16 +38,19 @@ const Header = ({ siteTitle: _siteTitle }) => {
             className="p-2"
             alt="Rz Codes Logo"
           />
-          <div className="mt-3 text-red-600">Rz Codes</div>
+          <div className="mt-3 text-primary-600 dark:text-primary-400">
+            Rz Codes
+          </div>
         </Link>
       </div>
+
       <label
         htmlFor="menu-toggle"
         className="cursor-pointer lg:hidden block"
         aria-label="Menu"
       >
         <svg
-          className="fill-current text-gray-900"
+          className="fill-current text-gray-900 dark:text-gray-100"
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
@@ -57,6 +60,7 @@ const Header = ({ siteTitle: _siteTitle }) => {
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
         </svg>
       </label>
+
       <input className="hidden" type="checkbox" id="menu-toggle" />
       <div
         className="hidden lg:flex lg:items-center lg:w-auto w-full"
@@ -64,11 +68,13 @@ const Header = ({ siteTitle: _siteTitle }) => {
       >
         <nav>
           <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex lg:pt-0">
-            {menuItems.map((item) => (
+            {menuItems.map(item => (
               <li key={item.path} className="py-2 lg:py-0">
                 <Link
-                  className={`text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400 ${
-                    isActive(item.path) ? "pb-4 border-b-4 border-yellow-400" : ""
+                  className={`hover:pb-4 hover:border-b-4 hover:border-secondary-400 transition-colors duration-200 ${
+                    isActive(item.path)
+                      ? "text-secondary-600 dark:text-secondary-300 pb-4 border-b-4 border-primary-600 dark:border-primary-400"
+                      : "text-primary-600 dark:text-primary-400"
                   }`}
                   to={item.path}
                 >
