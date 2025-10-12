@@ -1,5 +1,149 @@
 [
   {
+    "title": "Addis Ababa Public Transport Accessibility Analysis",
+    "description": "Comprehensive accessibility analysis for Ethiopia's capital covering 4.5M+ residents. Analysis includes minibus taxis (20+ routes), BRT system, and city buses. Average travel time: 45 mins, Mode share: 60% minibus, 25% walking, 15% private.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/addis-ababa",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Ethiopia"]
+  },
+  {
+    "title": "Nairobi Public Transport Accessibility Analysis",
+    "description": "Accessibility study for Kenya's capital serving 4.4M+ people. Transport modes: Matatus (informal buses), BRT, commuter rail. Average travel time: 52 mins, Mode share: 55% matatus, 20% walking, 15% boda-boda.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/nairobi",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Kenya"]
+  },
+  {
+    "title": "Kampala Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Uganda's capital with 1.7M+ population. Primary modes: Matatus, boda-bodas (motorcycle taxis), walking. Average travel time: 48 mins, Mode share: 50% matatus, 30% boda-boda, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/kampala",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Uganda"]
+  },
+  {
+    "title": "Dar es Salaam Public Transport Accessibility Analysis",
+    "description": "Comprehensive study for Tanzania's largest city (5.4M+ residents). Transport includes: Daladala (minibuses), BRT (DART), bajaji. Average travel time: 58 mins, Mode share: 45% daladala, 25% BRT, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/dar-es-salaam",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Tanzania"]
+  },
+  {
+    "title": "Kigali Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Rwanda's capital (1.3M+ population). Modern bus system with tap-in/tap-out. Average travel time: 35 mins, Mode share: 60% buses, 25% motorcycle taxis, 15% walking. Best-in-class transit system.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/kigali",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Rwanda"]
+  },
+  {
+    "title": "Lagos Public Transport Accessibility Analysis",
+    "description": "Analysis for Nigeria's megacity (14M+ metro population). Transport: Danfo buses, BRT, Molue, ferries. Average travel time: 72 mins, Mode share: 40% danfo, 25% BRT, 20% walking. Africa's busiest transit system.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/lagos",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Nigeria"]
+  },
+  {
+    "title": "Accra Public Transport Accessibility Analysis",
+    "description": "Accessibility study for Ghana's capital (2.5M+ residents). Modes: Trotro (minibuses), metro buses, taxis. Average travel time: 54 mins, Mode share: 55% trotro, 20% metro bus, 15% walking, 10% taxi.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/accra",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Ghana"]
+  },
+  {
+    "title": "Abidjan Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Côte d'Ivoire's economic capital (4.7M+ metro area). Transport: Gbakas, buses, taxis. Average travel time: 56 mins, Mode share: 50% gbakas, 25% buses, 15% walking, 10% taxi.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/abidjan",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "IvoryCoast"]
+  },
+  {
+    "title": "Dakar Public Transport Accessibility Analysis",
+    "description": "Comprehensive study for Senegal's capital (3.3M+ population). Transport: Buses Rapid Transit (BRT), Car Rapides, taxis. Average travel time: 50 mins, Mode share: 45% BRT, 30% buses, 15% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/dakar",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Senegal"]
+  },
+  {
+    "title": "Bamako Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Mali's capital (2.5M+ residents). Primary modes: Sotrama (minibuses), buses, motorcycle taxis. Average travel time: 46 mins, Mode share: 60% sotrama, 20% walking, 15% motorcycle.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/bamako",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Mali"]
+  },
+  {
+    "title": "Ouagadougou Public Transport Accessibility Analysis",
+    "description": "Accessibility study for Burkina Faso's capital (2.4M+ population). Transport modes: SOTRACO buses, motorcycle taxis, shared taxis. Average travel time: 42 mins, Mode share: 50% buses, 30% motorcycle, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/ouagadougou",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "BurkinaFaso"]
+  },
+  {
+    "title": "Lomé Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Togo's capital (1.7M+ metro area). Modes: Zémidjans (motorcycle taxis), minibuses, taxis. Average travel time: 40 mins, Mode share: 55% zémidjan, 25% minibus, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/lome",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Togo"]
+  },
+  {
+    "title": "Cotonou Public Transport Accessibility Analysis",
+    "description": "Comprehensive study for Benin's economic capital (1.2M+ population). Transport: Zémidjans, minibuses, shared taxis. Average travel time: 38 mins, Mode share: 60% zémidjan, 25% minibus, 15% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/cotonou",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Benin"]
+  },
+  {
+    "title": "Niamey Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Niger's capital (1.3M+ residents). Primary modes: Minibuses, motorcycle taxis, shared taxis. Average travel time: 44 mins, Mode share: 50% minibus, 30% motorcycle, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/niamey",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Niger"]
+  },
+  {
+    "title": "Conakry Public Transport Accessibility Analysis",
+    "description": "Accessibility study for Guinea's capital (2M+ metro population). Transport modes: Minibuses, shared taxis, motorcycle taxis. Average travel time: 50 mins, Mode share: 55% minibus, 25% taxi, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/conakry",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "Guinea"]
+  },
+  {
+    "title": "Freetown Public Transport Accessibility Analysis",
+    "description": "Transit analysis for Sierra Leone's capital (1.2M+ population). Modes: Poda-podas (minibuses), okadas (motorcycle taxis), ferries. Average travel time: 48 mins, Mode share: 50% poda-poda, 25% okada, 20% walking.",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "data": "https://gitlab.com/digitaltransport/data/africa/freetown",
+    "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
+    "tags": ["WRI", "16Cities", "Accessibility", "QGIS", "SierraLeone"]
+  },
+  {
     "title": "Mini Grid Planing for a rural village",
     "description": "Power gird planing made for  a ruler city located in Afghanistan to extend the national grid system to give access to electricity",
     "url": "https://blog.rz-codes.com/wp-content/uploads/2022/11/photo_2022-09-08-21.59.33.jpeg",
