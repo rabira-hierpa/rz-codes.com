@@ -27,13 +27,15 @@ const PageTemplate = ({
       <Seo title="Blogs related to web dev,linux and QGIS" />
       <div className="min-h-screen">
         <div className="grid grid-cols-1 align-items-center">
-          <p className="text-4xl pt-10 text-red-600">Recent Articles</p>
+          <p className="text-4xl pt-10 text-primary-600 dark:text-primary-400">
+            Recent Articles
+          </p>
           <ol className="py-10">
             {posts.map(post => {
               const title = post.title
               return (
                 <li
-                  className="my-5 p-5 bg-white border-2 shadow-md hover:shadow-xl "
+                  className="my-5 p-5 bg-surface-light dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-all rounded-lg"
                   key={post.uri}
                 >
                   <article
@@ -43,16 +45,19 @@ const PageTemplate = ({
                   >
                     <div className="flex flex-col">
                       <header>
-                        <h2 className="text-red-600 text-4xl">
+                        <h2 className="text-primary-600 dark:text-primary-400 text-4xl">
                           <Link to={post.uri} itemProp="url">
                             <span itemProp="headline">{parse(title)}</span>
                           </Link>
                         </h2>
-                        <small className="flex justify-right">
+                        <small className="flex justify-right text-gray-600 dark:text-gray-400">
                           {post.date}
                         </small>
                       </header>
-                      <section itemProp="description" className="text-lg">
+                      <section
+                        itemProp="description"
+                        className="text-lg text-text-light dark:text-text-dark"
+                      >
                         {parse(post.excerpt)}
                       </section>
                     </div>
@@ -61,13 +66,24 @@ const PageTemplate = ({
               )
             })}
           </ol>
-          {previousPagePath && (
-            <>
-              <Link to={previousPagePath}>Previous page</Link>
-              <br />
-            </>
-          )}
-          {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+          <div className="flex space-x-4">
+            {previousPagePath && (
+              <Link
+                to={previousPagePath}
+                className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                Previous page
+              </Link>
+            )}
+            {nextPagePath && (
+              <Link
+                to={nextPagePath}
+                className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                Next page
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
