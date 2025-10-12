@@ -57,11 +57,6 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.classList.toggle("dark", mode === "dark")
   }
 
-  // Prevent flash of unstyled content
-  if (!mounted) {
-    return <div style={{ visibility: "hidden" }}>{children}</div>
-  }
-
   const value = {
     theme,
     toggleTheme,
@@ -69,5 +64,13 @@ export const ThemeProvider = ({ children }) => {
     isDark: theme === "dark",
   }
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  // Always provide the context, even during SSR
+  // Apply visibility only to prevent FOUC, but still render with context
+  return (
+    <ThemeContext.Provider value={value}>
+      <div style={!mounted ? { visibility: "hidden" } : undefined}>
+        {children}
+      </div>
+    </ThemeContext.Provider>
+  )
 }
