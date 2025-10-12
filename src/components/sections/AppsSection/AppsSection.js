@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import AppCard from "./apps-card"
+import AppCard from "./AppsCard"
 import { Link } from "gatsby"
 
 const LandingApps = () => {

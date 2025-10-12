@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import "../../styles/global.css"
+import "../../../styles/global.css"
 
 const LandingProjects = () => {
   const ProjectData = useStaticQuery(graphql`

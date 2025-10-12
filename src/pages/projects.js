@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Layout } from "../components/layout/Layout"
+import { SEO } from "../components/layout/SEO"
 
 const Projects = () => {
   const ProjectData = useStaticQuery(graphql`
@@ -21,7 +21,7 @@ const Projects = () => {
   `)
   return (
     <Layout>
-      <Seo title="GIS Projects" />
+      <SEO title="GIS Projects" />
       <div className="">
         <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 text-center py-10">
           GIS Projects

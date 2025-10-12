@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-import "../../styles/global.css"
+import "../../../styles/global.css"
 
 const LandingDesign = () => {
   const DesignData = useStaticQuery(graphql`

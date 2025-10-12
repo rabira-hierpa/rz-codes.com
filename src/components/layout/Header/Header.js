@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
-import RzCodesLogo from "../images/logo.svg"
+import RzCodesLogo from "../../../assets/images/logo.svg"
 
 // Menu items array
 const menuItems = [

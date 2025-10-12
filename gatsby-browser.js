@@ -5,7 +5,7 @@
  */
 
 import React from "react"
-import { ThemeProvider } from "./src/context/theme-context"
+import { ThemeProvider } from "./src/context/ThemeContext"
 import "./src/styles/global.css"
 
 // Wrap the entire app with ThemeProvider
