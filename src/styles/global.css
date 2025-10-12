@@ -4,6 +4,35 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+/* Theme CSS Variables */
+:root {
+  /* Light theme colors */
+  --color-primary: #dc2626;
+  --color-primary-hover: #b91c1c;
+  --color-secondary: #facc15;
+  --color-secondary-hover: #eab308;
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme colors */
+.dark {
+  --color-primary: #ef4444;
+  --color-primary-hover: #f87171;
+  --color-secondary: #fde047;
+  --color-secondary-hover: #facc15;
+  --color-background: #1a1a1a;
+  --color-surface: #2d2d2d;
+  --color-text-primary: #f3f3f3;
+  --color-text-secondary: #d1d5db;
+  --color-border: #374151;
+  --color-shadow: rgba(255, 255, 255, 0.1);
+}
+
 #menu-toggle:checked + #menu {
   display: block;
 }
@@ -11,18 +40,26 @@
 body {
   font-family:
     "Poppins", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background-color: rgb(243, 243, 243);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
+
 .object-cover {
   object-fit: cover;
 }
+
 .backdrop-filter {
   filter: brightness(0.4) blur(4px);
 }
+
 .hide-scroll-bar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
@@ -31,6 +68,15 @@ h2.wp-block-heading {
   font-size: 2.5rem;
   line-height: 1.1;
 }
+
 p {
-  font-size: 1 rem !important;
+  font-size: 1rem !important;
+}
+
+/* Theme transition utilities */
+.theme-transition {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }

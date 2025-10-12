@@ -32,7 +32,7 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
     posts.map(({ previous, post, next }) =>
       gatsbyUtilities.actions.createPage({
         path: `${post.uri}`,
-        component: path.resolve(`./src/templates/blog-post.js`),
+        component: path.resolve(`./src/templates/BlogPost/BlogPost.js`),
         context: {
           id: post.id,
           previousPostId: previous ? previous.id : null,
@@ -68,7 +68,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
       }
       await gatsbyUtilities.actions.createPage({
         path: `blog${getPagePath(pageNumber)}`,
-        component: path.resolve(`./src/templates/blog-post-archive.js`),
+        component: path.resolve(`./src/templates/BlogArchive/BlogArchive.js`),
         context: {
           offset: index * postsPerPage,
           postsPerPage,
