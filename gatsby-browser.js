@@ -4,5 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+import React from "react"
+import { ThemeProvider } from "./src/context/theme-context"
 import "./src/styles/global.css"
+
+// Wrap the entire app with ThemeProvider
+export const wrapRootElement = ({ element }) => {
+  return <ThemeProvider>{element}</ThemeProvider>
+}
