@@ -38,7 +38,13 @@ const Designs = () => {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [selectedDesign, selectedIndex])
+  }, [
+    selectedDesign,
+    selectedIndex,
+    closeModal,
+    navigatePrevious,
+    navigateNext,
+  ])
 
   // Disable body scroll when modal is open
   useEffect(() => {
@@ -57,9 +63,9 @@ const Designs = () => {
     setSelectedIndex(index)
   }
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedDesign(null)
-  }
+  }, [])
 
   const navigateNext = useCallback(() => {
     const nextIndex = (selectedIndex + 1) % designs.length
@@ -166,6 +172,15 @@ const Designs = () => {
                     key={index}
                     className="design-card group cursor-pointer relative overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                     onClick={() => openModal(url, index)}
+                    onKeyDown={e => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault()
+                        openModal(url, index)
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Open design ${index + 1}`}
                   >
                     <div className="aspect-[3/4] overflow-hidden">
                       <img

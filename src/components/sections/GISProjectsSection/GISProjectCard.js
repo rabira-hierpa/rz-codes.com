@@ -75,6 +75,7 @@ export const GISProjectCard = ({
                 rel="noopener noreferrer"
                 className="bg-yellow-500/90 hover:bg-yellow-500 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center justify-center transform hover:scale-105"
                 onClick={e => e.stopPropagation()}
+                aria-label={`Download data for ${title}`}
               >
                 <svg
                   className="w-4 h-4"

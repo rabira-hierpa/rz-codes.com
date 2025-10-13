@@ -18,12 +18,22 @@ export const DesignModal = ({
     <div
       className="design-modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
       onClick={onClose}
+      onKeyDown={e => {
+        if (e.key === "Enter" || e.key === " ") {
+          onClose()
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label="Close modal overlay"
     >
       <div
         className="design-modal-container relative w-full h-full flex items-center justify-center p-4 md:p-8"
         onClick={e => e.stopPropagation()}
+        onKeyDown={e => e.stopPropagation()}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        role="presentation"
       >
         {/* Close Button */}
         <button
