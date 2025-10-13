@@ -94,6 +94,7 @@ export const AppCard = ({
               rel="noopener noreferrer"
               className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 text-center text-sm font-semibold rounded-lg transition-all duration-200 flex items-center justify-center"
               title="View Source"
+              aria-label={`View source code for ${title}`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path

@@ -39,10 +39,12 @@ export const DesignCard = ({
 
   return (
     <div
-      className={`design-card ${getCardClass(index)} relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ${getHeightClass(index)}`}
+      className={`design-card ${getCardClass(index)} relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ${getHeightClass(index)}`}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       style={{ animationDelay: `${index * 50}ms` }}
+      role="img"
+      aria-label={`Design work ${index + 1}`}
     >
       {/* Design Image */}
       <img
