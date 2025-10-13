@@ -32,14 +32,14 @@ const useSyntaxHighlighting = () => {
   useEffect(() => {
     // Convert WordPress SyntaxHighlighter format to Prism format
     const preElements = document.querySelectorAll("pre")
-    
+
     preElements.forEach(pre => {
       // Check if it's a WordPress brush format (e.g., "brush: bash")
       const brushMatch = pre.className.match(/brush:\s*(\w+)/)
-      
+
       if (brushMatch) {
         const language = brushMatch[1]
-        
+
         // If there's no code element, wrap the content in one
         if (!pre.querySelector("code")) {
           const code = document.createElement("code")
@@ -48,7 +48,7 @@ const useSyntaxHighlighting = () => {
           pre.textContent = ""
           pre.appendChild(code)
         }
-        
+
         // Update pre class to Prism format
         pre.className = `language-${language}`
       }
