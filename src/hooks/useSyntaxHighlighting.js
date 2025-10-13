@@ -17,6 +17,8 @@ import "prismjs/components/prism-java"
 import "prismjs/components/prism-c"
 import "prismjs/components/prism-cpp"
 import "prismjs/components/prism-csharp"
+// PHP requires markup-templating, so load that first
+import "prismjs/components/prism-markup-templating"
 import "prismjs/components/prism-php"
 import "prismjs/components/prism-ruby"
 import "prismjs/components/prism-go"
@@ -28,13 +30,37 @@ import "prismjs/components/prism-git"
 
 const useSyntaxHighlighting = () => {
   useEffect(() => {
+    // Convert WordPress SyntaxHighlighter format to Prism format
+    const preElements = document.querySelectorAll("pre")
+    
+    preElements.forEach(pre => {
+      // Check if it's a WordPress brush format (e.g., "brush: bash")
+      const brushMatch = pre.className.match(/brush:\s*(\w+)/)
+      
+      if (brushMatch) {
+        const language = brushMatch[1]
+        
+        // If there's no code element, wrap the content in one
+        if (!pre.querySelector("code")) {
+          const code = document.createElement("code")
+          code.className = `language-${language}`
+          code.textContent = pre.textContent
+          pre.textContent = ""
+          pre.appendChild(code)
+        }
+        
+        // Update pre class to Prism format
+        pre.className = `language-${language}`
+      }
+    })
+
     // Highlight all code blocks
     Prism.highlightAll()
 
-    // Add copy buttons to all pre elements
-    const preElements = document.querySelectorAll("pre[class*='language-']")
+    // Add copy buttons to all pre elements with language classes
+    const codeBlocks = document.querySelectorAll("pre[class*='language-']")
 
-    preElements.forEach(pre => {
+    codeBlocks.forEach(pre => {
       // Skip if copy button already exists
       if (pre.querySelector(".copy-button")) return
 
