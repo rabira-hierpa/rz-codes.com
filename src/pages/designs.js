@@ -22,6 +22,28 @@ const Designs = () => {
   const [selectedDesign, setSelectedDesign] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
 
+  // Define functions before useEffects to avoid initialization issues
+  const openModal = (design, index) => {
+    setSelectedDesign(design)
+    setSelectedIndex(index)
+  }
+
+  const closeModal = useCallback(() => {
+    setSelectedDesign(null)
+  }, [])
+
+  const navigateNext = useCallback(() => {
+    const nextIndex = (selectedIndex + 1) % designs.length
+    setSelectedIndex(nextIndex)
+    setSelectedDesign(designs[nextIndex])
+  }, [selectedIndex, designs])
+
+  const navigatePrevious = useCallback(() => {
+    const prevIndex = (selectedIndex - 1 + designs.length) % designs.length
+    setSelectedIndex(prevIndex)
+    setSelectedDesign(designs[prevIndex])
+  }, [selectedIndex, designs])
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = e => {
@@ -57,27 +79,6 @@ const Designs = () => {
       document.body.style.overflow = "unset"
     }
   }, [selectedDesign])
-
-  const openModal = (design, index) => {
-    setSelectedDesign(design)
-    setSelectedIndex(index)
-  }
-
-  const closeModal = useCallback(() => {
-    setSelectedDesign(null)
-  }, [])
-
-  const navigateNext = useCallback(() => {
-    const nextIndex = (selectedIndex + 1) % designs.length
-    setSelectedIndex(nextIndex)
-    setSelectedDesign(designs[nextIndex])
-  }, [selectedIndex, designs])
-
-  const navigatePrevious = useCallback(() => {
-    const prevIndex = (selectedIndex - 1 + designs.length) % designs.length
-    setSelectedIndex(prevIndex)
-    setSelectedDesign(designs[prevIndex])
-  }, [selectedIndex, designs])
 
   const handleShare = async () => {
     if (navigator.share) {
