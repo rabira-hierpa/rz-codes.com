@@ -11,46 +11,83 @@ const skills = [
   { name: "PostGIS", color: "from-purple-400 to-pink-400" },
   { name: "Leaflet", color: "from-yellow-400 to-orange-400" },
   { name: "Python", color: "from-indigo-400 to-blue-400" },
-  { name: "TypeScript", color: "from-blue-500 to-blue-600" },
-  { name: "Docker", color: "from-cyan-400 to-blue-500" },
-  { name: "GraphQL", color: "from-pink-400 to-rose-400" },
+  { name: "QGIS", color: "from-teal-400 to-green-400" },
+  { name: "Ruby on Rails", color: "from-red-400 to-rose-400" },
+  { name: "Photoshop", color: "from-blue-500 to-indigo-600" },
 ]
 
-// Carousel panels
+// Real projects from your portfolio
 const panels = [
   {
     id: 1,
-    title: "The Mapper",
-    subtitle: "Building Location Intelligence",
-    icon: "🗺️",
-    type: "map",
+    title: "GIS Mapping Expert",
+    subtitle: "Transforming Cities Across Africa",
+    type: "gis",
+    stat: "16 Cities",
+    description: "Public transport accessibility analysis",
+    projects: [
+      { city: "Addis Ababa", population: "4.5M", color: "#dc2626" },
+      { city: "Lagos", population: "14M", color: "#ea580c" },
+      { city: "Nairobi", population: "4.4M", color: "#ca8a04" },
+      { city: "Dar es Salaam", population: "5.4M", color: "#16a34a" },
+      { city: "Kigali", population: "1.3M", color: "#0891b2" },
+    ],
+    thumbnail:
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
   },
   {
     id: 2,
-    title: "The Developer",
-    subtitle: "Crafting Scalable Solutions",
-    icon: "💻",
-    type: "code",
+    title: "Full Stack Developer",
+    subtitle: "Building Scalable Web Solutions",
+    type: "developer",
+    stat: "50+ Apps",
+    description: "From startups to enterprise",
+    apps: [
+      {
+        name: "SoundSite",
+        icon: "🎵",
+        tech: "React • Firebase • Mapbox",
+        category: "Location Intelligence",
+      },
+      {
+        name: "MarketPros",
+        icon: "🏘️",
+        tech: "React • .NET • Azure",
+        category: "Real Estate",
+      },
+      {
+        name: "Cleos Welt",
+        icon: "🐾",
+        tech: "Rails • TailwindCSS",
+        category: "Insurance",
+      },
+      {
+        name: "Fatch",
+        icon: "🤝",
+        tech: "Rails • AI • Postgres",
+        category: "B2B Platform",
+      },
+    ],
+    thumbnail:
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/soundsite.png",
   },
   {
     id: 3,
-    title: "The Designer",
-    subtitle: "Creating Beautiful Experiences",
-    icon: "🎨",
-    type: "design",
+    title: "Graphic Designer",
+    subtitle: "Crafting Visual Stories",
+    type: "designer",
+    stat: "100+ Designs",
+    description: "From concept to creation",
+    designs: [
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Ye-Enat-Aynoch-Movie-Poster-scaled.jpg",
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Afro-Fashion-Mag-scaled.jpg",
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Pizza-Corner-Banner-1-scaled.jpg",
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Century-Cinima-scaled.jpg",
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Roll-up-Pizza-Corner-scaled.jpg",
+      "https://blog.rz-codes.com/wp-content/uploads/2022/11/Black-Salon-Banner-scaled.jpg",
+    ],
   },
 ]
-
-// Code snippet for developer panel
-const codeSnippet = `import { MapContainer, TileLayer } from 'react-leaflet';
-
-const InteractiveMap = () => {
-  return (
-    <MapContainer center={[51.505, -0.09]} zoom={13}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-    </MapContainer>
-  );
-};`
 
 const Hero = () => {
   const [activePanel, setActivePanel] = useState(0)
@@ -82,7 +119,7 @@ const Hero = () => {
     <div className="hero-container relative min-h-screen flex flex-col justify-between overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-      
+
       {/* Animated mesh gradient overlay */}
       <div className="absolute inset-0 opacity-30 -z-10">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-primary-300 dark:bg-primary-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob" />
@@ -122,7 +159,7 @@ const Hero = () => {
                   2000,
                   "Full Stack Engineer",
                   2000,
-                  "UI/UX Enthusiast",
+                  "Graphic Designer",
                   2000,
                   "Problem Solver",
                   2000,
@@ -136,9 +173,9 @@ const Hero = () => {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed">
-              Transforming complex spatial data into intuitive, scalable
-              solutions. Bridging the gap between maps and modern web
-              applications.
+              Mapping cities, building applications, designing experiences.
+              Transforming complex spatial data into elegant solutions across
+              Africa and beyond.
             </p>
 
             {/* Floating skill pills */}
@@ -163,7 +200,10 @@ const Hero = () => {
               <Link to="/projects">
                 <motion.button
                   className="px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 dark:from-primary-500 dark:to-secondary-500 dark:hover:from-primary-600 dark:hover:to-secondary-600 text-white font-semibold rounded-lg shadow-xl transition-all duration-300"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Explore My Work
@@ -188,9 +228,9 @@ const Hero = () => {
               transition={{ delay: 1 }}
             >
               {[
-                { label: "Projects", value: "50+" },
-                { label: "Blog Posts", value: "25+" },
-                { label: "Technologies", value: "30+" },
+                { label: "Cities Mapped", value: "16+" },
+                { label: "Apps Built", value: "50+" },
+                { label: "Designs Created", value: "100+" },
               ].map(stat => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-400 dark:to-secondary-400 bg-clip-text text-transparent">
@@ -204,7 +244,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT SIDE - Animated Carousel */}
+          {/* RIGHT SIDE - Real Work Carousel */}
           <motion.div
             className="hero-animation relative"
             initial={{ opacity: 0, x: 50 }}
@@ -214,7 +254,7 @@ const Hero = () => {
               transform: `perspective(1000px) rotateY(${mousePosition.x * 0.05}deg) rotateX(${-mousePosition.y * 0.05}deg)`,
             }}
           >
-            <div className="carousel-container relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden">
+            <div className="carousel-container relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activePanel}
@@ -224,130 +264,210 @@ const Hero = () => {
                   exit={{ opacity: 0, scale: 1.1 }}
                   transition={{ duration: 0.7 }}
                 >
-                  {/* Panel 1: The Mapper */}
-                  {panels[activePanel].type === "map" && (
-                    <div className="mapper-panel h-full bg-gradient-to-br from-blue-500 to-cyan-600 dark:from-blue-700 dark:to-cyan-800 p-8 flex flex-col justify-center items-center text-white relative overflow-hidden">
-                      {/* Animated map grid */}
-                      <div className="absolute inset-0 opacity-20">
+                  {/* Panel 1: GIS Expert - Real African Cities */}
+                  {panels[activePanel].type === "gis" && (
+                    <div className="gis-panel h-full bg-gradient-to-br from-blue-600 to-cyan-700 dark:from-blue-800 dark:to-cyan-900 p-8 relative overflow-hidden">
+                      {/* Background map image */}
+                      <div
+                        className="absolute inset-0 opacity-20 bg-cover bg-center"
+                        style={{
+                          backgroundImage: `url(${panels[activePanel].thumbnail})`,
+                        }}
+                      />
+
+                      {/* Animated grid overlay */}
+                      <div className="absolute inset-0 opacity-10">
                         <div className="grid-pattern" />
                       </div>
-                      
-                      <motion.div
-                        className="text-8xl mb-6"
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        {panels[activePanel].icon}
-                      </motion.div>
-                      
-                      <h3 className="text-4xl font-bold mb-4">
-                        {panels[activePanel].title}
-                      </h3>
-                      <p className="text-xl opacity-90">
-                        {panels[activePanel].subtitle}
-                      </p>
 
-                      {/* Animated markers */}
-                      {[...Array(5)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute w-4 h-4 bg-white rounded-full"
-                          style={{
-                            top: `${20 + i * 15}%`,
-                            left: `${10 + i * 18}%`,
-                          }}
-                          animate={{
-                            scale: [1, 1.5, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.2,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  )}
+                      <div className="relative z-10 h-full flex flex-col justify-between text-white">
+                        <div>
+                          <motion.div
+                            className="text-6xl mb-4"
+                            animate={{ rotate: [0, 5, -5, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            🗺️
+                          </motion.div>
 
-                  {/* Panel 2: The Developer */}
-                  {panels[activePanel].type === "code" && (
-                    <div className="developer-panel h-full bg-gradient-to-br from-gray-800 to-gray-900 p-8 text-white relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-8 bg-gray-700 flex items-center px-4 gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-500" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                        <div className="w-3 h-3 rounded-full bg-green-500" />
-                        <span className="ml-4 text-sm text-gray-400">InteractiveMap.jsx</span>
-                      </div>
+                          <h3 className="text-4xl font-bold mb-2">
+                            {panels[activePanel].title}
+                          </h3>
+                          <p className="text-xl opacity-90 mb-2">
+                            {panels[activePanel].subtitle}
+                          </p>
+                          <div className="text-3xl font-bold text-yellow-300 mb-4">
+                            {panels[activePanel].stat}
+                          </div>
+                          <p className="text-sm opacity-80">
+                            {panels[activePanel].description}
+                          </p>
+                        </div>
 
-                      <div className="mt-12 font-mono text-sm">
-                        <motion.pre
-                          className="text-left"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          <code className="language-javascript">
-                            {codeSnippet.split('\n').map((line, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.5 + i * 0.1 }}
-                              >
-                                {line}
-                              </motion.div>
-                            ))}
-                          </code>
-                        </motion.pre>
-                      </div>
-
-                      <motion.div
-                        className="absolute bottom-8 left-8 right-8 bg-gray-700 rounded p-4 font-mono text-xs"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.5 }}
-                      >
-                        <div className="text-green-400">&gt; npm run dev</div>
-                        <div className="text-gray-400 mt-2">✓ Ready in 1.2s</div>
-                        <div className="text-blue-400">ℹ Local: http://localhost:3000</div>
-                      </motion.div>
-                    </div>
-                  )}
-
-                  {/* Panel 3: The Designer */}
-                  {panels[activePanel].type === "design" && (
-                    <div className="designer-panel h-full bg-gradient-to-br from-purple-600 to-pink-600 dark:from-purple-800 dark:to-pink-800 p-8 flex flex-col justify-center items-center text-white relative overflow-hidden">
-                      <motion.div
-                        className="text-8xl mb-6"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        {panels[activePanel].icon}
-                      </motion.div>
-                      
-                      <h3 className="text-4xl font-bold mb-4">
-                        {panels[activePanel].title}
-                      </h3>
-                      <p className="text-xl opacity-90 mb-8">
-                        {panels[activePanel].subtitle}
-                      </p>
-
-                      {/* Color palette */}
-                      <div className="flex gap-4">
-                        {["#dc2626", "#eab308", "#3b82f6", "#8b5cf6", "#ec4899"].map(
-                          (color, i) => (
+                        {/* City badges */}
+                        <div className="space-y-2">
+                          {panels[activePanel].projects.map((project, i) => (
                             <motion.div
-                              key={color}
-                              className="w-16 h-16 rounded-lg shadow-lg"
-                              style={{ backgroundColor: color }}
+                              key={project.city}
+                              className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-lg p-3"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.3 + i * 0.1 }}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div
+                                  className="w-3 h-3 rounded-full"
+                                  style={{ backgroundColor: project.color }}
+                                />
+                                <span className="font-semibold">
+                                  {project.city}
+                                </span>
+                              </div>
+                              <span className="text-sm opacity-80">
+                                {project.population}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Panel 2: Developer - Real Apps */}
+                  {panels[activePanel].type === "developer" && (
+                    <div className="developer-panel h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black p-8 text-white relative overflow-hidden">
+                      {/* Background thumbnail */}
+                      <div
+                        className="absolute inset-0 opacity-10 bg-cover bg-center blur-sm"
+                        style={{
+                          backgroundImage: `url(${panels[activePanel].thumbnail})`,
+                        }}
+                      />
+
+                      <div className="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                          <motion.div
+                            className="text-6xl mb-4"
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            💻
+                          </motion.div>
+
+                          <h3 className="text-4xl font-bold mb-2">
+                            {panels[activePanel].title}
+                          </h3>
+                          <p className="text-xl opacity-90 mb-2">
+                            {panels[activePanel].subtitle}
+                          </p>
+                          <div className="text-3xl font-bold text-green-400 mb-4">
+                            {panels[activePanel].stat}
+                          </div>
+                          <p className="text-sm opacity-80 mb-6">
+                            {panels[activePanel].description}
+                          </p>
+                        </div>
+
+                        {/* App cards */}
+                        <div className="grid grid-cols-2 gap-3">
+                          {panels[activePanel].apps.map((app, i) => (
+                            <motion.div
+                              key={app.name}
+                              className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg p-4 border border-gray-600 hover:border-primary-500 transition-colors"
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.5 + i * 0.1 }}
-                              whileHover={{ scale: 1.2, rotate: 10 }}
-                            />
-                          )
-                        )}
+                              transition={{ delay: 0.3 + i * 0.1 }}
+                              whileHover={{ scale: 1.05, y: -5 }}
+                            >
+                              <div className="text-3xl mb-2">{app.icon}</div>
+                              <h4 className="font-bold text-sm mb-1">
+                                {app.name}
+                              </h4>
+                              <p className="text-xs text-gray-400 mb-2">
+                                {app.category}
+                              </p>
+                              <div className="text-xs text-primary-400">
+                                {app.tech}
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Panel 3: Designer - Real Designs */}
+                  {panels[activePanel].type === "designer" && (
+                    <div className="designer-panel h-full bg-gradient-to-br from-purple-700 via-pink-600 to-rose-600 dark:from-purple-900 dark:via-pink-800 dark:to-rose-800 p-8 text-white relative overflow-hidden">
+                      {/* Animated background shapes */}
+                      <div className="absolute inset-0 opacity-20">
+                        {[...Array(5)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute w-32 h-32 rounded-full bg-white/20"
+                            style={{
+                              top: `${20 + i * 15}%`,
+                              left: `${10 + i * 20}%`,
+                            }}
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.2, 0.4, 0.2],
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              delay: i * 0.5,
+                            }}
+                          />
+                        ))}
+                      </div>
+
+                      <div className="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                          <motion.div
+                            className="text-6xl mb-4"
+                            animate={{ rotate: [0, 10, -10, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            🎨
+                          </motion.div>
+
+                          <h3 className="text-4xl font-bold mb-2">
+                            {panels[activePanel].title}
+                          </h3>
+                          <p className="text-xl opacity-90 mb-2">
+                            {panels[activePanel].subtitle}
+                          </p>
+                          <div className="text-3xl font-bold text-yellow-300 mb-4">
+                            {panels[activePanel].stat}
+                          </div>
+                          <p className="text-sm opacity-80 mb-6">
+                            {panels[activePanel].description}
+                          </p>
+                        </div>
+
+                        {/* Design grid showcase */}
+                        <div className="grid grid-cols-3 gap-2">
+                          {panels[activePanel].designs
+                            .slice(0, 6)
+                            .map((design, i) => (
+                              <motion.div
+                                key={i}
+                                className="aspect-square rounded-lg overflow-hidden shadow-lg"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.3 + i * 0.1 }}
+                                whileHover={{ scale: 1.1, zIndex: 10 }}
+                              >
+                                <img
+                                  src={design}
+                                  alt={`Design ${i + 1}`}
+                                  className="w-full h-full object-cover"
+                                  loading="lazy"
+                                />
+                              </motion.div>
+                            ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -360,11 +480,11 @@ const Hero = () => {
                   <button
                     key={panel.id}
                     onClick={() => setActivePanel(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`transition-all duration-300 ${
                       index === activePanel
-                        ? "bg-white w-8"
-                        : "bg-white/50 hover:bg-white/75"
-                    }`}
+                        ? "bg-white w-8 h-3"
+                        : "bg-white/50 hover:bg-white/75 w-3 h-3"
+                    } rounded-full`}
                     aria-label={`Go to ${panel.title}`}
                   />
                 ))}
