@@ -20,7 +20,7 @@ const skills = [
 const panels = [
   {
     id: 1,
-    title: "GIS Mapping Expert",
+    title: "GIS Expert",
     subtitle: "Transforming Cities Across Africa",
     type: "gis",
     stat: "16 Cities",
@@ -40,7 +40,7 @@ const panels = [
     title: "Full Stack Developer",
     subtitle: "Building Scalable Web Solutions",
     type: "developer",
-    stat: "50+ Apps",
+    stat: "15+ Apps",
     description: "From startups to enterprise",
     apps: [
       {
@@ -76,7 +76,7 @@ const panels = [
     title: "Graphic Designer",
     subtitle: "Crafting Visual Stories",
     type: "designer",
-    stat: "100+ Designs",
+    stat: "50+ Designs",
     description: "From concept to creation",
     designs: [
       "https://blog.rz-codes.com/wp-content/uploads/2022/11/Ye-Enat-Aynoch-Movie-Poster-scaled.jpg",
@@ -229,8 +229,8 @@ const Hero = () => {
             >
               {[
                 { label: "Cities Mapped", value: "16+" },
-                { label: "Apps Built", value: "50+" },
-                { label: "Designs Created", value: "100+" },
+                { label: "Apps Built", value: "15+" },
+                { label: "Designs Created", value: "50+" },
               ].map(stat => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-400 dark:to-secondary-400 bg-clip-text text-transparent">
@@ -284,8 +284,16 @@ const Hero = () => {
                         <div>
                           <motion.div
                             className="text-6xl mb-4"
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                            animate={{
+                              rotate: [0, 3, -3, 0],
+                              y: [0, -8, 0],
+                              scale: [1, 1.05, 1],
+                            }}
+                            transition={{
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
                           >
                             🗺️
                           </motion.div>
@@ -348,8 +356,16 @@ const Hero = () => {
                         <div>
                           <motion.div
                             className="text-6xl mb-4"
-                            animate={{ scale: [1, 1.1, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                            animate={{
+                              scale: [1, 1.08, 1],
+                              y: [0, -10, 0],
+                              rotateY: [0, 5, 0, -5, 0],
+                            }}
+                            transition={{
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
                           >
                             💻
                           </motion.div>
@@ -426,8 +442,16 @@ const Hero = () => {
                         <div>
                           <motion.div
                             className="text-6xl mb-4"
-                            animate={{ rotate: [0, 10, -10, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                            animate={{
+                              rotate: [0, 8, -8, 0],
+                              scale: [1, 1.1, 1],
+                              y: [0, -12, 0],
+                            }}
+                            transition={{
+                              duration: 5,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
                           >
                             🎨
                           </motion.div>
