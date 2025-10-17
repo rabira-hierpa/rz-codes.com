@@ -4,39 +4,40 @@ import "./FeaturedGISProjects.css"
 export const FeaturedGISProjects = () => {
   const featuredProjects = [
     {
-      id: "lamp",
-      title: "LAMP - Location Analytics Management Platform",
+      id: "locust-prediction",
+      title: "AI-Powered Desert Locust Prediction System",
       subtitle: "Master's Thesis Project",
       description:
-        "A comprehensive platform for managing location-based analytics, enabling organizations to make data-driven decisions through powerful GIS tools. Built with modern web technologies and advanced spatial analysis capabilities, LAMP provides real-time insights into geographic data patterns and trends.",
-      longDescription: `LAMP (Location Analytics Management Platform) is my Master's thesis project that represents the culmination of my research in spatial data management and web-based GIS solutions. The platform integrates cutting-edge technologies to provide:
+        "Deep learning model that predicts desert locust outbreaks using satellite imagery and environmental data, achieving 82.87% accuracy. Developed to protect food security for millions of farmers across East Africa by enabling early warning systems for one of agriculture's most devastating threats.",
+      longDescription: `The Multi-Resolution Heterogeneous Vision Transformer (MRH-ViT) addresses the critical challenge of predicting desert locust presence by analyzing 59 types of environmental indicators from satellite imagery. During the 2020 outbreak—the worst in 25 years—locusts destroyed over 197,000 hectares of Ethiopian cropland, affecting 800,000 households and causing $8.5 billion in regional damage.
       
-• Real-time spatial data visualization and analysis
-• Advanced location-based querying and filtering
-• Interactive mapping with custom layer management
-• User-friendly interface for non-technical stakeholders
-• Scalable architecture for handling large datasets
-• RESTful API for seamless integration with other systems`,
+• Processes multi-resolution satellite imagery (MODIS, Landsat, Sentinel-2) at three spatial scales
+• Analyzes vegetation indices, climate patterns, soil moisture, and wind conditions
+• Achieves 87.47% recall rate, identifying 9 out of 10 actual locust presence events
+• Reduces dependence on delayed crowdsourced reports with automated satellite monitoring
+• Compact 950K parameter model suitable for deployment in resource-constrained environments
+• Custom Python data extraction tool processes 18,871 observation points across Ethiopia`,
       technologies: [
-        "React.js",
-        "Node.js",
-        "PostgreSQL",
-        "PostGIS",
-        "Mapbox GL",
+        "PyTorch",
+        "Vision Transformers",
         "Python",
-        "Docker",
+        "MODIS/Landsat/Sentinel-2",
+        "Deep Learning",
+        "Remote Sensing",
+        "TensorFlow",
+        "NumPy",
       ],
       highlights: [
-        "Thesis project for MSc in Data and Web Engineering",
-        "Comprehensive spatial data management system",
-        "Real-time location analytics dashboard",
-        "Advanced geospatial query capabilities",
-        "Scalable architecture for enterprise use",
+        "MSc in Computer Science (Data and Web Engineering) thesis",
+        "82.87% accuracy, 6.4% improvement over previous best model",
+        "120+ hours of satellite data extraction and processing",
+        "Enables proactive intervention for 800K+ farming households",
+        "Open-source data extraction pipeline on GitHub",
+        "Supervised by Dr. Solomon Gizaw, Addis Ababa University",
       ],
       github: "https://github.com/rabira-hierpa/LAMP",
       demo: null,
-      image:
-        "https://raw.githubusercontent.com/rabira-hierpa/LAMP/main/docs/images/architecture.png",
+      image: "https://blog.rz-codes.com/wp-content/uploads/2025/10/LAMP.png",
       type: "thesis",
       color: "primary",
     },
@@ -75,7 +76,7 @@ export const FeaturedGISProjects = () => {
       github: null,
       demo: "https://16cities.netlify.app/",
       image:
-        "https://blog.rz-codes.com/wp-content/uploads/2024/12/16cities-accessibility.png",
+        "https://blog.rz-codes.com/wp-content/uploads/2025/10/16-cities-thumbnail.png",
       type: "research",
       color: "secondary",
     },
