@@ -36,6 +36,7 @@ export const FeaturedGISProjects = () => {
         "Supervised by Dr. Solomon Gizaw, Addis Ababa University",
       ],
       github: "https://github.com/rabira-hierpa/LAMP",
+      thesis: "https://blog.rz-codes.com/wp-content/uploads/2025/10/Final-MRH-ViT-Thesis-Print.pdf",
       demo: null,
       image: "https://blog.rz-codes.com/wp-content/uploads/2025/10/LAMP.png",
       type: "thesis",
@@ -273,6 +274,30 @@ export const FeaturedGISProjects = () => {
                       View on GitHub
                     </a>
                   )}
+                  {project.thesis && (
+                    <a
+                      href={project.thesis}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                      View Thesis (PDF)
+                    </a>
+                  )}
+                  
                 </div>
               </div>
             </div>
