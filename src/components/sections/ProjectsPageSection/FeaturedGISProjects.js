@@ -36,7 +36,8 @@ export const FeaturedGISProjects = () => {
         "Supervised by Dr. Solomon Gizaw, Addis Ababa University",
       ],
       github: "https://github.com/rabira-hierpa/LAMP",
-      thesis: "https://blog.rz-codes.com/wp-content/uploads/2025/10/Final-MRH-ViT-Thesis-Print.pdf",
+      thesis:
+        "https://blog.rz-codes.com/wp-content/uploads/2025/10/Final-MRH-ViT-Thesis-Print.pdf",
       demo: null,
       image: "https://blog.rz-codes.com/wp-content/uploads/2025/10/LAMP.png",
       type: "thesis",
@@ -297,7 +298,6 @@ export const FeaturedGISProjects = () => {
                       View Thesis (PDF)
                     </a>
                   )}
-                  
                 </div>
               </div>
             </div>
