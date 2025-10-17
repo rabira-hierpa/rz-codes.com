@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
+import { ClientOnlyGlobe } from "../../common"
 import "./Hero.css"
 
 // Tech stack skills
@@ -25,12 +26,48 @@ const panels = [
     type: "gis",
     stat: "16 Cities",
     description: "Public transport accessibility analysis",
-    projects: [
-      { city: "Addis Ababa", population: "4.5M", color: "#dc2626" },
-      { city: "Lagos", population: "14M", color: "#ea580c" },
-      { city: "Nairobi", population: "4.4M", color: "#ca8a04" },
-      { city: "Dar es Salaam", population: "5.4M", color: "#16a34a" },
-      { city: "Kigali", population: "1.3M", color: "#0891b2" },
+    regions: [
+      {
+        name: "East Africa",
+        cities: [
+          { city: "Addis Ababa", country: "Ethiopia", color: "#dc2626" },
+          { city: "Nairobi", country: "Kenya", color: "#ea580c" },
+          { city: "Kampala", country: "Uganda", color: "#ca8a04" },
+          { city: "Kigali", country: "Rwanda", color: "#16a34a" },
+        ],
+      },
+      {
+        name: "West Africa",
+        cities: [
+          { city: "Abidjan", country: "Côte d'Ivoire", color: "#0891b2" },
+          { city: "Accra", country: "Ghana", color: "#7c3aed" },
+          { city: "Bamako", country: "Mali", color: "#db2777" },
+          { city: "Freetown", country: "Sierra Leone", color: "#059669" },
+          { city: "Kumasi", country: "Ghana", color: "#d97706" },
+        ],
+      },
+      {
+        name: "North Africa",
+        cities: [
+          { city: "Alexandria", country: "Egypt", color: "#2563eb" },
+          { city: "Cairo", country: "Egypt", color: "#dc2626" },
+          { city: "Tetouan", country: "Morocco", color: "#0284c7" },
+        ],
+      },
+      {
+        name: "Central Africa",
+        cities: [
+          { city: "Douala", country: "Cameroon", color: "#65a30d" },
+          { city: "Kinshasa", country: "DRC", color: "#c026d3" },
+        ],
+      },
+      {
+        name: "Southern Africa",
+        cities: [
+          { city: "Harare", country: "Zimbabwe", color: "#ea580c" },
+          { city: "Lusaka", country: "Zambia", color: "#7c3aed" },
+        ],
+      },
     ],
     thumbnail:
       "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
@@ -267,18 +304,15 @@ const Hero = () => {
                   {/* Panel 1: GIS Expert - Real African Cities */}
                   {panels[activePanel].type === "gis" && (
                     <div className="gis-panel h-full bg-gradient-to-br from-blue-600 to-cyan-700 dark:from-blue-800 dark:to-cyan-900 p-8 relative overflow-hidden">
-                      {/* Background map image */}
-                      <div
-                        className="absolute inset-0 opacity-20 bg-cover bg-center"
-                        style={{
-                          backgroundImage: `url(${panels[activePanel].thumbnail})`,
-                        }}
-                      />
-
-                      {/* Animated grid overlay */}
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="grid-pattern" />
+                      {/* Interactive 3D Globe with African Cities */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-40 dark:opacity-30">
+                        <div className="w-full h-full max-w-[600px] max-h-[600px]">
+                          <ClientOnlyGlobe />
+                        </div>
                       </div>
+
+                      {/* Subtle gradient overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-transparent to-transparent" />
 
                       <div className="relative z-10 h-full flex flex-col justify-between text-white">
                         <div>
@@ -312,30 +346,49 @@ const Hero = () => {
                           </p>
                         </div>
 
-                        {/* City badges */}
-                        <div className="space-y-2">
-                          {panels[activePanel].projects.map((project, i) => (
-                            <motion.div
-                              key={project.city}
-                              className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-lg p-3"
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.3 + i * 0.1 }}
-                            >
-                              <div className="flex items-center gap-3">
-                                <div
-                                  className="w-3 h-3 rounded-full"
-                                  style={{ backgroundColor: project.color }}
-                                />
-                                <span className="font-semibold">
-                                  {project.city}
-                                </span>
+                        {/* City badges grouped by region */}
+                        <div className="space-y-3 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                          {panels[activePanel].regions?.map(
+                            (region, regionIdx) => (
+                              <div key={region.name} className="space-y-2">
+                                <motion.p
+                                  className="text-xs font-semibold uppercase tracking-wider text-yellow-300/80"
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.2 + regionIdx * 0.1 }}
+                                >
+                                  {region.name}
+                                </motion.p>
+                                {region.cities.map((cityData, cityIdx) => (
+                                  <motion.div
+                                    key={`${region.name}-${cityData.city}`}
+                                    className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-lg p-2.5"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      delay:
+                                        0.3 + regionIdx * 0.15 + cityIdx * 0.05,
+                                    }}
+                                  >
+                                    <div className="flex items-center gap-2.5">
+                                      <div
+                                        className="w-2.5 h-2.5 rounded-full"
+                                        style={{
+                                          backgroundColor: cityData.color,
+                                        }}
+                                      />
+                                      <span className="font-medium text-sm">
+                                        {cityData.city}
+                                      </span>
+                                    </div>
+                                    <span className="text-xs opacity-70">
+                                      {cityData.country}
+                                    </span>
+                                  </motion.div>
+                                ))}
                               </div>
-                              <span className="text-sm opacity-80">
-                                {project.population}
-                              </span>
-                            </motion.div>
-                          ))}
+                            ),
+                          )}
                         </div>
                       </div>
                     </div>
