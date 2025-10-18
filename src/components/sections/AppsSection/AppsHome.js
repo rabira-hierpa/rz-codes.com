@@ -13,6 +13,7 @@ const AppsHome = () => {
           description
           demo
           link
+          discontinued
         }
       }
     }
@@ -26,8 +27,14 @@ const AppsHome = () => {
               key={`app_${idx}`}
               className="grid grid-cols-1 md:grid-cols-2 shadow-md hover:shadow-lg gap-x-5 bg-surface-light dark:bg-surface-dark transition-colors p-1 rounded-lg"
             >
-              <div className="object-cover object-center grid place-items-center rounded-lg h-auto p-2">
+              <div className="object-cover object-center grid place-items-center rounded-lg h-auto p-2 relative">
                 <img alt={app.title} src={app?.image} className="" />
+                {/* Archived Badge - Top Left */}
+                {app?.discontinued && (
+                  <div className="absolute top-4 left-4 bg-secondary-600 dark:bg-secondary-500 text-white px-3 py-1 rounded-full shadow-md text-xs font-semibold">
+                    Archived
+                  </div>
+                )}
               </div>
               <div className="pr-5">
                 <div className="text-xl text-primary-600 dark:text-primary-400 text-center md:text-left font-bold p-2">
@@ -60,15 +67,17 @@ const AppsHome = () => {
                 </div>
                 <div className="col-span-full row-span-1">
                   <ul className="flex flex-row pl-2 align-self-end text-gray-600 dark:text-gray-400 overflow-x-scroll hide-scroll-bar">
-                    {app.tags.map(tag => {
-                      return (
-                        <li key={tag} className="py-1">
-                          <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-secondary-200 dark:hover:bg-secondary-900 text-gray-500 dark:text-gray-400 hover:text-primary-800 dark:hover:text-primary-300">
-                            <span>{"#" + tag}</span>
-                          </div>
-                        </li>
-                      )
-                    })}
+                    {app.tags
+                      .filter(tag => tag !== "Archived")
+                      .map(tag => {
+                        return (
+                          <li key={tag} className="py-1">
+                            <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-secondary-200 dark:hover:bg-secondary-900 text-gray-500 dark:text-gray-400 hover:text-primary-800 dark:hover:text-primary-300">
+                              <span>{"#" + tag}</span>
+                            </div>
+                          </li>
+                        )
+                      })}
                   </ul>
                 </div>
               </div>

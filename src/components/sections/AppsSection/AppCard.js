@@ -17,6 +17,7 @@ import "../FeaturedProjectsSection/ProjectCard.css"
  * @param {string} props.appType - App type (location or web)
  * @param {React.ReactNode} props.icon - Icon component
  * @param {number} props.index - Card index for glow color variation
+ * @param {boolean} props.discontinued - Whether the app is archived/discontinued
  */
 export const AppCard = ({
   title,
@@ -28,6 +29,7 @@ export const AppCard = ({
   appType,
   icon,
   index = 0,
+  discontinued = false,
 }) => {
   const truncatedDescription =
     description.length > 150
@@ -36,6 +38,9 @@ export const AppCard = ({
 
   // Determine glow class based on index (cycle through 0, 1, 2)
   const glowIndex = index % 3
+
+  // Filter out "Archived" tag from display
+  const displayTags = tags.filter(tag => tag !== "Archived")
 
   return (
     <div
@@ -49,6 +54,12 @@ export const AppCard = ({
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
           loading="lazy"
         />
+        {/* Archived Badge - Top Left */}
+        {discontinued && (
+          <div className="absolute top-4 left-4 bg-secondary-600 dark:bg-secondary-500 text-white px-3 py-1 rounded-full shadow-md text-xs font-semibold">
+            Archived
+          </div>
+        )}
         {/* Type Badge */}
         <div className="absolute top-4 right-4 bg-white dark:bg-gray-900 rounded-full p-2 shadow-md">
           <div
@@ -109,7 +120,7 @@ export const AppCard = ({
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {tags.slice(0, 4).map((tag, idx) => (
+          {displayTags.slice(0, 4).map((tag, idx) => (
             <span
               key={idx}
               className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700"
@@ -117,9 +128,9 @@ export const AppCard = ({
               {tag}
             </span>
           ))}
-          {tags.length > 4 && (
+          {displayTags.length > 4 && (
             <span className="px-3 py-1 text-xs font-medium text-gray-500 dark:text-gray-500">
-              +{tags.length - 4}
+              +{displayTags.length - 4}
             </span>
           )}
         </div>
@@ -138,4 +149,5 @@ AppCard.propTypes = {
   appType: PropTypes.oneOf(["location", "web"]).isRequired,
   icon: PropTypes.node.isRequired,
   index: PropTypes.number,
+  discontinued: PropTypes.bool,
 }
