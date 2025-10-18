@@ -22,7 +22,7 @@
     "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot_2024-03-28_at_4.52.30_in_the_afternoon-transformed.png",
     "description": "Cleos Welt offers digital pet insurance plans that provide coverage for preventative care, accidents, and surgeries, giving pet owners peace of mind.  Their plans are designed for both dogs and cats, and Cleos Welt partners with other animal-related businesses to provide a well-rounded pet care experience.",
     "link": "",
-    "demo": "https://www.cleoswelt.de/",
+    "demo": "https://www.cleos.de/",
     "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"],
     "appType": "web"
   },
@@ -32,8 +32,15 @@
     "description": "Fatch allows you to connect with experts you need for your business, from marketing to design to development.Fatch use AI and knows what you need before you lack it. Fatch's platform makes it easy to find the right expert for your project, and their secure payment system ensures that you only pay for work that meets your standards.  Fatch is the perfect solution for businesses looking to grow and succeed.",
     "link": "",
     "demo": "https://staging.fatch.eu/",
-    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"],
-    "appType": "web"
+    "tags": [
+      "Ruby on Rails",
+      "Tailwindcss",
+      "Stimilus",
+      "Postgres",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "KS/Aux",
@@ -41,8 +48,9 @@
     "description": " KS/AUXILIA offers a variety of legal insurance plans to give you the peace of mind you deserve. Whether you need help with a traffic accident, a contract dispute, or any other legal matter, KS/AUXILIA will be there to protect your rights. With our comprehensive coverage and experienced team of lawyers, you can rest assured that you're in good hands.",
     "link": "",
     "demo": "https://services.ks-axulia.de",
-    "tags": ["Ruby on Rails 7", "Tailwindcss", "GTag"],
-    "appType": "web"
+    "tags": ["Ruby on Rails 7", "Tailwindcss", "GTag", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "MarketPros",
@@ -77,8 +85,18 @@
     "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
     "link": "https://bridger.live",
     "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"],
-    "appType": "web"
+    "tags": [
+      "PERN",
+      "AWS",
+      "AntD",
+      "React",
+      "Redux",
+      "Postgres",
+      "NestJS",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Vere Italie",
@@ -95,8 +113,9 @@
     "description": "Tourist guid app for foreigners who want to explore the culture and heritage of the long lived capital city of Africa - Addis Ababa. Features include navigation,location bookmark, searching for hotels, current location guid and attraction site locator",
     "link": "https://github.com/rabira-hierpa/addis-tourist-map",
     "demo": "",
-    "tags": ["React", "Express", "MongoDB"],
-    "appType": "location"
+    "tags": ["React", "Express", "MongoDB", "Archived"],
+    "appType": "location",
+    "discontinued": true
   },
   {
     "title": "Tenant Management System",
@@ -104,8 +123,18 @@
     "description": "All In One Tenant management solution with built in support with incident and invoice management.Features include role-based UI, Incident Reporting, and Invoice Management",
     "link": "https://github.com/YehualashetGit/tenant-management-system",
     "demo": "https://www.youtube.com/watch?v=ZSMgqPOw5dw",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"],
-    "appType": "web"
+    "tags": [
+      "PERN",
+      "AWS",
+      "AntD",
+      "React",
+      "Redux",
+      "Postgres",
+      "NestJS",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Project watchdog",
@@ -122,8 +151,9 @@
     "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
     "link": "https://www.evisa.gov.et",
     "demo": "https://youtu.be/ivLMRdg-EJc",
-    "tags": ["Xamarin", "C#", ".NET", "MobileApp"],
-    "appType": "web"
+    "tags": ["Xamarin", "C#", ".NET", "MobileApp", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "CS Notify",
@@ -131,8 +161,9 @@
     "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
     "link": "https://github.com/rabira-hierpa/aau_notify",
     "demo": "",
-    "tags": ["Android Native", "Java", "PHP", "Bootstrap"],
-    "appType": "web"
+    "tags": ["Android Native", "Java", "PHP", "Bootstrap", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Mesobe Hasab",
@@ -140,8 +171,9 @@
     "description": "A collection of Amharic Quotes from different sources.Made with flutter",
     "link": "https://github.com/rabira-hierpa/mesobe_hasab",
     "demo": "",
-    "tags": ["Flutter", "Firebase", "GoogleAuth"],
-    "appType": "web"
+    "tags": ["Flutter", "Firebase", "GoogleAuth", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Design Rz",
@@ -149,7 +181,8 @@
     "description": "A Flutter mobile app for the Graphics Design Course I took at Berehana Selam. It includes all the designs I made using the Adobe Suite(Photoshop, Illustrator and InDesign)",
     "link": "https://github.com/rabira-hierpa/design_rz",
     "demo": "",
-    "tags": ["Flutter", "ImageGallery"],
-    "appType": "web"
+    "tags": ["Flutter", "ImageGallery", "Archived"],
+    "appType": "web",
+    "discontinued": true
   }
 ]
