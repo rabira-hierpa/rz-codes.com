@@ -10,12 +10,11 @@ export const WorkExperience = () => {
       period: "06/2025 - Present",
       type: "Full-Time",
       description:
-        "Leading AI integration and advanced ESRI features for mapping and planning solutions.",
+        "Working on AI integration and advanced ESRI features for mapping solutions.",
       achievements: [
-        "Integrated AI (LLM/Agent workflow) to maps used for planning",
-        "Implemented UI design to match domain workflow",
-        "Supported team with advanced ESRI features like geoprocessing and data processing",
-        "Hosted custom Feature Layers",
+        "Integrated AI (LLM/Agent workflow) to maps",
+        "Implemented UI design to match business needs",
+        "Supported team with advanced ESRI features",
       ],
     },
     {
