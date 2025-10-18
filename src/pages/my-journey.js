@@ -18,8 +18,9 @@ const MyJourney = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-              From junior engineer to senior architect - a story of continuous
-              growth, learning, and impact across continents
+              From junior software engineer to and full stack developer and GIS
+              specialist - a story of continuous growth, learning, and impact
+              across continents
             </p>
             <div className="flex flex-wrap justify-center gap-6 mt-8">
               <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md">
