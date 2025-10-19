@@ -85,11 +85,34 @@ export const FeaturedProjectsSection = () => {
     <section className="py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <Link to="/apps" className="block">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-text-light dark:text-text-dark hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 cursor-pointer">
-            Featured Projects
-          </h2>
-        </Link>
+        <div className="text-center mb-16">
+          <Link to="/apps" className="block group">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary-600 dark:to-primary-400"></div>
+              <svg
+                className="w-8 h-8 text-primary-600 dark:text-primary-400 group-hover:rotate-180 transition-transform duration-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                />
+              </svg>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-600 dark:to-primary-400"></div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-light dark:text-text-dark group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Showcase of innovative web and mobile applications built with
+              cutting-edge technologies
+            </p>
+          </Link>
+        </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
