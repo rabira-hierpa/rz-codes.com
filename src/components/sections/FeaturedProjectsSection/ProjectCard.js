@@ -14,6 +14,7 @@ import "./ProjectCard.css"
  * @param {string} props.type - Project type (location or web)
  * @param {React.ReactNode} props.icon - Icon component
  * @param {number} props.index - Card index for glow color variation
+ * @param {boolean} props.discontinued - Whether the project is archived/discontinued
  */
 export const ProjectCard = ({
   title,
@@ -23,11 +24,15 @@ export const ProjectCard = ({
   type,
   icon,
   index = 0,
+  discontinued = false,
 }) => {
   const truncatedDescription =
     description.length > 150
       ? description.substring(0, 150) + "..."
       : description
+
+  // Filter out "Archived" tag from display
+  const displayTags = tags.filter(tag => tag !== "Archived")
 
   return (
     <div
@@ -41,6 +46,12 @@ export const ProjectCard = ({
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
           loading="lazy"
         />
+        {/* Archived Badge - Top Left */}
+        {discontinued && (
+          <div className="absolute top-4 left-4 bg-secondary-600 dark:bg-secondary-500 text-white px-3 py-1 rounded-full shadow-md text-xs font-semibold">
+            Archived
+          </div>
+        )}
         {/* Type Badge */}
         <div className="absolute top-4 right-4 bg-white dark:bg-gray-900 rounded-full p-2 shadow-md">
           <div
@@ -69,7 +80,7 @@ export const ProjectCard = ({
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {tags.slice(0, 3).map((tag, index) => (
+          {displayTags.slice(0, 3).map((tag, index) => (
             <span
               key={index}
               className="px-3 py-1 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 rounded-full"
@@ -91,4 +102,5 @@ ProjectCard.propTypes = {
   type: PropTypes.oneOf(["location", "web"]).isRequired,
   icon: PropTypes.node.isRequired,
   index: PropTypes.number,
+  discontinued: PropTypes.bool,
 }

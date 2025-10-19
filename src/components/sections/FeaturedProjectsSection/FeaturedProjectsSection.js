@@ -19,6 +19,7 @@ export const FeaturedProjectsSection = () => {
           link
           tags
           appType
+          discontinued
         }
       }
     }
@@ -77,6 +78,7 @@ export const FeaturedProjectsSection = () => {
     tags: app.tags,
     type: app.appType || "web",
     icon: getIconForAppType(app.appType),
+    discontinued: app.discontinued,
   }))
 
   return (
