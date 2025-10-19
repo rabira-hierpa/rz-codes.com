@@ -29,10 +29,10 @@ export const DesignCard = ({
     return "col-span-1 row-span-1"
   }
 
-  // Determine height based on card size
+  // Determine height based on card size - Fixed heights for consistent layout
   const getHeightClass = index => {
     if (index === 0 || index === 3) {
-      return "h-80 md:h-full"
+      return "h-80 md:h-96"
     }
     return "h-64"
   }
