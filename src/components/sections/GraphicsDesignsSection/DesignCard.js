@@ -19,6 +19,7 @@ export const DesignCard = ({
   isHovered: _isHovered,
   onHover,
   onLeave,
+  onClick,
 }) => {
   // Determine card size based on index for varied layout
   const getCardClass = index => {
@@ -39,12 +40,20 @@ export const DesignCard = ({
 
   return (
     <div
-      className={`design-card ${getCardClass(index)} relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ${getHeightClass(index)}`}
+      className={`design-card ${getCardClass(index)} relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ${getHeightClass(index)} cursor-pointer`}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
+      onClick={onClick}
+      onKeyDown={e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          onClick()
+        }
+      }}
       style={{ animationDelay: `${index * 50}ms` }}
-      role="img"
-      aria-label={`Design work ${index + 1}`}
+      role="button"
+      tabIndex={0}
+      aria-label={`View design work ${index + 1}`}
     >
       {/* Design Image */}
       <img
@@ -125,4 +134,5 @@ DesignCard.propTypes = {
   isHovered: PropTypes.bool,
   onHover: PropTypes.func.isRequired,
   onLeave: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 }

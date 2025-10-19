@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { DesignCard } from "./DesignCard"
+import { DesignModal } from "../DesignsSection/DesignModal"
 
 /**
  * GraphicsDesignsSection Component
  * Displays a curated gallery of graphic design works
- * Features an elegant grid layout with hover effects
+ * Features an elegant grid layout with hover effects and modal view
  */
 export const GraphicsDesignsSection = () => {
   const data = useStaticQuery(graphql`
@@ -21,6 +22,68 @@ export const GraphicsDesignsSection = () => {
 
   const designs = data.allDesignsJson.nodes[0].images.slice(0, 6)
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [selectedDesign, setSelectedDesign] = useState(null)
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (selectedDesign === null) return
+
+    const handleKeyDown = e => {
+      if (e.key === "Escape") {
+        setSelectedDesign(null)
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault()
+        handlePrevious()
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault()
+        handleNext()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = "hidden"
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = "unset"
+    }
+  }, [selectedDesign])
+
+  const handleNext = () => {
+    setSelectedDesign(prev => (prev + 1) % designs.length)
+  }
+
+  const handlePrevious = () => {
+    setSelectedDesign(prev => (prev - 1 + designs.length) % designs.length)
+  }
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Check out this design",
+          text: "Amazing graphic design work",
+          url: window.location.href,
+        })
+      } catch (err) {
+        console.log("Share cancelled")
+      }
+    } else {
+      // Fallback: Copy link to clipboard
+      navigator.clipboard.writeText(window.location.href)
+      alert("Link copied to clipboard!")
+    }
+  }
+
+  const handleDownload = () => {
+    const link = document.createElement("a")
+    link.href = designs[selectedDesign]
+    link.download = `design-${selectedDesign + 1}.jpg`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <section className="py-20 px-6 md:px-12 lg:px-20 bg-gray-50 dark:bg-gray-900/30">
@@ -65,9 +128,24 @@ export const GraphicsDesignsSection = () => {
               isHovered={hoveredIndex === index}
               onHover={() => setHoveredIndex(index)}
               onLeave={() => setHoveredIndex(null)}
+              onClick={() => setSelectedDesign(index)}
             />
           ))}
         </div>
+
+        {/* Modal */}
+        {selectedDesign !== null && (
+          <DesignModal
+            design={designs[selectedDesign]}
+            index={selectedDesign}
+            total={designs.length}
+            onClose={() => setSelectedDesign(null)}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+            onShare={handleShare}
+            onDownload={handleDownload}
+          />
+        )}
 
         {/* View Gallery Button with Creative Styling */}
         <div className="flex justify-center">
