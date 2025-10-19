@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Rz Codes - Portfolio`,
+        short_name: `Rz Codes`,
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#DA5049`,
