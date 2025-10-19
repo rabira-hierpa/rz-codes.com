@@ -172,6 +172,96 @@ export const ContactForm = () => {
           </a>
         </div>
 
+        {/* Calendly Booking - Featured CTA */}
+        <div className="mb-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary-500/10 via-primary-500/10 to-secondary-500/10 dark:from-secondary-600/20 dark:via-primary-600/20 dark:to-secondary-600/20 animate-pulse"></div>
+          <a
+            href="https://calendly.com/rzcodes-biz/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block p-8 bg-gradient-to-r from-primary-600 to-secondary-500 hover:from-primary-700 hover:to-secondary-600 dark:from-primary-500 dark:to-secondary-400 dark:hover:from-primary-600 dark:hover:to-secondary-500 rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02] border-2 border-white/20 group"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-6">
+                {/* Animated Calendar Icon */}
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
+                    <svg
+                      className="w-10 h-10 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  {/* Pulsing Dot */}
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full"></div>
+                </div>
+
+                {/* Text Content */}
+                <div className="text-left">
+                  <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                    Schedule a Meeting
+                    <svg
+                      className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </h3>
+                  <p className="text-white/90 text-sm md:text-base">
+                    Book a free 30-minute consultation call to discuss your
+                    project
+                  </p>
+                </div>
+              </div>
+
+              {/* Call-to-Action Badge */}
+              <div className="flex-shrink-0">
+                <div className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border-2 border-white/30 group-hover:bg-white/30 transition-all duration-300">
+                  <span className="text-white font-bold text-sm md:text-base flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                    </span>
+                    Available Now
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-0 left-0 w-20 h-20 bg-white/5 rounded-full -translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full translate-x-16 translate-y-16 group-hover:scale-150 transition-transform duration-700"></div>
+          </a>
+
+          {/* Optional: Or Divider */}
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-background-light dark:bg-background-dark text-gray-500 dark:text-gray-400">
+                Or send me a message
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Contact Form */}
         <div className="bg-white dark:bg-surface-dark rounded-xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
           <form onSubmit={handleSubmit} className="space-y-6">
