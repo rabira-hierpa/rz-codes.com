@@ -297,11 +297,6 @@ export const pageQuery = graphql`
           sourceUrl
           localFile {
             publicURL
-            childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid
-              }
-            }
           }
         }
       }
