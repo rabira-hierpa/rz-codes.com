@@ -18,6 +18,7 @@ const AppsPage = () => {
           link
           tags
           appType
+          discontinued
         }
       }
     }
@@ -176,6 +177,7 @@ const AppsPage = () => {
                   tags={app.tags}
                   appType={app.appType || "web"}
                   icon={getIconForAppType(app.appType)}
+                  discontinued={app.discontinued}
                 />
               ))}
             </div>
