@@ -1,4 +1,5 @@
-export { default as AppsSection } from "./AppsSection"
-export { default as AppsCard } from "./AppsCard"
-export { default as AppsHome } from "./AppsHome"
-
+export { AppsHome } from "./AppsHome"
+export { AppsCard } from "./AppsCard"
+export { AppsHero } from "./AppsHero"
+export { AppCard } from "./AppCard"
+export { AppsSection } from "./AppsSection"

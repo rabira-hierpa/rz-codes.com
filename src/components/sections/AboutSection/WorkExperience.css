@@ -1,0 +1,163 @@
+/* Timeline Container */
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Timeline Line - Centered */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #dc2626 0%, #eab308 50%, #dc2626 100%);
+}
+
+/* Dark mode gradient */
+.dark .timeline-line {
+  background: linear-gradient(to bottom, #f87171 0%, #fbbf24 50%, #f87171 100%);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+/* Timeline Dot - Centered on line */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: #dc2626;
+  border: 4px solid white;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+.dark .timeline-dot {
+  background-color: #f87171;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
+}
+
+/* Timeline Card */
+.timeline-card {
+  width: calc(50% - 50px);
+}
+
+/* Left side cards */
+.timeline-left {
+  justify-content: flex-start;
+}
+
+.timeline-left .timeline-card {
+  margin-right: auto;
+}
+
+/* Right side cards */
+.timeline-right {
+  justify-content: flex-end;
+}
+
+.timeline-right .timeline-card {
+  margin-left: auto;
+}
+
+/* Experience Card Animations */
+.experience-card {
+  animation: fadeInScale 0.6s ease-out backwards;
+  transform-origin: center;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stagger animation delays */
+.timeline-item:nth-child(1) .experience-card {
+  animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) .experience-card {
+  animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(3) .experience-card {
+  animation-delay: 0.3s;
+}
+
+.timeline-item:nth-child(4) .experience-card {
+  animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(5) .experience-card {
+  animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(6) .experience-card {
+  animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(7) .experience-card {
+  animation-delay: 0.7s;
+}
+
+.timeline-item:nth-child(8) .experience-card {
+  animation-delay: 0.8s;
+}
+
+.timeline-item:nth-child(9) .experience-card {
+  animation-delay: 0.9s;
+}
+
+.timeline-item:nth-child(10) .experience-card {
+  animation-delay: 1s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  /* Hide timeline line on mobile */
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+
+  /* Stack cards vertically */
+  .timeline-left,
+  .timeline-right {
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
+
+  .timeline-left .timeline-card,
+  .timeline-right .timeline-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Position dot on left side */
+  .timeline-dot {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+}

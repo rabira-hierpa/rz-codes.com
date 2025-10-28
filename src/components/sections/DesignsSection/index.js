@@ -1,2 +1,2 @@
-export { default as DesignsSection } from "./DesignsSection"
-
+export { DesignsHero } from "./DesignsHero"
+export { DesignModal } from "./DesignModal"

@@ -1,0 +1,83 @@
+/* Project Card Hover Animations */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated line that draws from left to right on hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-glow-yellow),
+    var(--color-glow-red)
+  );
+  transition: width 0.4s ease-out;
+  z-index: 10;
+}
+
+.project-card:hover::before {
+  width: 100%;
+}
+
+/* Glowing border animation - Yellow glow (first card) */
+.project-card-glow-0:hover {
+  border-color: var(--color-glow-yellow);
+  box-shadow:
+    0 0 20px rgba(var(--color-glow-yellow-rgb), 0.5),
+    0 0 40px rgba(var(--color-glow-yellow-rgb), 0.3);
+}
+
+/* Glowing border animation - Orange-Yellow glow (second card) */
+.project-card-glow-1:hover {
+  border-color: var(--color-glow-orange);
+  box-shadow:
+    0 0 20px rgba(var(--color-glow-orange-rgb), 0.5),
+    0 0 40px rgba(var(--color-glow-orange-rgb), 0.3);
+}
+
+/* Glowing border animation - Red glow (third card) */
+.project-card-glow-2:hover {
+  border-color: var(--color-glow-red);
+  box-shadow:
+    0 0 20px rgba(var(--color-glow-red-rgb), 0.5),
+    0 0 40px rgba(var(--color-glow-red-rgb), 0.3);
+}
+
+/* Dark mode adjustments (enhanced glow) */
+.dark .project-card-glow-0:hover {
+  box-shadow:
+    0 0 25px rgba(var(--color-glow-yellow-rgb), 0.6),
+    0 0 50px rgba(var(--color-glow-yellow-rgb), 0.4);
+}
+
+.dark .project-card-glow-1:hover {
+  box-shadow:
+    0 0 25px rgba(var(--color-glow-orange-rgb), 0.6),
+    0 0 50px rgba(var(--color-glow-orange-rgb), 0.4);
+}
+
+.dark .project-card-glow-2:hover {
+  box-shadow:
+    0 0 25px rgba(var(--color-glow-red-rgb), 0.6),
+    0 0 50px rgba(var(--color-glow-red-rgb), 0.4);
+}
+
+/* Smooth transition for all border and shadow changes */
+.project-card {
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* Ensure image doesn't cause layout shift */
+.project-card img {
+  transition: transform 0.4s ease;
+}
