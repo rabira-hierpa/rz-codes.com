@@ -15,6 +15,7 @@ const LandingApps = () => {
           description
           demo
           link
+          discontinued
         }
       }
     }

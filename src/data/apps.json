@@ -5,7 +5,8 @@
     "description": "SoundSite leverages 3D acoustic modeling to predict noise levels from your project and assess the impact on nearby communities.  Make changes to your plans and see the impact on noise levels in real time, eliminating the need for time-consuming re-modeling by acoustic consultants.  SoundSite saves you time and money, while ensuring your project stays on schedule and within budget.",
     "link": "",
     "demo": "https://www.soundsite.io/",
-    "tags": ["React", "Material UI", "Firebase", "Mapbox"]
+    "tags": ["React", "Material UI", "Firebase", "Mapbox"],
+    "appType": "location"
   },
   {
     "title": "SoundSurfer",
@@ -13,15 +14,17 @@
     "description": "SoundSurfer is an easy-to-use sound calculation tool that empowers consultants to create complex models without the need for spreadsheets. With SoundSurfer, you can drag and drop elements, connect them, and add notes and images to build a clear and comprehensive model.  SoundSurfer is built by consultants for consultants, so you can be sure it has the features you need to get the job done.",
     "link": "",
     "demo": "https://www.soundsurfer.io/",
-    "tags": ["React", "Material UI", "Firebase", "Mapbox"]
+    "tags": ["React", "Material UI", "Firebase", "Mapbox"],
+    "appType": "web"
   },
   {
     "title": "Cleos",
     "image": "https://blog.rz-codes.com/wp-content/uploads/2024/03/Screenshot_2024-03-28_at_4.52.30_in_the_afternoon-transformed.png",
     "description": "Cleos Welt offers digital pet insurance plans that provide coverage for preventative care, accidents, and surgeries, giving pet owners peace of mind.  Their plans are designed for both dogs and cats, and Cleos Welt partners with other animal-related businesses to provide a well-rounded pet care experience.",
     "link": "",
-    "demo": "https://www.cleoswelt.de/",
-    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"]
+    "demo": "https://www.cleos.de/",
+    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"],
+    "appType": "web"
   },
   {
     "title": "Fatch",
@@ -29,7 +32,15 @@
     "description": "Fatch allows you to connect with experts you need for your business, from marketing to design to development.Fatch use AI and knows what you need before you lack it. Fatch's platform makes it easy to find the right expert for your project, and their secure payment system ensures that you only pay for work that meets your standards.  Fatch is the perfect solution for businesses looking to grow and succeed.",
     "link": "",
     "demo": "https://staging.fatch.eu/",
-    "tags": ["Ruby on Rails", "Tailwindcss", "Stimilus", "Postgres"]
+    "tags": [
+      "Ruby on Rails",
+      "Tailwindcss",
+      "Stimilus",
+      "Postgres",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "KS/Aux",
@@ -37,7 +48,9 @@
     "description": " KS/AUXILIA offers a variety of legal insurance plans to give you the peace of mind you deserve. Whether you need help with a traffic accident, a contract dispute, or any other legal matter, KS/AUXILIA will be there to protect your rights. With our comprehensive coverage and experienced team of lawyers, you can rest assured that you're in good hands.",
     "link": "",
     "demo": "https://services.ks-axulia.de",
-    "tags": ["Ruby on Rails 7", "Tailwindcss", "GTag"]
+    "tags": ["Ruby on Rails 7", "Tailwindcss", "GTag", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "MarketPros",
@@ -45,7 +58,8 @@
     "description": "Each Marketpros Agent has been thoroughly screened via local references from recently closed deals and a secure background check. Marketpros Agents don't pay for your business, they've earned it!",
     "link": "",
     "demo": "https://www.marketpros.com/",
-    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"]
+    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"],
+    "appType": "location"
   },
   {
     "title": "RubberDuck",
@@ -53,7 +67,8 @@
     "description": "Rubberduck is your partner when it comes to tires. It handle everything from wheel changes and new tires to tire storage. And for those of you who don't want to bother with the hassle of tires, we offer tire rental. This means that you pay a fixed monthly amount, and in return you get rid of the hassle of your tires.We will take care of it.",
     "demo": "https://www.rubberduck.dk/",
     "link": "",
-    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"]
+    "tags": ["React", "Material UI", "Redux", "Azure Devops", "MySQL", ".Net"],
+    "appType": "web"
   },
   {
     "title": "Presence Browser",
@@ -61,7 +76,8 @@
     "description": "A decentralized browser overlay to experience the web like never before",
     "link": "https://presencebrowser.com",
     "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"],
+    "appType": "web"
   },
   {
     "title": "Bridger.Live",
@@ -69,7 +85,18 @@
     "description": "Bridger.live challenge brings together individuals and teams to compete while creating bridges between content on the web.",
     "link": "https://bridger.live",
     "demo": "https://www.youtube.com/watch?v=yxEJlJ8ViG0",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+    "tags": [
+      "PERN",
+      "AWS",
+      "AntD",
+      "React",
+      "Redux",
+      "Postgres",
+      "NestJS",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Vere Italie",
@@ -77,7 +104,8 @@
     "description": "Developed a restaurant management system both for the Client and for the restaurant owner.It has features like multiple table reservations, Opening hours report, Meal scheduling and so on.",
     "link": "",
     "demo": "https://vereitalie.it/",
-    "tags": ["MERN", "React", "Antd", "Loopback"]
+    "tags": ["MERN", "React", "Antd", "Loopback"],
+    "appType": "location"
   },
   {
     "title": "Addis Tourist Guide",
@@ -85,7 +113,9 @@
     "description": "Tourist guid app for foreigners who want to explore the culture and heritage of the long lived capital city of Africa - Addis Ababa. Features include navigation,location bookmark, searching for hotels, current location guid and attraction site locator",
     "link": "https://github.com/rabira-hierpa/addis-tourist-map",
     "demo": "",
-    "tags": ["React", "Express", "MongoDB"]
+    "tags": ["React", "Express", "MongoDB", "Archived"],
+    "appType": "location",
+    "discontinued": true
   },
   {
     "title": "Tenant Management System",
@@ -93,7 +123,18 @@
     "description": "All In One Tenant management solution with built in support with incident and invoice management.Features include role-based UI, Incident Reporting, and Invoice Management",
     "link": "https://github.com/YehualashetGit/tenant-management-system",
     "demo": "https://www.youtube.com/watch?v=ZSMgqPOw5dw",
-    "tags": ["PERN", "AWS", "AntD", "React", "Redux", "Postgres", "NestJS"]
+    "tags": [
+      "PERN",
+      "AWS",
+      "AntD",
+      "React",
+      "Redux",
+      "Postgres",
+      "NestJS",
+      "Archived"
+    ],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Project watchdog",
@@ -101,7 +142,8 @@
     "description": "A project management system for the Addis Ababa University community with features including project progress,milestone and task classification,file sharing,chat,project archive and many more.",
     "link": "https://github.com/rabira-hierpa/project-watchdog/",
     "demo": "https://youtu.be/kAUCX6LbpnY",
-    "tags": ["React", "MDBootstrap", "Express", "MongoDB"]
+    "tags": ["React", "MDBootstrap", "Express", "MongoDB"],
+    "appType": "web"
   },
   {
     "title": "Ethiopian E-Visa App",
@@ -109,7 +151,9 @@
     "description": "Mobile app for the Ethiopian e-VISA website that I have developed while I was an Intern at Ethiopian Airlines (2017)",
     "link": "https://www.evisa.gov.et",
     "demo": "https://youtu.be/ivLMRdg-EJc",
-    "tags": ["Xamarin", "C#", ".NET", "MobileApp"]
+    "tags": ["Xamarin", "C#", ".NET", "MobileApp", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "CS Notify",
@@ -117,7 +161,9 @@
     "description": "Notification system for the department of Computer Science. Has features like notice board and chatroom.",
     "link": "https://github.com/rabira-hierpa/aau_notify",
     "demo": "",
-    "tags": ["Android Native", "Java", "PHP", "Bootstrap"]
+    "tags": ["Android Native", "Java", "PHP", "Bootstrap", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Mesobe Hasab",
@@ -125,7 +171,9 @@
     "description": "A collection of Amharic Quotes from different sources.Made with flutter",
     "link": "https://github.com/rabira-hierpa/mesobe_hasab",
     "demo": "",
-    "tags": ["Flutter", "Firebase", "GoogleAuth"]
+    "tags": ["Flutter", "Firebase", "GoogleAuth", "Archived"],
+    "appType": "web",
+    "discontinued": true
   },
   {
     "title": "Design Rz",
@@ -133,6 +181,8 @@
     "description": "A Flutter mobile app for the Graphics Design Course I took at Berehana Selam. It includes all the designs I made using the Adobe Suite(Photoshop, Illustrator and InDesign)",
     "link": "https://github.com/rabira-hierpa/design_rz",
     "demo": "",
-    "tags": ["Flutter", "ImageGallery"]
+    "tags": ["Flutter", "ImageGallery", "Archived"],
+    "appType": "web",
+    "discontinued": true
   }
 ]

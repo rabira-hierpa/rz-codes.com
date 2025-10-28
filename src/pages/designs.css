@@ -1,0 +1,91 @@
+/* designs.css */
+
+/* Design card animation */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.design-card {
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animations for cards */
+.design-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.design-card:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.design-card:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.design-card:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.design-card:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.design-card:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.design-card:nth-child(7) {
+  animation-delay: 0.3s;
+}
+
+.design-card:nth-child(8) {
+  animation-delay: 0.35s;
+}
+
+.design-card:nth-child(n + 9) {
+  animation-delay: 0.4s;
+}
+
+/* Card hover glow effect */
+.design-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.design-card:hover::after {
+  opacity: 0.4;
+}
+
+/* Aspect ratio utilities */
+.aspect-\[3\/4\] {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-\[4\/3\] {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
