@@ -2,7 +2,7 @@
   {
     "title": "Addis Ababa Public Transport Accessibility Analysis",
     "description": "Comprehensive accessibility analysis for Ethiopia's capital covering 4.5M+ residents. Analysis includes minibus taxis (20+ routes), BRT system, and city buses. Average travel time: 45 mins, Mode share: 60% minibus, 25% walking, 15% private.",
-    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/page/Addis-Ababa",
     "data": "https://gitlab.com/digitaltransport/data/africa/addis-ababa",
     "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
     "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
@@ -11,7 +11,7 @@
   {
     "title": "Nairobi Public Transport Accessibility Analysis",
     "description": "Accessibility study for Kenya's capital serving 4.4M+ people. Transport modes: Matatus (informal buses), BRT, commuter rail. Average travel time: 52 mins, Mode share: 55% matatus, 20% walking, 15% boda-boda.",
-    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/page/Nairobi",
     "data": "https://gitlab.com/digitaltransport/data/africa/nairobi",
     "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
     "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
@@ -20,7 +20,7 @@
   {
     "title": "Kampala Public Transport Accessibility Analysis",
     "description": "Transit analysis for Uganda's capital with 1.7M+ population. Primary modes: Matatus, boda-bodas (motorcycle taxis), walking. Average travel time: 48 mins, Mode share: 50% matatus, 30% boda-boda, 20% walking.",
-    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/",
+    "url": "https://experience.arcgis.com/experience/30e26b9b2dcc4a04abdf9a4442da61f1/page/Kampala",
     "data": "https://gitlab.com/digitaltransport/data/africa/kampala",
     "thumbnail": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
     "img": "https://blog.rz-codes.com/wp-content/uploads/2022/11/taxi-route-network-map-am-min.png",
