@@ -55,7 +55,7 @@ export const AppsHero = ({ stats }) => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up">
           {/* Total Apps */}
-          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
             <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               {stats.total}
             </div>
@@ -66,7 +66,7 @@ export const AppsHero = ({ stats }) => {
           </div>
 
           {/* Location Apps */}
-          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
             <div className="text-4xl md:text-5xl font-bold text-yellow-600 dark:text-yellow-400 mb-2">
               {stats.location}
             </div>
@@ -77,7 +77,7 @@ export const AppsHero = ({ stats }) => {
           </div>
 
           {/* Web Apps */}
-          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
             <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               {stats.web}
             </div>
@@ -88,7 +88,7 @@ export const AppsHero = ({ stats }) => {
           </div>
 
           {/* Technologies */}
-          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
             <div className="text-4xl md:text-5xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
               {stats.technologies}+
             </div>
