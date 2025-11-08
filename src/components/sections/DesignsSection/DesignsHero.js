@@ -42,24 +42,33 @@ export const DesignsHero = ({ designCount }) => {
         </p>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto animate-fade-in-up delay-200">
-          <div className="p-6 bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-            <p className="text-4xl font-bold text-primary-600 dark:text-primary-400">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto animate-fade-in-up delay-200">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               {designCount}+
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">Design Works</p>
+            </div>
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+              Design Works
+            </div>
+            <div className="mt-3 w-12 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           </div>
-          <div className="p-6 bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-            <p className="text-4xl font-bold text-secondary-600 dark:text-secondary-400">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
               3
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">Adobe Tools</p>
+            </div>
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+              Adobe Tools
+            </div>
+            <div className="mt-3 w-12 h-1 bg-secondary-600 dark:bg-secondary-400 mx-auto rounded-full"></div>
           </div>
-          <div className="p-6 bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-            <p className="text-4xl font-bold text-primary-600 dark:text-primary-400">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               100%
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">Creative</p>
+            </div>
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+              Creative
+            </div>
+            <div className="mt-3 w-12 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           </div>
         </div>
 
