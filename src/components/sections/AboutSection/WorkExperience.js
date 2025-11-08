@@ -7,7 +7,7 @@ export const WorkExperience = () => {
       role: "Senior Frontend Software Engineer",
       company: "CONFIDENTIAL",
       location: "Abu Dhabi, UAE (Onsite)",
-      period: "06/2025 - Present",
+      period: "2025 - Present",
       type: "Full-Time",
       description:
         "Working on AI integration and advanced ESRI features for mapping solutions.",
@@ -21,7 +21,7 @@ export const WorkExperience = () => {
       role: "Senior Software Engineer",
       company: "Softpositive",
       location: "Remote",
-      period: "08/2022 - Present",
+      period: "2022 - 2025",
       type: "Full-Time",
       description:
         "Architecting real-time monitoring platforms with Firebase, Next.js, and advanced GIS visualization using Mapbox, Leaflet, Kepler.gl, and Deck.gl.",
@@ -38,7 +38,7 @@ export const WorkExperience = () => {
       role: "Senior Software Engineer",
       company: "Excellerent Solutions",
       location: "Remote",
-      period: "03/2022 - 03/2023",
+      period: "2022 - 2023",
       type: "Full-Time",
       description:
         "Led CI/CD automation and developed features for high-volume applications using React Native, Nest.js, Salesforce, and Redis.",
@@ -54,7 +54,7 @@ export const WorkExperience = () => {
       role: "Software Engineer",
       company: "Excellerent Solutions",
       location: "Remote",
-      period: "03/2021 - 03/2022",
+      period: "2021 - 2022",
       type: "Full-Time",
       description:
         "Developed complex web applications, Chrome Extensions, and SDKs using React, TypeScript, Node.js, and PostgreSQL.",
@@ -70,7 +70,7 @@ export const WorkExperience = () => {
       role: "GIS Research Analyst",
       company: "World Resources Institute",
       location: "Remote (Freelance)",
-      period: "07/2024 - 11/2024",
+      period: "2024 ",
       type: "Freelance",
       description:
         "Conducted public transport accessibility analyses for 10 African cities and developed ArcGIS web apps for integrated accessibility mapping.",
@@ -86,7 +86,7 @@ export const WorkExperience = () => {
       role: "Senior Software Engineer",
       company: "Teknika Corporation",
       location: "Panama City Beach, Florida (Remote)",
-      period: "03/2022 - 08/2022",
+      period: "2022",
       type: "Contract",
       description:
         "Led development of scalable React applications with Redux and REST APIs within agile teams.",
@@ -102,7 +102,7 @@ export const WorkExperience = () => {
       role: "GIS Developer",
       company: "Integration Consulting Group",
       location: "Remote (Freelance)",
-      period: "03/2021 - 09/2021",
+      period: "2021",
       type: "Freelance",
       description:
         "Mapped settlements and designed mini-grid power plant maps for rural electrification projects using JOSM and QGIS.",
@@ -118,7 +118,7 @@ export const WorkExperience = () => {
       role: "Software Engineer",
       company: "Med Innovations",
       location: "Addis Ababa, Ethiopia",
-      period: "01/2018 - 12/2020",
+      period: "2018 - 2020",
       type: "Full-Time",
       description:
         "Developed restaurant management system features using React and LoopBack with Agile methodologies.",
@@ -134,7 +134,7 @@ export const WorkExperience = () => {
       role: "GIS Developer",
       company: "World Resources Institute",
       location: "Addis Ababa, Ethiopia",
-      period: "06/2018 - 12/2019",
+      period: "2018 - 2019",
       type: "Full-Time",
       description:
         "Supported Federal and Addis Ababa Transport Authority in managing digital public transport GIS and GTFS databases.",
@@ -150,7 +150,7 @@ export const WorkExperience = () => {
       role: "Junior Software Engineer",
       company: "Ethiopian Airlines",
       location: "Addis Ababa, Ethiopia",
-      period: "06/2017 - 11/2018",
+      period: "2017 - 2018",
       type: "Internship → Full-Time",
       description:
         "Developed mobile application for Ethiopian e-VISA system using Xamarin, ASP.NET, and C# with SOLID principles and Agile methodologies.",
