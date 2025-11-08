@@ -44,17 +44,15 @@ export const AboutStory = () => {
             >
               Addis Ababa University
             </a>{" "}
-            and I'm currently pursuing my{" "}
+            and my <span className="font-semibold">Master's degree in</span>{" "}
+            <span className="font-semibold">Data and Web Engineering</span> from
+            the same institution. I'm proficient in{" "}
             <span className="font-semibold">
-              Master of Science in Data and Web Engineering
-            </span>{" "}
-            from the same institution. I'm proficient in{" "}
-            <span className="font-semibold">GOF Design Patterns</span> and an
-            advocate of{" "}
-            <span className="font-semibold">
+              {" "}
               Object-Oriented Programming principles
-            </span>
-            .
+            </span>{" "}
+            and an advocate of{" "}
+            <span className="font-semibold">GOF Design Patterns</span>.
           </p>
 
           <div className="bg-primary-50 dark:bg-primary-900/20 border-l-4 border-primary-600 dark:border-primary-400 p-6 rounded-r-lg my-8">
