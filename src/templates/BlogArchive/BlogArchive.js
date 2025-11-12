@@ -137,7 +137,7 @@ const BlogArchive = ({
                 )}
 
                 {/* Content */}
-                <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+                <div className="featured-post-card lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {featuredPost.categories.nodes.slice(0, 2).map(category => (
                       <span

@@ -4,20 +4,50 @@
   padding: 20px 0;
 }
 
-/* Timeline Line - Centered */
+/* Timeline Line - Centered with animated gradient */
 .timeline-line {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #dc2626 0%, #eab308 50%, #dc2626 100%);
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--color-glow-yellow, #facc15) 0%,
+    var(--color-glow-orange, #fb923c) 25%,
+    var(--color-glow-red, #dc2626) 50%,
+    var(--color-glow-orange, #fb923c) 75%,
+    var(--color-glow-yellow, #facc15) 100%
+  );
+  background-size: 100% 200%;
+  animation: timelineFlow 4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+  will-change: background-position;
 }
 
-/* Dark mode gradient */
+/* Dark mode gradient - brighter colors and glow */
 .dark .timeline-line {
-  background: linear-gradient(to bottom, #f87171 0%, #fbbf24 50%, #f87171 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-glow-yellow, #fbbf24) 0%,
+    var(--color-glow-orange, #f97316) 25%,
+    var(--color-glow-red, #ef4444) 50%,
+    var(--color-glow-orange, #f97316) 75%,
+    var(--color-glow-yellow, #fbbf24) 100%
+  );
+  background-size: 100% 200%;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+/* Smooth timeline gradient flow animation */
+@keyframes timelineFlow {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
 }
 
 /* Timeline Item */
@@ -41,12 +71,68 @@
   border-radius: 50%;
   z-index: 10;
   box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+  transition: all 0.3s ease;
 }
 
 .dark .timeline-dot {
   background-color: #f87171;
   border-color: #1f2937;
   box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
+}
+
+/* Current position indicator - first dot with pulse animation */
+.timeline-item:first-child .timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #facc15, #fb923c, #dc2626);
+  border: 3px solid white;
+  box-shadow: 
+    0 0 0 4px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(250, 204, 21, 0.6);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.dark .timeline-item:first-child .timeline-dot {
+  background: linear-gradient(135deg, #fbbf24, #f97316, #ef4444);
+  border-color: #1f2937;
+  box-shadow: 
+    0 0 0 4px rgba(248, 113, 113, 0.3),
+    0 0 25px rgba(251, 191, 36, 0.7);
+}
+
+/* Pulse animation for current position */
+@keyframes pulseDot {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 
+      0 0 0 4px rgba(220, 38, 38, 0.2),
+      0 0 20px rgba(250, 204, 21, 0.6);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 
+      0 0 0 8px rgba(220, 38, 38, 0.1),
+      0 0 30px rgba(250, 204, 21, 0.8);
+  }
+}
+
+.dark .timeline-item:first-child .timeline-dot {
+  animation: pulseDotDark 2s ease-in-out infinite;
+}
+
+@keyframes pulseDotDark {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 
+      0 0 0 4px rgba(248, 113, 113, 0.3),
+      0 0 25px rgba(251, 191, 36, 0.7);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 
+      0 0 0 8px rgba(248, 113, 113, 0.2),
+      0 0 35px rgba(251, 191, 36, 0.9);
+  }
 }
 
 /* Timeline Card */
@@ -76,10 +162,92 @@
 .experience-card {
   animation: fadeInScale 0.6s ease-out backwards;
   transform-origin: center;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .experience-card:hover {
   transform: translateY(-4px);
+}
+
+/* Animated border effect - running snake animation */
+.experience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-glow-yellow, #facc15) 0%,
+    var(--color-glow-orange, #fb923c) 25%,
+    var(--color-glow-red, #dc2626) 50%,
+    var(--color-glow-orange, #fb923c) 75%,
+    var(--color-glow-yellow, #facc15) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+  animation: borderSnake 2s linear infinite;
+}
+
+/* Dark mode - brighter colors */
+.dark .experience-card::before {
+  background: linear-gradient(
+    90deg,
+    var(--color-glow-yellow, #fbbf24) 0%,
+    var(--color-glow-orange, #f97316) 25%,
+    var(--color-glow-red, #ef4444) 50%,
+    var(--color-glow-orange, #f97316) 75%,
+    var(--color-glow-yellow, #fbbf24) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* Running snake animation - moves gradient along border */
+@keyframes borderSnake {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Glowing shadow effect */
+.experience-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-glow-yellow, #facc15),
+    var(--color-glow-orange, #fb923c),
+    var(--color-glow-red, #dc2626)
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(12px);
+}
+
+.experience-card:hover::after {
+  opacity: 0.4;
+}
+
+/* Dark mode glow */
+.dark .experience-card:hover::after {
+  opacity: 0.5;
 }
 
 @keyframes fadeInScale {

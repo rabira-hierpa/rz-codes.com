@@ -40,31 +40,34 @@ export const ProjectsHero = () => {
           analysis
         </p>
 
-        {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-8 mt-12">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 dark:text-primary-400">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto animate-fade-in-up">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               15+
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
               GIS Projects
             </div>
+            <div className="mt-3 w-12 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-secondary-600 dark:text-secondary-400">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
               16
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
               Cities Analyzed
             </div>
+            <div className="mt-3 w-12 h-1 bg-secondary-600 dark:bg-secondary-400 mx-auto rounded-full"></div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 dark:text-primary-400">
+          <div className="stat-card bg-white dark:bg-surface-dark rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 will-change-transform">
+            <div className="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">
               10+
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
               Countries Covered
             </div>
+            <div className="mt-3 w-12 h-1 bg-primary-600 dark:bg-primary-400 mx-auto rounded-full"></div>
           </div>
         </div>
 
