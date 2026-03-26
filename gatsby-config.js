@@ -4,11 +4,31 @@ dotenv.config()
 module.exports = {
   siteMetadata: {
     title: `Rz Codes`,
-    description: `Portfolio site of Rabra Hierpa`,
-    author: `Rabra Hierpa(@rzcodes)`,
+    description: `Portfolio of Rabra Hierpa (Rz Codes): full-stack developer, GIS specialist, and open-source contributor. Web apps, mapping projects, technical writing, and graphic design.`,
+    author: `Rabra Hierpa`,
+    siteUrl: `https://rz-codes.com`,
+    defaultOgImage: `/icons/icon-512x512.png`,
+    locale: `en_US`,
+    twitterUsername: `rzcodes`,
+    sameAs: [
+      `https://www.github.com/rabira-hierpa`,
+      `https://www.linkedin.com/in/rabira`,
+      `https://twitter.com/rzcodes`,
+      `https://www.youtube.com/@rzcodes`,
+      `https://www.facebook.com/rzcodes`,
+      `https://www.tiktok.com/@rzcodes`,
+      `https://dev.to/rabra_hierpa`,
+      `https://www.openstreetmap.org/user/Rabira%20Hierpa`,
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: [`/404`, `/404.html`, `/dev-404-page`, `/dev-404-page/`],
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     `gatsby-transformer-json`,

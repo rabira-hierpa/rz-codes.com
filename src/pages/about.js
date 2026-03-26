@@ -6,7 +6,7 @@ import { AboutHero } from "../components/sections/AboutSection/AboutHero"
 import { AboutStory } from "../components/sections/AboutSection/AboutStory"
 import { CompanyShowcase } from "../components/sections/AboutSection/CompanyShowcase"
 
-const About = () => {
+const About = ({ location }) => {
   const aboutMeData = useStaticQuery(graphql`
     query aboutMeQuery {
       allAboutJson {
@@ -24,7 +24,18 @@ const About = () => {
 
   return (
     <Layout>
-      <SEO title="About Me | Full-Stack Developer & GIS Specialist" />
+      <SEO
+        title="About Me"
+        pathname={location.pathname}
+        description="About Rabra Hierpa (Rz Codes): full-stack developer and GIS specialist, companies worked with, and how to get in touch."
+        keywords={[
+          `Rabra Hierpa`,
+          `about`,
+          `full-stack developer`,
+          `GIS specialist`,
+          `software engineer`,
+        ]}
+      />
       <div className="min-h-screen">
         {/* Hero Section */}
         <AboutHero />
