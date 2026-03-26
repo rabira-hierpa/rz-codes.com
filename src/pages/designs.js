@@ -6,7 +6,7 @@ import { DesignsHero } from "../components/sections/DesignsSection/DesignsHero"
 import { DesignModal } from "../components/sections/DesignsSection/DesignModal"
 import "./designs.css"
 
-const Designs = () => {
+const Designs = ({ location }) => {
   const DesignData = useStaticQuery(graphql`
     query {
       allDesignsJson {
@@ -148,7 +148,15 @@ const Designs = () => {
     <Layout>
       <SEO
         title="Graphic Designs | Portfolio Showcase"
-        description="Explore creative graphic design works including posters, banners, flyers, and magazine covers made with Adobe Photoshop and Illustrator"
+        pathname={location.pathname}
+        description="Graphic design portfolio: posters, banners, flyers, magazines, and brand visuals created with Adobe Photoshop and Illustrator."
+        keywords={[
+          `graphic design`,
+          `portfolio`,
+          `Adobe Photoshop`,
+          `Illustrator`,
+          `Rz Codes`,
+        ]}
       />
 
       <DesignsHero designCount={designs.length} />

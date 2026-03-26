@@ -8,6 +8,7 @@ import "./BlogPost.css"
 
 const BlogPostTemplate = ({
   data: { previous, next, post, allWpMediaItem },
+  location,
 }) => {
   // Apply syntax highlighting and add copy buttons
   useSyntaxHighlighting()
@@ -69,7 +70,18 @@ const BlogPostTemplate = ({
 
   return (
     <Layout>
-      <SEO title={post.title} description={post.excerpt} />
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        pathname={location.pathname}
+        image={featuredImage.localUrl || featuredImage.sourceUrl || undefined}
+        type="article"
+        publishedTime={post.dateISO}
+        modifiedTime={post.modifiedISO || post.dateISO}
+        authorName={post.author?.node?.name}
+        keywords={post.tags?.nodes?.map(t => t.name).filter(Boolean)}
+        articleSection={post.categories?.nodes?.[0]?.name}
+      />
       <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300">
         {/* Article Container - Medium-style max width */}
         <article
@@ -103,7 +115,7 @@ const BlogPostTemplate = ({
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <span>{post.date}</span>
+                <span>{post.dateFormatted}</span>
               </div>
               <span>•</span>
               <div className="flex items-center gap-2">
@@ -272,7 +284,14 @@ export const pageQuery = graphql`
       excerpt
       content
       title
-      date(formatString: "MMMM DD, YYYY")
+      dateFormatted: date(formatString: "MMMM DD, YYYY")
+      dateISO: date
+      modifiedISO: modified
+      categories {
+        nodes {
+          name
+        }
+      }
       author {
         node {
           avatar {
