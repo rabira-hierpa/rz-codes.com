@@ -7,8 +7,32 @@ import "./BlogArchive.css"
 
 const BlogArchive = ({
   data,
+  location,
   pageContext: { nextPagePath, previousPagePath },
 }) => {
+  const siteUrl = (data.site?.siteMetadata?.siteUrl || ``).replace(/\/$/, ``)
+
+  const archivePageNumber =
+    previousPagePath == null
+      ? 1
+      : previousPagePath === ``
+        ? 2
+        : parseInt(previousPagePath, 10) + 1
+
+  const pagination =
+    siteUrl && (previousPagePath != null || nextPagePath != null)
+      ? {
+          previous:
+            previousPagePath != null
+              ? `${siteUrl}${previousPagePath === `` ? `/blog` : `/blog${previousPagePath}`}`
+              : undefined,
+          next:
+            nextPagePath != null
+              ? `${siteUrl}/blog${nextPagePath}`
+              : undefined,
+        }
+      : undefined
+
   const allPosts = data.allWpPost.nodes
   const categories = data.allWpCategory.nodes
 
@@ -50,7 +74,7 @@ const BlogArchive = ({
   if (!allPosts.length) {
     return (
       <Layout>
-        <SEO title="Blog" />
+        <SEO title="Blog" pathname={location.pathname} />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4 text-text-light dark:text-text-dark">
@@ -68,8 +92,14 @@ const BlogArchive = ({
   return (
     <Layout>
       <SEO
-        title="Blog - Web Development, GIS & Tech Insights"
-        description="Explore articles on web development, GIS technologies, Linux, and open-source tools"
+        title={
+          archivePageNumber > 1
+            ? `Blog — Page ${archivePageNumber}`
+            : `Blog - Web Development, GIS & Tech Insights`
+        }
+        description="Articles on web development, GIS, Linux, open-source tools, and engineering by Rabra Hierpa (Rz Codes)."
+        pathname={location.pathname}
+        pagination={pagination}
       />
 
       {/* Hero Section with Featured Post */}
@@ -463,6 +493,11 @@ export default BlogArchive
 
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     allWpPost(sort: { date: DESC }, limit: $postsPerPage, skip: $offset) {
       nodes {
         id
