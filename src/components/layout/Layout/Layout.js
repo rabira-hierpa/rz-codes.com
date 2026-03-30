@@ -24,14 +24,15 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300">
+    <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300 flex flex-col">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
+        className="flex flex-col flex-1 w-full"
         style={{
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+        <main className="flex-1 w-full">{children}</main>
         <Footer />
       </div>
       <ThemeToggle />
