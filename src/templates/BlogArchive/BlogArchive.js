@@ -43,9 +43,7 @@ const BlogArchive = ({
               ? `${siteUrl}${previousPagePath === `` ? `/blog` : `/blog${previousPagePath}`}`
               : undefined,
           next:
-            nextPagePath != null
-              ? `${siteUrl}/blog${nextPagePath}`
-              : undefined,
+            nextPagePath != null ? `${siteUrl}/blog${nextPagePath}` : undefined,
         }
       : undefined
 
