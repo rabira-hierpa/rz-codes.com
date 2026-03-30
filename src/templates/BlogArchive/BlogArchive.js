@@ -12,6 +12,11 @@ function archiveListPath(pathSegment) {
   return `/blog${pathSegment}`
 }
 
+function stripTags(html) {
+  if (html == null || typeof html !== `string`) return ``
+  return html.replace(/<[^>]*>/g, ` `).replace(/\s+/g, ` `).trim()
+}
+
 /** Derive page number when currentPage is missing from context (legacy builds). */
 function archivePageFromPreviousPath(previousPagePath) {
   if (previousPagePath == null) return 1
@@ -47,36 +52,51 @@ const BlogArchive = ({
         }
       : undefined
 
-  const allPosts = data.allWpPost.nodes
+  const paginatedPosts = data.paginatedPosts.nodes
+  const allBlogPosts = data.allBlogPosts.nodes
   const categories = data.allWpCategory.nodes
 
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [filteredPosts, setFilteredPosts] = useState([])
 
-  const featuredPost = showFeatured ? allPosts[0] : null
+  const isFiltering =
+    searchTerm.trim() !== `` || selectedCategory !== `all`
+
+  const featuredPost =
+    showFeatured && !isFiltering ? paginatedPosts[0] : null
 
   useEffect(() => {
-    let filtered = showFeatured ? allPosts.slice(1) : [...allPosts]
+    const q = searchTerm.trim().toLowerCase()
+    const filtering = q !== `` || selectedCategory !== `all`
 
-    // Filter by search term
-    if (searchTerm) {
-      filtered = filtered.filter(
-        post =>
-          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
+    if (filtering) {
+      let list = [...allBlogPosts]
+      if (q) {
+        list = list.filter(post => {
+          const title = stripTags(post.title).toLowerCase()
+          const excerpt = stripTags(post.excerpt).toLowerCase()
+          return title.includes(q) || excerpt.includes(q)
+        })
+      }
+      if (selectedCategory !== `all`) {
+        list = list.filter(post =>
+          post.categories.nodes.some(cat => cat.name === selectedCategory),
+        )
+      }
+      setFilteredPosts(list)
+    } else {
+      setFilteredPosts(
+        showFeatured ? paginatedPosts.slice(1) : [...paginatedPosts],
       )
     }
-
-    // Filter by category
-    if (selectedCategory !== "all") {
-      filtered = filtered.filter(post =>
-        post.categories.nodes.some(cat => cat.name === selectedCategory),
-      )
-    }
-
-    setFilteredPosts(filtered)
-  }, [searchTerm, selectedCategory, allPosts, showFeatured])
+  }, [
+    searchTerm,
+    selectedCategory,
+    paginatedPosts,
+    allBlogPosts,
+    showFeatured,
+  ])
 
   const getReadingTime = excerpt => {
     const words = excerpt.split(" ").length
@@ -84,7 +104,7 @@ const BlogArchive = ({
     return minutes
   }
 
-  if (!allPosts.length) {
+  if (!allBlogPosts.length) {
     return (
       <Layout>
         <SEO title="Blog" pathname={location.pathname} />
@@ -328,8 +348,9 @@ const BlogArchive = ({
           <div className="mt-4 text-gray-600 dark:text-gray-400 text-sm">
             Showing {filteredPosts.length}{" "}
             {filteredPosts.length === 1 ? "article" : "articles"}
-            {searchTerm && ` matching "${searchTerm}"`}
+            {searchTerm.trim() && ` matching "${searchTerm.trim()}"`}
             {selectedCategory !== "all" && ` in "${selectedCategory}"`}
+            {isFiltering && ` · Clear filters to use Previous/Next pages`}
           </div>
         </div>
       </section>
@@ -449,8 +470,9 @@ const BlogArchive = ({
             </div>
           )}
 
-          {/* Pagination */}
-          {(previousPagePath != null || nextPagePath != null) && (
+          {/* Pagination (hidden while searching/filtering — results span all posts) */}
+          {!isFiltering &&
+            (previousPagePath != null || nextPagePath != null) && (
             <div className="flex justify-center items-center gap-6 mt-16">
               {previousPagePath != null && (
                 <Link
@@ -511,7 +533,35 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allWpPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
+    paginatedPosts: allWpPost(
+      sort: { date: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      nodes {
+        id
+        title
+        excerpt
+        uri
+        date(formatString: "MMM DD, YYYY")
+        categories {
+          nodes {
+            id
+            name
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+            localFile {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+    allBlogPosts: allWpPost(sort: { date: DESC }) {
       nodes {
         id
         title
