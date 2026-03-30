@@ -1,5 +1,7 @@
 const path = require(`path`)
-const chunk = require(`lodash/chunk`)
+
+/** Posts in the grid below search (page 1 also has one featured post above). */
+const BLOG_GRID_POSTS_PER_PAGE = 9
 
 // Hook to handle large content before LMDB storage
 exports.onCreateNode = ({ node, actions }) => {
@@ -42,24 +44,43 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
     ),
   )
 
-async function createBlogPostArchive({ posts, gatsbyUtilities }) {
-  const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
-    {
-      wp {
-        readingSettings {
-          postsPerPage
-        }
-      }
-    }
-  `)
+/**
+ * Page 1 loads gridSize + 1 nodes (featured + full grid). Later pages load
+ * gridSize each. Matches BlogArchive: slice(1) for grid on page 1 only.
+ */
+function buildBlogArchiveChunks(postEdges, gridPostsPerPage) {
+  const P = Math.max(1, Number(gridPostsPerPage) || 9)
+  if (!postEdges.length) return []
+  if (postEdges.length <= P + 1) {
+    return [postEdges]
+  }
+  const chunks = []
+  chunks.push(postEdges.slice(0, P + 1))
+  let rest = postEdges.slice(P + 1)
+  while (rest.length > 0) {
+    chunks.push(rest.slice(0, P))
+    rest = rest.slice(P)
+  }
+  return chunks
+}
 
-  const { postsPerPage } = graphqlResult.data.wp.readingSettings
-  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage)
+async function createBlogPostArchive({ posts, gatsbyUtilities }) {
+  const gridPostsPerPage = BLOG_GRID_POSTS_PER_PAGE
+  const postsChunkedIntoArchivePages = buildBlogArchiveChunks(
+    posts,
+    gridPostsPerPage,
+  )
   const totalPages = postsChunkedIntoArchivePages.length
 
   return Promise.all(
-    postsChunkedIntoArchivePages.map(async (_posts, index) => {
+    postsChunkedIntoArchivePages.map(async (chunkPosts, index) => {
       const pageNumber = index + 1
+      const skip =
+        index === 0
+          ? 0
+          : gridPostsPerPage + 1 + (index - 1) * gridPostsPerPage
+      const limit = chunkPosts.length
+
       const getPagePath = page => {
         if (page > 0 && page <= totalPages) {
           return page === 1 ? `` : `${page}`
@@ -70,8 +91,10 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
         path: `blog${getPagePath(pageNumber)}`,
         component: path.resolve(`./src/templates/BlogArchive/BlogArchive.js`),
         context: {
-          offset: index * postsPerPage,
-          postsPerPage,
+          skip,
+          limit,
+          gridPostsPerPage,
+          currentPage: pageNumber,
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),
         },

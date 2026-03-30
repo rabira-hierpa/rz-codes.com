@@ -5,19 +5,35 @@ import { SEO } from "../../components/layout/SEO"
 import parse from "html-react-parser"
 import "./BlogArchive.css"
 
+/** Map pageContext path segment to Gatsby blog list path ("" = first page). */
+function archiveListPath(pathSegment) {
+  if (pathSegment == null) return `/blog`
+  if (pathSegment === ``) return `/blog`
+  return `/blog${pathSegment}`
+}
+
+/** Derive page number when currentPage is missing from context (legacy builds). */
+function archivePageFromPreviousPath(previousPagePath) {
+  if (previousPagePath == null) return 1
+  if (previousPagePath === ``) return 2
+  const match = String(previousPagePath).match(/(\d+)/)
+  const prev = match ? Number.parseInt(match[1], 10) : NaN
+  return Number.isFinite(prev) ? prev + 1 : 1
+}
+
 const BlogArchive = ({
   data,
   location,
-  pageContext: { nextPagePath, previousPagePath },
+  pageContext: { currentPage, nextPagePath, previousPagePath },
 }) => {
   const siteUrl = (data.site?.siteMetadata?.siteUrl || ``).replace(/\/$/, ``)
 
   const archivePageNumber =
-    previousPagePath == null
-      ? 1
-      : previousPagePath === ``
-        ? 2
-        : parseInt(previousPagePath, 10) + 1
+    typeof currentPage === `number` && currentPage >= 1
+      ? currentPage
+      : archivePageFromPreviousPath(previousPagePath)
+
+  const showFeatured = archivePageNumber === 1
 
   const pagination =
     siteUrl && (previousPagePath != null || nextPagePath != null)
@@ -27,9 +43,7 @@ const BlogArchive = ({
               ? `${siteUrl}${previousPagePath === `` ? `/blog` : `/blog${previousPagePath}`}`
               : undefined,
           next:
-            nextPagePath != null
-              ? `${siteUrl}/blog${nextPagePath}`
-              : undefined,
+            nextPagePath != null ? `${siteUrl}/blog${nextPagePath}` : undefined,
         }
       : undefined
 
@@ -38,13 +52,12 @@ const BlogArchive = ({
 
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [filteredPosts, setFilteredPosts] = useState(allPosts.slice(1)) // Exclude featured post
+  const [filteredPosts, setFilteredPosts] = useState([])
 
-  // Featured post (latest)
-  const featuredPost = allPosts[0]
+  const featuredPost = showFeatured ? allPosts[0] : null
 
   useEffect(() => {
-    let filtered = allPosts.slice(1) // Exclude featured post
+    let filtered = showFeatured ? allPosts.slice(1) : [...allPosts]
 
     // Filter by search term
     if (searchTerm) {
@@ -63,7 +76,7 @@ const BlogArchive = ({
     }
 
     setFilteredPosts(filtered)
-  }, [searchTerm, selectedCategory, allPosts])
+  }, [searchTerm, selectedCategory, allPosts, showFeatured])
 
   const getReadingTime = excerpt => {
     const words = excerpt.split(" ").length
@@ -138,8 +151,8 @@ const BlogArchive = ({
             </p>
           </div>
 
-          {/* Featured Post Card */}
-          {featuredPost && (
+          {/* Featured Post Card (page 1 only; later pages are full grids) */}
+          {showFeatured && featuredPost && (
             <div className="featured-post-card bg-surface-light dark:bg-surface-dark rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500 animate-slide-up">
               <Link
                 to={featuredPost.uri}
@@ -437,11 +450,11 @@ const BlogArchive = ({
           )}
 
           {/* Pagination */}
-          {(previousPagePath || nextPagePath) && (
+          {(previousPagePath != null || nextPagePath != null) && (
             <div className="flex justify-center items-center gap-6 mt-16">
-              {previousPagePath && (
+              {previousPagePath != null && (
                 <Link
-                  to={previousPagePath}
+                  to={archiveListPath(previousPagePath)}
                   className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                 >
                   <svg
@@ -460,9 +473,9 @@ const BlogArchive = ({
                   Previous
                 </Link>
               )}
-              {nextPagePath && (
+              {nextPagePath != null && (
                 <Link
-                  to={nextPagePath}
+                  to={archiveListPath(nextPagePath)}
                   className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                 >
                   Next
@@ -492,13 +505,13 @@ const BlogArchive = ({
 export default BlogArchive
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+  query WordPressPostArchive($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         siteUrl
       }
     }
-    allWpPost(sort: { date: DESC }, limit: $postsPerPage, skip: $offset) {
+    allWpPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
       nodes {
         id
         title

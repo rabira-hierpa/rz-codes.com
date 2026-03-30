@@ -1,8 +1,15 @@
+# Staging: same as prod.yml but event type wordpress_publish_dev and branch dev on dispatch.
 on:
   push:
     branches:
       - dev
+  repository_dispatch:
+    types: [wordpress_publish_dev]
+  workflow_dispatch:
 name: 🚀 Build Dev
+concurrency:
+  group: gatsby-dev-deploy
+  cancel-in-progress: true
 jobs:
   web-deploy:
     environment: DEV
@@ -15,6 +22,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event_name == 'repository_dispatch' && 'dev' || github.ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v2
