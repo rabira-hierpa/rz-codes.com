@@ -5,19 +5,26 @@ import { SEO } from "../../components/layout/SEO"
 import parse from "html-react-parser"
 import "./BlogArchive.css"
 
+/** Derive 1-based archive page from previousPagePath when currentPage context is missing (legacy builds). */
+function archivePageFromPreviousPath(previousPagePath) {
+  if (previousPagePath == null) return 1
+  if (previousPagePath === ``) return 2
+  const match = String(previousPagePath).match(/(\d+)/)
+  const prev = match ? Number.parseInt(match[1], 10) : NaN
+  return Number.isFinite(prev) ? prev + 1 : 1
+}
+
 const BlogArchive = ({
   data,
   location,
-  pageContext: { nextPagePath, previousPagePath },
+  pageContext: { currentPage, nextPagePath, previousPagePath },
 }) => {
   const siteUrl = (data.site?.siteMetadata?.siteUrl || ``).replace(/\/$/, ``)
 
   const archivePageNumber =
-    previousPagePath == null
-      ? 1
-      : previousPagePath === ``
-        ? 2
-        : parseInt(previousPagePath, 10) + 1
+    typeof currentPage === `number` && currentPage >= 1
+      ? currentPage
+      : archivePageFromPreviousPath(previousPagePath)
 
   const pagination =
     siteUrl && (previousPagePath != null || nextPagePath != null)
