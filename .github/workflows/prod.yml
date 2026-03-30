@@ -1,8 +1,19 @@
+# Triggers: push to main, manual run, or WordPress via repository_dispatch.
+# WordPress: POST https://api.github.com/repos/OWNER/REPO/dispatches
+#   JSON body: {"event_type":"wordpress_publish","client_payload":{}}
+#   Headers: Authorization: Bearer <PAT>, Accept: application/vnd.github+json, X-GitHub-Api-Version: 2022-11-28
+# PAT: must be allowed to call "Create a repository dispatch event" (classic: repo scope for private repos; fine-grained: see GitHub docs for that endpoint).
 on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types: [wordpress_publish]
+  workflow_dispatch:
 name: 🚀 Build Prod
+concurrency:
+  group: gatsby-prod-deploy
+  cancel-in-progress: true
 jobs:
   web-deploy:
     environment: PROD
@@ -15,6 +26,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event_name == 'repository_dispatch' && 'main' || github.ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v2

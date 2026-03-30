@@ -72,6 +72,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
         context: {
           offset: index * postsPerPage,
           postsPerPage,
+          currentPage: pageNumber,
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),
         },
