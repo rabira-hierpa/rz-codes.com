@@ -8,8 +8,8 @@
  *
  *    define('RZ_CODES_GITHUB_REPO', 'owner/repo');
  *    define('RZ_CODES_GITHUB_DISPATCH_TOKEN', 'ghp_...'); // PAT — keep secret; prefer relay if WP is shared hosting
- *    // Optional — defaults to production webhook:
- *    // define('RZ_CODES_GITHUB_EVENT_TYPE', 'wordpress_publish_dev');
+ *    Optional — defaults to production webhook:
+ *    define('RZ_CODES_GITHUB_EVENT_TYPE', 'wordpress_publish_dev');
  *
  * 3. Event type must match .github/workflows: wordpress_publish (prod) or wordpress_publish_dev (dev).
  *
