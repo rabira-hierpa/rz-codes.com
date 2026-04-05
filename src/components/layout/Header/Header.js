@@ -5,7 +5,7 @@ import RzCodesLogo from "../../../assets/images/logo.svg"
 
 // Menu items array
 const menuItems = [
-  { path: "/blog", label: "Blog" },
+  { path: "https://blog.rz-codes.com", label: "Blog" },
   { path: "/projects", label: "Projects" },
   { path: "/apps", label: "Apps" },
   { path: "/designs", label: "Designs" },
