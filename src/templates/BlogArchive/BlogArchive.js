@@ -14,7 +14,10 @@ function archiveListPath(pathSegment) {
 
 function stripTags(html) {
   if (html == null || typeof html !== `string`) return ``
-  return html.replace(/<[^>]*>/g, ` `).replace(/\s+/g, ` `).trim()
+  return html
+    .replace(/<[^>]*>/g, ` `)
+    .replace(/\s+/g, ` `)
+    .trim()
 }
 
 /** Derive page number when currentPage is missing from context (legacy builds). */
@@ -60,11 +63,9 @@ const BlogArchive = ({
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [filteredPosts, setFilteredPosts] = useState([])
 
-  const isFiltering =
-    searchTerm.trim() !== `` || selectedCategory !== `all`
+  const isFiltering = searchTerm.trim() !== `` || selectedCategory !== `all`
 
-  const featuredPost =
-    showFeatured && !isFiltering ? paginatedPosts[0] : null
+  const featuredPost = showFeatured && !isFiltering ? paginatedPosts[0] : null
 
   useEffect(() => {
     const q = searchTerm.trim().toLowerCase()
@@ -90,13 +91,7 @@ const BlogArchive = ({
         showFeatured ? paginatedPosts.slice(1) : [...paginatedPosts],
       )
     }
-  }, [
-    searchTerm,
-    selectedCategory,
-    paginatedPosts,
-    allBlogPosts,
-    showFeatured,
-  ])
+  }, [searchTerm, selectedCategory, paginatedPosts, allBlogPosts, showFeatured])
 
   const getReadingTime = excerpt => {
     const words = excerpt.split(" ").length
@@ -473,51 +468,51 @@ const BlogArchive = ({
           {/* Pagination (hidden while searching/filtering — results span all posts) */}
           {!isFiltering &&
             (previousPagePath != null || nextPagePath != null) && (
-            <div className="flex justify-center items-center gap-6 mt-16">
-              {previousPagePath != null && (
-                <Link
-                  to={archiveListPath(previousPagePath)}
-                  className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <div className="flex justify-center items-center gap-6 mt-16">
+                {previousPagePath != null && (
+                  <Link
+                    to={archiveListPath(previousPagePath)}
+                    className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                  Previous
-                </Link>
-              )}
-              {nextPagePath != null && (
-                <Link
-                  to={archiveListPath(nextPagePath)}
-                  className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
-                >
-                  Next
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                    Previous
+                  </Link>
+                )}
+                {nextPagePath != null && (
+                  <Link
+                    to={archiveListPath(nextPagePath)}
+                    className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              )}
-            </div>
-          )}
+                    Next
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                )}
+              </div>
+            )}
         </div>
       </section>
     </Layout>
