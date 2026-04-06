@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
+  <a href="https://rz-codes.com">
     <img alt="Rz Codes" src="https://rz-codes.com/static/logo-275e932fd817cc84d99d91f7519a9a22.svg" width="120" />
   </a>
 </p>
