@@ -1,5 +1,23 @@
 [
   {
+    "title": "Menged",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2026/07/Menged.png",
+    "description": "Menged is a trip planning app that allows you to find the best routes and destinations for your trip using Public Transport in Addis Ababa.",
+    "link": "https://github.com/rabira-hierpa/menged",
+    "demo": "https://www.guzoplanner.com/",
+    "tags": ["Next.js", "Tailwindcss", "PostgreSQL", "Prisma"],
+    "appType": "location"
+  },
+  {
+    "title": "TiedTheKnot",
+    "image": "https://blog.rz-codes.com/wp-content/uploads/2026/07/TiedTheKnot.png",
+    "description": "TiedTheKnot A modern wedding planning platform that helps couples and planners organize every aspect of the big day, from event details and guest management to vendor coordination and scheduling, all in one place",
+    "link": "https://github.com/rabira-hierpa/tiedtheknot",
+    "demo": "https://tiedtheknot.cloud/",
+    "tags": ["Next.js", "Tailwindcss", "Telegram Bot", "PostgreSQL", "Prisma"],
+    "appType": "web"
+  },
+  {
     "title": "SoundSite",
     "image": "https://blog.rz-codes.com/wp-content/uploads/2022/11/soundsite.png",
     "description": "SoundSite leverages 3D acoustic modeling to predict noise levels from your project and assess the impact on nearby communities.  Make changes to your plans and see the impact on noise levels in real time, eliminating the need for time-consuming re-modeling by acoustic consultants.  SoundSite saves you time and money, while ensuring your project stays on schedule and within budget.",
@@ -15,7 +33,7 @@
     "link": "",
     "demo": "https://www.soundsurfer.io/",
     "tags": ["React", "Material UI", "Firebase", "Mapbox"],
-    "appType": "web"
+    "appType": "location"
   },
   {
     "title": "Cleos",
