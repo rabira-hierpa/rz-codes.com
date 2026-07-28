@@ -1,10 +1,10 @@
 [
   {
-    "title": "Menged",
+    "title": "Dandii",
     "image": "https://blog.rz-codes.com/wp-content/uploads/2026/07/Menged.png",
-    "description": "Menged is a trip planning app that allows you to find the best routes and destinations for your trip using Public Transport in Addis Ababa.",
-    "link": "https://github.com/rabira-hierpa/menged",
-    "demo": "https://www.guzoplanner.com/",
+    "description": "Dandii is a trip planning app that allows you to find the best routes and destinations for your trip using Public Transport in Addis Ababa.",
+    "link": "https://github.com/rabira-hierpa/dandii",
+    "demo": "https://www.dandii.app/",
     "tags": ["Next.js", "Tailwindcss", "PostgreSQL", "Prisma"],
     "appType": "location"
   },
