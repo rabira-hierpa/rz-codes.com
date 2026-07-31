@@ -10,18 +10,31 @@ export default defineConfig({
   },
   esbuild: {
     loader: "jsx",
-    include: /.*\.js$/,
+    include: /.*\.[jt]sx?$/,
     exclude: [],
   },
   optimizeDeps: {
     esbuildOptions: {
       loader: {
         ".js": "jsx",
+        ".jsx": "jsx",
       },
     },
   },
   test: {
     environment: "jsdom",
     setupFiles: ["./vitest.setup.js"],
+    exclude: ["tests/e2e/**", "node_modules/**", "dist/**", "public/**"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json-summary", "html"],
+      include: ["src/components/**/*.js"],
+      exclude: ["**/index.js", "**/*.test.*"],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        statements: 80,
+      },
+    },
   },
 })
