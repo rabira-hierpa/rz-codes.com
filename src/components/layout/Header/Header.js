@@ -9,7 +9,6 @@ const menuItems = [
   { path: "/projects", label: "Projects" },
   { path: "/apps", label: "Apps" },
   { path: "/designs", label: "Designs" },
-  { path: "/for-ai", label: "For AI" },
   { path: "/my-journey", label: "My Journey" },
   { path: "/about", label: "About" },
 ]
