@@ -9,6 +9,7 @@ const quickLinks = [
   { path: "/blog", label: "Blog" },
   { path: "/projects", label: "Projects" },
   { path: "/apps", label: "Apps" },
+  { path: "/for-ai", label: "For AI" },
 ]
 
 const moreLinks = [
@@ -256,8 +257,8 @@ export const Footer = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                © {new Date().getFullYear()} Rz Codes. All rights reserved.
-                Made with{" "}
+                © {new Date().getFullYear()} Rz Codes. All rights reserved. Made
+                with{" "}
                 <span className="text-red-500 inline-block animate-pulse">
                   ♥
                 </span>{" "}

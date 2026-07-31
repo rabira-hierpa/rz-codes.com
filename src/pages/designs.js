@@ -19,6 +19,23 @@ const Designs = ({ location }) => {
   `)
 
   const designs = DesignData.allDesignsJson.nodes[0].images
+  const creativeWorkSchema = {
+    "@type": `ItemList`,
+    name: `Graphic Design Works by Rz Codes`,
+    itemListElement: designs.map((designUrl, index) => ({
+      "@type": `ListItem`,
+      position: index + 1,
+      item: {
+        "@type": `CreativeWork`,
+        name: `Graphic Design ${index + 1}`,
+        image: designUrl,
+        creator: {
+          "@type": `Person`,
+          name: `Rabra Hierpa`,
+        },
+      },
+    })),
+  }
   const [selectedDesign, setSelectedDesign] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -157,6 +174,7 @@ const Designs = ({ location }) => {
           `Illustrator`,
           `Rz Codes`,
         ]}
+        jsonLdExtra={creativeWorkSchema}
       />
 
       <DesignsHero designCount={designs.length} />
