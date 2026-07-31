@@ -2,7 +2,8 @@ const { test, expect } = require("@playwright/test")
 
 test("home page renders with core navigation", async ({ page }) => {
   await page.goto("/")
-  await expect(page.getByRole("link", { name: "Projects" })).toBeVisible()
-  await expect(page.getByRole("link", { name: "Apps" })).toBeVisible()
-  await expect(page.getByRole("link", { name: "Designs" })).toBeVisible()
+  const nav = page.getByRole("navigation")
+  await expect(nav.getByRole("link", { name: "Projects", exact: true })).toBeVisible()
+  await expect(nav.getByRole("link", { name: "Apps", exact: true })).toBeVisible()
+  await expect(nav.getByRole("link", { name: "Designs", exact: true })).toBeVisible()
 })
