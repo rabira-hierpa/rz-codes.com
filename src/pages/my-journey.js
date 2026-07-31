@@ -3,10 +3,21 @@ import { Layout } from "../components/layout/Layout"
 import { SEO } from "../components/layout/SEO"
 import { WorkExperience } from "../components/sections/AboutSection/WorkExperience"
 
-const MyJourney = () => {
+const MyJourney = ({ location }) => {
   return (
     <Layout>
-      <SEO title="My Journey | Professional Experience & Career Timeline" />
+      <SEO
+        title="My Journey | Professional Experience & Career Timeline"
+        pathname={location.pathname}
+        description="Career timeline and experience: from software engineering to full-stack development and GIS, across teams and continents."
+        keywords={[
+          `career`,
+          `work experience`,
+          `software engineer`,
+          `full-stack developer`,
+          `Rz Codes`,
+        ]}
+      />
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="py-20 px-6 md:px-12 lg:px-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-900 dark:to-gray-800">

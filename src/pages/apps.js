@@ -5,7 +5,7 @@ import { SEO } from "../components/layout/SEO"
 import { AppsHero } from "../components/sections/AppsSection/AppsHero"
 import { AppCard } from "../components/sections/AppsSection/AppCard"
 
-const AppsPage = () => {
+const AppsPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query AllAppsQuery {
       allAppsJson {
@@ -87,7 +87,18 @@ const AppsPage = () => {
 
   return (
     <Layout>
-      <SEO title="Apps & Projects Portfolio" />
+      <SEO
+        title="Apps & Projects Portfolio"
+        pathname={location.pathname}
+        description="Portfolio of web and location-based apps by Rabra Hierpa: demos, live links, tech stacks, and project highlights."
+        keywords={[
+          `web apps`,
+          `GIS apps`,
+          `portfolio`,
+          `open source`,
+          `Rz Codes`,
+        ]}
+      />
       <div className="min-h-screen">
         {/* Hero Section */}
         <AppsHero stats={stats} />

@@ -5,41 +5,93 @@ import { SEO } from "../../components/layout/SEO"
 import parse from "html-react-parser"
 import "./BlogArchive.css"
 
+/** Map pageContext path segment to Gatsby blog list path ("" = first page). */
+function archiveListPath(pathSegment) {
+  if (pathSegment == null) return `/blog`
+  if (pathSegment === ``) return `/blog`
+  return `/blog${pathSegment}`
+}
+
+function stripTags(html) {
+  if (html == null || typeof html !== `string`) return ``
+  return html
+    .replace(/<[^>]*>/g, ` `)
+    .replace(/\s+/g, ` `)
+    .trim()
+}
+
+/** Derive page number when currentPage is missing from context (legacy builds). */
+function archivePageFromPreviousPath(previousPagePath) {
+  if (previousPagePath == null) return 1
+  if (previousPagePath === ``) return 2
+  const match = String(previousPagePath).match(/(\d+)/)
+  const prev = match ? Number.parseInt(match[1], 10) : NaN
+  return Number.isFinite(prev) ? prev + 1 : 1
+}
+
 const BlogArchive = ({
   data,
-  pageContext: { nextPagePath, previousPagePath },
+  location,
+  pageContext: { currentPage, nextPagePath, previousPagePath },
 }) => {
-  const allPosts = data.allWpPost.nodes
+  const siteUrl = (data.site?.siteMetadata?.siteUrl || ``).replace(/\/$/, ``)
+
+  const archivePageNumber =
+    typeof currentPage === `number` && currentPage >= 1
+      ? currentPage
+      : archivePageFromPreviousPath(previousPagePath)
+
+  const showFeatured = archivePageNumber === 1
+
+  const pagination =
+    siteUrl && (previousPagePath != null || nextPagePath != null)
+      ? {
+          previous:
+            previousPagePath != null
+              ? `${siteUrl}${previousPagePath === `` ? `/blog` : `/blog${previousPagePath}`}`
+              : undefined,
+          next:
+            nextPagePath != null ? `${siteUrl}/blog${nextPagePath}` : undefined,
+        }
+      : undefined
+
+  const paginatedPosts = data.paginatedPosts.nodes
+  const allBlogPosts = data.allBlogPosts.nodes
   const categories = data.allWpCategory.nodes
 
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [filteredPosts, setFilteredPosts] = useState(allPosts.slice(1)) // Exclude featured post
+  const [filteredPosts, setFilteredPosts] = useState([])
 
-  // Featured post (latest)
-  const featuredPost = allPosts[0]
+  const isFiltering = searchTerm.trim() !== `` || selectedCategory !== `all`
+
+  const featuredPost = showFeatured && !isFiltering ? paginatedPosts[0] : null
 
   useEffect(() => {
-    let filtered = allPosts.slice(1) // Exclude featured post
+    const q = searchTerm.trim().toLowerCase()
+    const filtering = q !== `` || selectedCategory !== `all`
 
-    // Filter by search term
-    if (searchTerm) {
-      filtered = filtered.filter(
-        post =>
-          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
+    if (filtering) {
+      let list = [...allBlogPosts]
+      if (q) {
+        list = list.filter(post => {
+          const title = stripTags(post.title).toLowerCase()
+          const excerpt = stripTags(post.excerpt).toLowerCase()
+          return title.includes(q) || excerpt.includes(q)
+        })
+      }
+      if (selectedCategory !== `all`) {
+        list = list.filter(post =>
+          post.categories.nodes.some(cat => cat.name === selectedCategory),
+        )
+      }
+      setFilteredPosts(list)
+    } else {
+      setFilteredPosts(
+        showFeatured ? paginatedPosts.slice(1) : [...paginatedPosts],
       )
     }
-
-    // Filter by category
-    if (selectedCategory !== "all") {
-      filtered = filtered.filter(post =>
-        post.categories.nodes.some(cat => cat.name === selectedCategory),
-      )
-    }
-
-    setFilteredPosts(filtered)
-  }, [searchTerm, selectedCategory, allPosts])
+  }, [searchTerm, selectedCategory, paginatedPosts, allBlogPosts, showFeatured])
 
   const getReadingTime = excerpt => {
     const words = excerpt.split(" ").length
@@ -47,10 +99,10 @@ const BlogArchive = ({
     return minutes
   }
 
-  if (!allPosts.length) {
+  if (!allBlogPosts.length) {
     return (
       <Layout>
-        <SEO title="Blog" />
+        <SEO title="Blog" pathname={location.pathname} />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4 text-text-light dark:text-text-dark">
@@ -68,8 +120,14 @@ const BlogArchive = ({
   return (
     <Layout>
       <SEO
-        title="Blog - Web Development, GIS & Tech Insights"
-        description="Explore articles on web development, GIS technologies, Linux, and open-source tools"
+        title={
+          archivePageNumber > 1
+            ? `Blog — Page ${archivePageNumber}`
+            : `Blog - Web Development, GIS & Tech Insights`
+        }
+        description="Articles on web development, GIS, Linux, open-source tools, and engineering by Rabra Hierpa (Rz Codes)."
+        pathname={location.pathname}
+        pagination={pagination}
       />
 
       {/* Hero Section with Featured Post */}
@@ -108,8 +166,8 @@ const BlogArchive = ({
             </p>
           </div>
 
-          {/* Featured Post Card */}
-          {featuredPost && (
+          {/* Featured Post Card (page 1 only; later pages are full grids) */}
+          {showFeatured && featuredPost && (
             <div className="featured-post-card bg-surface-light dark:bg-surface-dark rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500 animate-slide-up">
               <Link
                 to={featuredPost.uri}
@@ -285,8 +343,9 @@ const BlogArchive = ({
           <div className="mt-4 text-gray-600 dark:text-gray-400 text-sm">
             Showing {filteredPosts.length}{" "}
             {filteredPosts.length === 1 ? "article" : "articles"}
-            {searchTerm && ` matching "${searchTerm}"`}
+            {searchTerm.trim() && ` matching "${searchTerm.trim()}"`}
             {selectedCategory !== "all" && ` in "${selectedCategory}"`}
+            {isFiltering && ` · Clear filters to use Previous/Next pages`}
           </div>
         </div>
       </section>
@@ -406,53 +465,54 @@ const BlogArchive = ({
             </div>
           )}
 
-          {/* Pagination */}
-          {(previousPagePath || nextPagePath) && (
-            <div className="flex justify-center items-center gap-6 mt-16">
-              {previousPagePath && (
-                <Link
-                  to={previousPagePath}
-                  className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+          {/* Pagination (hidden while searching/filtering — results span all posts) */}
+          {!isFiltering &&
+            (previousPagePath != null || nextPagePath != null) && (
+              <div className="flex justify-center items-center gap-6 mt-16">
+                {previousPagePath != null && (
+                  <Link
+                    to={archiveListPath(previousPagePath)}
+                    className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                  Previous
-                </Link>
-              )}
-              {nextPagePath && (
-                <Link
-                  to={nextPagePath}
-                  className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
-                >
-                  Next
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                    Previous
+                  </Link>
+                )}
+                {nextPagePath != null && (
+                  <Link
+                    to={archiveListPath(nextPagePath)}
+                    className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              )}
-            </div>
-          )}
+                    Next
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                )}
+              </div>
+            )}
         </div>
       </section>
     </Layout>
@@ -462,8 +522,41 @@ const BlogArchive = ({
 export default BlogArchive
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
-    allWpPost(sort: { date: DESC }, limit: $postsPerPage, skip: $offset) {
+  query WordPressPostArchive($skip: Int!, $limit: Int!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+    paginatedPosts: allWpPost(
+      sort: { date: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      nodes {
+        id
+        title
+        excerpt
+        uri
+        date(formatString: "MMM DD, YYYY")
+        categories {
+          nodes {
+            id
+            name
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+            localFile {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+    allBlogPosts: allWpPost(sort: { date: DESC }) {
       nodes {
         id
         title
