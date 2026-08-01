@@ -51,4 +51,4 @@ The source code of my portfolio site <a href="https://rz-codes.com" target="_bla
 
 - Author - [Rabra Hierpa](https://rz-codes.com)
 - Website - [https://rz-codes.com](https://rz-codes.com/)
-- Twitter - [@rzcoodes](https://twitter.com/rzcodes)
+- Twitter - [@rzcodes](https://twitter.com/rzcodes)
