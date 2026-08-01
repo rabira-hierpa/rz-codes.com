@@ -24,6 +24,26 @@ const Projects = ({ location }) => {
       }
     }
   `)
+  const projects = ProjectData.allProjectsJson.nodes
+  const creativeWorkSchema = {
+    "@type": `ItemList`,
+    name: `GIS Projects by Rz Codes`,
+    itemListElement: projects.map((project, index) => ({
+      "@type": `ListItem`,
+      position: index + 1,
+      item: {
+        "@type": `CreativeWork`,
+        name: project.title,
+        description: project.description,
+        url: project.url,
+        creator: {
+          "@type": `Person`,
+          name: `Rabra Hierpa`,
+        },
+        keywords: project.tags?.join(`, `),
+      },
+    })),
+  }
 
   return (
     <Layout>
@@ -39,6 +59,7 @@ const Projects = ({ location }) => {
           `geospatial`,
           `Rz Codes`,
         ]}
+        jsonLdExtra={creativeWorkSchema}
       />
       <div className="min-h-screen">
         {/* Hero Section */}
@@ -48,7 +69,7 @@ const Projects = ({ location }) => {
         <FeaturedGISProjects />
 
         {/* All GIS Projects */}
-        <AllGISProjects projects={ProjectData.allProjectsJson.nodes} />
+        <AllGISProjects projects={projects} />
       </div>
     </Layout>
   )

@@ -90,11 +90,7 @@ function SEO({
   const ogImageUrl = image ? absoluteUrl(siteUrl, image) : defaultImageUrl
 
   const keywordList =
-    keywords != null
-      ? Array.isArray(keywords)
-        ? keywords
-        : [keywords]
-      : []
+    keywords != null ? (Array.isArray(keywords) ? keywords : [keywords]) : []
   const keywordContent = keywordList.filter(Boolean).join(`, `)
 
   const twitterCard = ogImageUrl ? `summary_large_image` : `summary`
@@ -131,8 +127,12 @@ function SEO({
       ? [{ property: `article:section`, content: articleSection }]
       : []),
     { name: `twitter:card`, content: twitterCard },
-    ...(twitterHandle ? [{ name: `twitter:site`, content: twitterHandle }] : []),
-    ...(twitterHandle ? [{ name: `twitter:creator`, content: twitterHandle }] : []),
+    ...(twitterHandle
+      ? [{ name: `twitter:site`, content: twitterHandle }]
+      : []),
+    ...(twitterHandle
+      ? [{ name: `twitter:creator`, content: twitterHandle }]
+      : []),
     { name: `twitter:title`, content: fullTitle },
     { name: `twitter:description`, content: metaDescription },
     { name: `twitter:image`, content: ogImageUrl },
@@ -149,6 +149,7 @@ function SEO({
 
   const personId = `${siteUrl}/#person`
   const websiteId = `${siteUrl}/#website`
+  const webpageId = canonical ? `${canonical}#webpage` : undefined
 
   const graph = [
     {
@@ -169,12 +170,20 @@ function SEO({
     },
   ]
 
-  if (
-    type === `article` &&
-    canonical &&
-    pageTitleRaw &&
-    publishedTime
-  ) {
+  if (canonical) {
+    graph.push({
+      "@type": `WebPage`,
+      "@id": webpageId,
+      url: canonical,
+      name: fullTitle,
+      description: metaDescription,
+      inLanguage: lang || `en`,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": personId },
+    })
+  }
+
+  if (type === `article` && canonical && pageTitleRaw && publishedTime) {
     const posting = {
       "@type": `BlogPosting`,
       headline: pageTitleRaw,
@@ -186,7 +195,10 @@ function SEO({
         name: authorName || sm.author || siteTitle,
       },
       publisher: { "@id": personId },
-      mainEntityOfPage: { "@type": `WebPage`, "@id": canonical },
+      mainEntityOfPage: {
+        "@type": `WebPage`,
+        "@id": webpageId || canonical,
+      },
       url: canonical,
     }
     if (ogImageUrl) posting.image = [ogImageUrl]
@@ -210,9 +222,7 @@ function SEO({
     <Helmet
       htmlAttributes={{ lang }}
       title={helmetTitle}
-      titleTemplate={
-        siteTitle && pageTitleRaw ? `%s | ${siteTitle}` : null
-      }
+      titleTemplate={siteTitle && pageTitleRaw ? `%s | ${siteTitle}` : null}
       meta={baseMeta.concat(meta).filter(Boolean)}
       link={links}
     >

@@ -26,6 +26,30 @@ const AppsPage = ({ location }) => {
 
   const [filter, setFilter] = useState("all")
   const apps = data.allAppsJson.nodes
+  const canonicalUrl = `https://rz-codes.com${location.pathname || `/apps`}`
+
+  const softwareApplicationSchema = {
+    "@type": `ItemList`,
+    name: `Software Applications by Rz Codes`,
+    itemListElement: apps.map((app, index) => ({
+      "@type": `ListItem`,
+      position: index + 1,
+      item: {
+        "@type": `SoftwareApplication`,
+        name: app.title,
+        description: app.description,
+        applicationCategory:
+          app.appType === `location`
+            ? `GeospatialApplication`
+            : `WebApplication`,
+        url: app.demo || app.link || canonicalUrl,
+        author: {
+          "@type": `Person`,
+          name: `Rabra Hierpa`,
+        },
+      },
+    })),
+  }
 
   // Get icon based on app type
   const getIconForAppType = appType => {
@@ -98,6 +122,7 @@ const AppsPage = ({ location }) => {
           `open source`,
           `Rz Codes`,
         ]}
+        jsonLdExtra={softwareApplicationSchema}
       />
       <div className="min-h-screen">
         {/* Hero Section */}
