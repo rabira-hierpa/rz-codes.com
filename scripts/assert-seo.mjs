@@ -31,10 +31,20 @@ const pass = (route, msg) => console.log(`  \x1b[32m✓\x1b[0m ${route}  ${msg}`
 /** Minimal entity decode - enough for titles, which is all we compare. */
 const decode = (s) =>
   s
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
+    .replace(/&(amp|lt|gt|quot);/g, (_, entity) => {
+      switch (entity) {
+        case 'amp':
+          return '&'
+        case 'lt':
+          return '<'
+        case 'gt':
+          return '>'
+        case 'quot':
+          return '"'
+        default:
+          return _
+      }
+    })
     .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(d))
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
 
