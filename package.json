@@ -71,12 +71,14 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "postbuild": "node scripts/assert-seo.mjs",
+    "seo:assert": "node scripts/assert-seo.mjs",
+    "postinstall": "patch-package",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "serve:test": "gatsby serve -H 127.0.0.1 -p 9000",
-    "e2e": "playwright test",
-    "postinstall": "patch-package"
+    "e2e": "playwright test"
   },
   "repository": {
     "type": "git",

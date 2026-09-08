@@ -112,7 +112,8 @@ const AppsPage = ({ location }) => {
   return (
     <Layout>
       <SEO
-        title="Apps & Projects Portfolio"
+        title="Apps Built by Rabra Hierpa — Web & Location Tools"
+        brandSuffix={false}
         pathname={location.pathname}
         description="Portfolio of web and location-based apps by Rabra Hierpa: demos, live links, tech stacks, and project highlights."
         keywords={[

@@ -164,7 +164,8 @@ const Designs = ({ location }) => {
   return (
     <Layout>
       <SEO
-        title="Graphic Designs | Portfolio Showcase"
+        title="Graphic Design Portfolio — Rabra Hierpa"
+        brandSuffix={false}
         pathname={location.pathname}
         description="Graphic design portfolio: posters, banners, flyers, magazines, and brand visuals created with Adobe Photoshop and Illustrator."
         keywords={[
