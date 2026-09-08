@@ -38,8 +38,6 @@ module.exports = {
     ogImageWidth: 1200,
     ogImageHeight: 630,
     ogImageType: `image/png`,
-    siteUrl: `https://rz-codes.com`,
-    defaultOgImage: `/icons/icon-512x512.png`,
     locale: `en_US`,
     twitterUsername: `rzcodes`,
     sameAs: [
