@@ -28,7 +28,8 @@ const Projects = ({ location }) => {
   return (
     <Layout>
       <SEO
-        title="GIS Projects | Mapping the World with Data"
+        title="GIS Projects by Rabra Hierpa — Mapping Africa"
+        brandSuffix={false}
         pathname={location.pathname}
         description="GIS and mapping projects: spatial analysis, interactive maps, and data visualization work by Rabra Hierpa."
         keywords={[

@@ -63,8 +63,10 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "postinstall": "patch-package"
+    "test": "node scripts/assert-seo.mjs",
+    "postinstall": "patch-package",
+    "postbuild": "node scripts/assert-seo.mjs",
+    "seo:assert": "node scripts/assert-seo.mjs"
   },
   "repository": {
     "type": "git",

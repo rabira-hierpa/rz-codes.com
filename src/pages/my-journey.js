@@ -7,7 +7,8 @@ const MyJourney = ({ location }) => {
   return (
     <Layout>
       <SEO
-        title="My Journey | Professional Experience & Career Timeline"
+        title="Rabra Hierpa — Career Timeline & Work Experience"
+        brandSuffix={false}
         pathname={location.pathname}
         description="Career timeline and experience: from software engineering to full-stack development and GIS, across teams and continents."
         keywords={[

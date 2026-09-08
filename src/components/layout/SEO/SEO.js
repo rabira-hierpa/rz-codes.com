@@ -43,6 +43,20 @@ function SEO({
   pagination,
   articleSection,
   jsonLdExtra,
+  /**
+   * Append " | Rz Codes" to the title. Default true, which is the historical
+   * behaviour for every page.
+   *
+   * Set false when the title already carries the identity, so it does not
+   * double up ("Rabra Hierpa — … | Rz Codes | Rz Codes").
+   *
+   * WARNING: this flag feeds TWO independent code paths that must stay in
+   * sync — `fullTitle` below (which drives og:title and twitter:title) and the
+   * <Helmet titleTemplate> near the bottom (which drives <title>). Change one
+   * without the other and the social tags silently disagree with the tab title,
+   * with no error. There is a postbuild assertion for exactly this.
+   */
+  brandSuffix = true,
 }) {
   const { site } = useStaticQuery(graphql`
     query SeoSiteMetadata {
@@ -56,6 +70,15 @@ function SEO({
           locale
           twitterUsername
           sameAs
+          ogImageWidth
+          ogImageHeight
+          ogImageType
+          entityName
+          alternateNames
+          jobTitle
+          homeLocation
+          alumniOf
+          knowsAbout
         }
       }
     }
@@ -72,10 +95,12 @@ function SEO({
 
   const metaDescription = stripHtml(description || siteDesc).slice(0, 320)
   const pageTitleRaw = stripHtml(title || ``)
-  const fullTitle =
-    siteTitle && pageTitleRaw
-      ? `${pageTitleRaw} | ${siteTitle}`
-      : pageTitleRaw || siteTitle
+  // Path 1 of 2 — feeds og:title and twitter:title. Keep in sync with the
+  // titleTemplate below.
+  const appendBrand = brandSuffix && Boolean(siteTitle) && Boolean(pageTitleRaw)
+  const fullTitle = appendBrand
+    ? `${pageTitleRaw} | ${siteTitle}`
+    : pageTitleRaw || siteTitle
 
   const pathForCanonical =
     pathname != null && pathname !== ``
@@ -118,6 +143,22 @@ function SEO({
     ...(canonical ? [{ property: `og:url`, content: canonical }] : []),
     { property: `og:image`, content: ogImageUrl },
     { property: `og:image:alt`, content: pageTitleRaw || siteTitle },
+    /**
+     * LinkedIn frequently refuses to render a large card without explicit
+     * dimensions, and several scrapers skip fetching the image to measure it.
+     * Only emitted for the default card, whose size we actually know — a
+     * per-page `image` prop could be any size, and lying here is worse than
+     * omitting.
+     */
+    ...(!image && sm.ogImageWidth
+      ? [{ property: `og:image:width`, content: String(sm.ogImageWidth) }]
+      : []),
+    ...(!image && sm.ogImageHeight
+      ? [{ property: `og:image:height`, content: String(sm.ogImageHeight) }]
+      : []),
+    ...(!image && sm.ogImageType
+      ? [{ property: `og:image:type`, content: sm.ogImageType }]
+      : []),
     ...(type === `article` && publishedTime
       ? [{ property: `article:published_time`, content: publishedTime }]
       : []),
@@ -150,12 +191,22 @@ function SEO({
   const personId = `${siteUrl}/#person`
   const websiteId = `${siteUrl}/#website`
 
+  const altNames = Array.isArray(sm.alternateNames)
+    ? sm.alternateNames.filter(Boolean)
+    : []
+  const knowsAbout = Array.isArray(sm.knowsAbout)
+    ? sm.knowsAbout.filter(Boolean)
+    : []
+
   const graph = [
     {
       "@type": `WebSite`,
       "@id": websiteId,
       url: `${siteUrl}/`,
-      name: siteTitle,
+      // entityName leads with the person; the brand stays as alternateName.
+      // Deliberately NOT siteMetadata.title, which drives the title suffix.
+      name: sm.entityName || siteTitle,
+      ...(siteTitle && sm.entityName ? { alternateName: siteTitle } : {}),
       description: stripHtml(siteDesc),
       publisher: { "@id": personId },
       inLanguage: lang || `en`,
@@ -164,7 +215,29 @@ function SEO({
       "@type": `Person`,
       "@id": personId,
       name: sm.author || siteTitle,
+      // Merges the "Rabra"/"Rabira" spelling split into one entity rather
+      // than two weak ones.
+      ...(altNames.length ? { alternateName: altNames } : {}),
       url: `${siteUrl}/`,
+      ...(sm.jobTitle ? { jobTitle: sm.jobTitle } : {}),
+      ...(sm.homeLocation
+        ? { homeLocation: { "@type": `Place`, name: sm.homeLocation } }
+        : {}),
+      ...(sm.alumniOf
+        ? {
+            alumniOf: {
+              "@type": `CollegeOrUniversity`,
+              name: sm.alumniOf,
+            },
+          }
+        : {}),
+      ...(knowsAbout.length ? { knowsAbout } : {}),
+      ...(defaultImageUrl ? { image: defaultImageUrl } : {}),
+      // Points the entity at its canonical home page. The Person node itself
+      // stays on EVERY page with a stable @id: stripping it from subpages
+      // would leave WebSite.publisher a dangling cross-document reference and
+      // drop sameAs from five of six pages.
+      mainEntityOfPage: { "@type": `WebPage`, "@id": `${siteUrl}/` },
       ...(sameAs.length ? { sameAs } : {}),
     },
   ]
@@ -210,9 +283,9 @@ function SEO({
     <Helmet
       htmlAttributes={{ lang }}
       title={helmetTitle}
-      titleTemplate={
-        siteTitle && pageTitleRaw ? `%s | ${siteTitle}` : null
-      }
+      // Path 2 of 2 — feeds <title>. `appendBrand` is the same flag the
+      // fullTitle computation uses, so the tab title and og:title cannot drift.
+      titleTemplate={appendBrand ? `%s | ${siteTitle}` : null}
       meta={baseMeta.concat(meta).filter(Boolean)}
       link={links}
     >

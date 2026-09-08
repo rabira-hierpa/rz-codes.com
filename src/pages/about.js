@@ -25,7 +25,8 @@ const About = ({ location }) => {
   return (
     <Layout>
       <SEO
-        title="About Me"
+        title="About Rabra Hierpa — Software Engineer & GIS Developer"
+        brandSuffix={false}
         pathname={location.pathname}
         description="About Rabra Hierpa (Rz Codes): full-stack developer and GIS specialist, companies worked with, and how to get in touch."
         keywords={[
@@ -35,6 +36,17 @@ const About = ({ location }) => {
           `GIS specialist`,
           `software engineer`,
         ]}
+        /**
+         * Marks /about as a profile page for the Person entity, referenced by
+         * @id rather than redeclared. Uses the jsonLdExtra prop SEO.js has
+         * always exposed and no page had used.
+         */
+        jsonLdExtra={{
+          "@type": `ProfilePage`,
+          "@id": `https://rz-codes.com/about/#profilepage`,
+          url: `https://rz-codes.com/about/`,
+          mainEntity: { "@id": `https://rz-codes.com/#person` },
+        }}
       />
       <div className="min-h-screen">
         {/* Hero Section */}
