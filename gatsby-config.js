@@ -15,9 +15,6 @@ module.exports = {
      * Rz Codes" would rewrite every page title as a side effect.
      */
     entityName: `Rabra Hierpa — Rz Codes`,
-    // The site spells it "Rabra"; GitHub is `rabira-hierpa` and the AAU email
-    // is rabira.hierpa@. Listing both lets Google merge them into one person
-    // instead of two weak entities. Confirm which is canonical.
     alternateNames: [`Rabira Hierpa`, `Rz Codes`, `rzcodes`],
     jobTitle: `Software Engineer & GIS Developer`,
     // Public on LinkedIn and in the work-experience timeline already.
@@ -41,6 +38,8 @@ module.exports = {
     ogImageWidth: 1200,
     ogImageHeight: 630,
     ogImageType: `image/png`,
+    siteUrl: `https://rz-codes.com`,
+    defaultOgImage: `/icons/icon-512x512.png`,
     locale: `en_US`,
     twitterUsername: `rzcodes`,
     sameAs: [
@@ -51,9 +50,6 @@ module.exports = {
       `https://www.facebook.com/rzcodes`,
       `https://www.tiktok.com/@rzcodes`,
       `https://dev.to/rabra_hierpa`,
-      // Merges the academic identity cluster (ResearchGate/AAU/ORCID rank 2-3
-      // for the name) with the developer one. TODO: add the AAU staff-profile
-      // URL and ORCID once you have them - both are .edu-grade signals.
       `https://www.researchgate.net/profile/Rabra-Hierpa`,
       `https://www.openstreetmap.org/user/Rabira%20Hierpa`,
     ],

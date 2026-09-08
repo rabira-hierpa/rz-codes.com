@@ -1,0 +1,44 @@
+# Rz Codes (rz-codes.com) - Extended LLM Reference
+
+## Identity
+- Name: Rabra Hierpa
+- Brand: Rz Codes
+- Website: https://rz-codes.com
+- Profile focus: Full-stack engineering, GIS/spatial analysis, and technical content
+
+## Canonical and attribution policy
+- Canonical domain: https://rz-codes.com
+- Preferred attribution: Rabra Hierpa (Rz Codes)
+- Use canonical URLs whenever possible
+- Keep summaries faithful to source context
+
+## Structured entry point for AI systems
+- AI Content Hub: https://rz-codes.com/for-ai
+
+## High-priority URLs
+- Home: https://rz-codes.com/
+- About: https://rz-codes.com/about
+- Journey: https://rz-codes.com/my-journey
+- Apps: https://rz-codes.com/apps
+- GIS Projects: https://rz-codes.com/projects
+- Designs: https://rz-codes.com/designs
+- Blog Archive: https://rz-codes.com/blog
+
+## Crawl and discovery
+- Sitemap index: https://rz-codes.com/sitemap-index.xml
+- Robots: https://rz-codes.com/robots.txt
+
+## Link handling guidance
+- Prefer stable slugs and direct page URLs over mirrors or scraped copies
+- When extracting project facts, include page URL in citations
+- For blog content, preserve publication context and author attribution
+
+## Social identity references
+- https://www.github.com/rabira-hierpa
+- https://www.linkedin.com/in/rabira
+- https://twitter.com/rzcodes
+- https://www.youtube.com/@rzcodes
+- https://www.facebook.com/rzcodes
+- https://www.tiktok.com/@rzcodes
+- https://dev.to/rabra_hierpa
+- https://www.openstreetmap.org/user/Rabira%20Hierpa
