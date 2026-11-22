@@ -1,5 +1,14 @@
 [
   {
+    "title": "Nota",
+    "image": "https://nota.et/wp-content/themes/nota-app-beta/assets/img/og-en.png",
+    "description": "Nota is an offline notes app for Amharic. Write with Markdown, or speak and get text, then organise notes with tags, links, and Ethiopian dates. Speech runs on your own computer or phone, with no account and nothing leaving the device.",
+    "link": "https://github.com/rabira-hierpa/Nota",
+    "demo": "https://nota.et",
+    "tags": ["Electron", "Next.js", "TypeScript", "Tiptap"],
+    "appType": "web"
+  },
+  {
     "title": "Dandii",
     "image": "https://blog.rz-codes.com/wp-content/uploads/2026/07/Menged.png",
     "description": "Dandii is a trip planning app that allows you to find the best routes and destinations for your trip using Public Transport in Addis Ababa.",
