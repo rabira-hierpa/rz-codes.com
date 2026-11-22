@@ -20,7 +20,23 @@ export const GraphicsDesignsSection = () => {
     }
   `)
 
-  const designs = data.allDesignsJson.nodes[0].images.slice(0, 6)
+  const allDesigns = data.allDesignsJson.nodes[0].images
+  // Portrait covers that hold up in a 3:4 frame. The first six files in
+  // the gallery include wide banners and a nearly empty Valentine card.
+  const featuredDesignFiles = [
+    "Ye-Enat-Aynoch-Movie-Poster",
+    "Afro-Fashion-Mag",
+    "Afro-Beauty-Salon",
+    "Addis-Business",
+    "Habesha-Wefoch-Moive-Poster",
+    "Century-Cinima",
+  ]
+  const featuredDesigns = featuredDesignFiles
+    .map(name => allDesigns.find(url => url.includes(name)))
+    .filter(Boolean)
+  const designs = featuredDesigns.length
+    ? featuredDesigns
+    : allDesigns.slice(0, 6)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [selectedDesign, setSelectedDesign] = useState(null)
 
