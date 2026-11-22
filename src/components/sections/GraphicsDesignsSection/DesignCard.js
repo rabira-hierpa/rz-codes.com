@@ -21,26 +21,9 @@ export const DesignCard = ({
   onLeave,
   onClick,
 }) => {
-  // Determine card size based on index for varied layout
-  const getCardClass = index => {
-    // Make first and fourth cards larger for visual interest
-    if (index === 0 || index === 3) {
-      return "md:col-span-2 md:row-span-2"
-    }
-    return "col-span-1 row-span-1"
-  }
-
-  // Determine height based on card size - Fixed heights for consistent layout
-  const getHeightClass = index => {
-    if (index === 0 || index === 3) {
-      return "h-80 md:h-96"
-    }
-    return "h-64"
-  }
-
   return (
     <div
-      className={`design-card ${getCardClass(index)} relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ${getHeightClass(index)} cursor-pointer`}
+      className="design-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 aspect-[3/4] cursor-pointer bg-neutral-950"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={onClick}
@@ -59,7 +42,7 @@ export const DesignCard = ({
       <img
         src={imageUrl}
         alt={`Design work ${index + 1}`}
-        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
+        className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
         loading="lazy"
       />
 
